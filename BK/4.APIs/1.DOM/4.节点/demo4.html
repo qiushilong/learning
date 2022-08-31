@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态表格</title>
+    <style>
+        table {
+            width: 300px;
+            height: 200px;
+            margin: 100px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1" cellspacing="0">
+        <thead>
+            <tr bgcolor="#ccc">
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>明玉1</td>
+                <td>javaScript</td>
+                <td>100</td>
+                <td><a href="javaScript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>明玉2</td>
+                <td>javaScript</td>
+                <td>100</td>
+                <td><a href="javaScript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>明玉3</td>
+                <td>javaScript</td>
+                <td>100</td>
+                <td><a href="javaScript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>明玉4</td>
+                <td>javaScript</td>
+                <td>100</td>
+                <td><a href="javaScript:;">删除</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var datas = [
+            {
+                name: '明玉5',
+                subject: 'C++',
+                score: 95
+            },
+            {
+                name: '明玉6',
+                subject: 'C++',
+                score: 99
+            }
+        ];
+        var tbody = document.querySelector('table tbody');
+        for (var i = 0; i < datas.length; i++) {
+            var tr = document.createElement('tr');
+            // for in用来遍历对象
+            for (var k in datas[i]) {
+                var td = document.createElement('td');
+                td.innerHTML = datas[i][k];
+                tr.appendChild(td);
+            }
+            var td = document.createElement('td');
+            td.innerHTML = '<a href="javaScript:;">删除</a>'
+            tr.appendChild(td);
+            tbody.appendChild(tr);
+        }
+        var as = document.querySelectorAll('table tbody tr td a');
+        for (var i = 0; i < as.length; i++) {
+            as[i].onclick = function () {
+                tbody.removeChild(this.parentElement.parentElement);
+            }
+        }
+    </script>
+</body>
+
+</html>

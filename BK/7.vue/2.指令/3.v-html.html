@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-html</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        v-html:相对于v-text可以插入带标签的文本
+        缺点:存在安全隐患,可能受到xss攻击
+        建议:本网站内容可以,来自第三方的数据不可用
+    -->
+
+    <div id="app">
+        <div v-html="msg"></div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '<h1>vue</h1>'
+            }
+        });
+    </script>
+
+</body>
+
+</html>

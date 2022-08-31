@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // js3兼容移动端
+        var div = document.querySelector('div');
+        // 触摸点击事件
+        div.addEventListener('touchstart', function () {
+            console.log('我摸了你');
+        })
+        // 触摸拖动事件
+        div.addEventListener('touchmove', function () {
+            console.log('我继续摸你');
+        })
+        // 触摸拖动离开事件
+        div.addEventListener('touchend', function () {
+            console.log('我走了');
+        })
+
+    </script>
+</body>
+
+</html>

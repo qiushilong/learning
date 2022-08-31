@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none; 
+}
+
+.page{
+  width: 1000px;
+  .line{
+    height: 100px;
+    margin-bottom: 20px;
+    .stage{
+      float: left;
+      width: 200px;
+      height: 100px;
+      background-color: #ebebeb;
+    }
+    .cell{
+      float: left;
+      transition: all 1s;
+      width: 200px;
+      margin-left: 20px;
+      height: 100px;
+      background-color: green;
+      border: 1px solid red;
+    }
+  }
+  .move{
+    cursor: move;
+  }
+}

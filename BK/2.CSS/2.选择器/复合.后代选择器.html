@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后代选择器</title>
+
+    <style>
+        /* 只选择ol里的li，不选择ul里的li */
+        ol li {
+            color: red;
+        }
+
+        ul li a {
+            color: green;
+            text-decoration: none;
+        }
+
+        /* 不用再写ul了 */
+        .nav li a {
+            color: yellow;
+        }
+    </style>
+
+</head>
+
+<body>
+    <ol>
+        <li>ol.li</li>
+        <li><a href="#">ol.li.a</a></li>
+    </ol>
+    <ul>
+        <li>ul.li</li>
+        <li>ul.li</li>
+        <li>ul.li</li>
+        <li>ul.li</li>
+        <li><a href="#">ul.li.a</a></li>
+    </ul>
+    <ul class="nav">
+        <li>ul.li</li>
+        <li>ul.li</li>
+        <li>ul.li</li>
+        <li>ul.li</li>
+        <li><a href="#">另一种ul.li.a</a></li>
+    </ul>
+</body>
+
+</html>

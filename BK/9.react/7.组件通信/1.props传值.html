@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    // 函数组件
+    const App = (props) => {
+      // props是一个对象
+      return (
+        <div>
+          <h1>app props:{props.name}</h1>
+        </div>
+      )
+    }
+
+    // 类组件
+    class Hello extends React.Component {
+      render() {
+        return (
+          <div>
+            <h1>hello props: name:{this.props.name} age:{this.props.age}</h1>
+          </div>
+        )
+      }
+    }
+
+    /*
+      props的特点:
+        可以传递任意属性的值
+        props只能读取,不能修改
+        使用类组件,如果写了构造函数,应该将props传递给super(),否则无法在构造函数中拿到props
+    */
+
+    ReactDOM.render(
+      <Hello name="tom" age={19} />,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //让一个自定义对象也可以有itetator,可以被for of遍历
+        let range = {
+            from: 1,
+            to: 5,
+            [Symbol.iterator]() {
+                this.current = this.from;
+                return this;
+            },
+            next() {
+                if (this.current <= this.to)
+                    return { done: false, value: this.current++ };
+                else
+                    return { done: true }
+            }
+        }
+
+        for (let v of range) {
+            console.log(v);
+        }
+
+        //Array.from(obj[, mapFn, thisArg])
+        //把对象转为数组,有mapFn则先对对象所有元素执行mapFn
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    /*
+        Promise是ES6引入的异步编程的新解决方案，可以解决回调地狱
+        Promise说明:
+        1.new Promise(func),传入一个函数
+        2.传入函数func(resolve,reject)的参数为两个函数,可以自己取名
+        3.当成功时调用resolve(str)返回信息,失败时调用reject(str)返回信息
+        4.then(func1,func2),成功调用func1,失败调用func2
+    */
+
+    const p = new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        //数据读取成功
+        // let data = '数据库中的用户数据';
+        //resolve
+        // resolve(data);
+
+        //数据读取失败
+        let error = '数据读取失败';
+        reject(error);
+      }, 1000);
+    });
+
+    //调用promise的then方法
+    p.then(function (value) {
+      console.log(value);
+    }, function (reason) {
+      console.error(reason)
+    });
+        //调用promise的catch方法可用替代,then的第二个函数
+        //调用promise的finally方法可用在最后执行,finally方法
+  </script>
+</body>
+
+</html>

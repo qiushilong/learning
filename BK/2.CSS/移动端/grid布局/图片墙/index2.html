@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: 50vw;
+      justify-content: center;
+      overflow-x: hidden;
+      margin-bottom: 3em;
+    }
+
+    h2 {
+      justify-self: center;
+      margin: 3em 0;
+      font: 1em monospace;
+    }
+
+    .waterfall {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(133px, 1fr));
+      grid-gap: 0.25em;
+      grid-auto-flow: row dense;
+      grid-auto-rows: 20px;
+    }
+
+    .waterfall .item {
+      width: 100%;
+      background: #222;
+      color: #ddd;
+    }
+
+    .waterfall .item:nth-of-type(3n+1) {
+      grid-row: auto / span 5;
+    }
+
+    .waterfall .item:nth-of-type(3n+2) {
+      grid-row: auto / span 6;
+    }
+
+    .waterfall .item:nth-of-type(3n+3) {
+      grid-row: auto / span 8;
+    }
+
+    .brickwall {
+      display: grid;
+      grid-gap: 0.25em;
+      grid-auto-flow: row dense;
+      grid-auto-rows: minmax(133px, 20vmin);
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 512px) {
+      .brickwall {
+        grid-template-columns: repeat(7, 1fr);
+      }
+
+      .brickwall .item:nth-of-type(9n + 9) {
+        grid-column: auto / span 2;
+      }
+
+      .brickwall .item:nth-of-type(9n + 8) {
+        grid-column: auto / span 2;
+      }
+
+      .brickwall .item:nth-of-type(9n + 7) {
+        grid-column: auto / span 3;
+      }
+
+      .brickwall .item:nth-of-type(9n + 6) {
+        grid-column: auto / span 2;
+      }
+
+      .brickwall .item:nth-of-type(9n + 5) {
+        grid-column: auto / span 3;
+      }
+
+      .brickwall .item:nth-of-type(9n + 4) {
+        grid-column: auto / span 2;
+      }
+
+      .brickwall .item:nth-of-type(9n + 3) {
+        grid-column: auto / span 3;
+      }
+
+      .brickwall .item:nth-of-type(9n + 2) {
+        grid-column: auto / span 2;
+      }
+
+      .brickwall .item:nth-of-type(9n + 1) {
+        grid-column: auto / span 2;
+      }
+    }
+
+    @media (min-width: 512px) and (min-width: 1024px) {
+      .brickwall {
+        grid-template-columns: repeat(14, 1fr);
+      }
+
+      .brickwall .item:nth-of-type(15n + 15) {
+        grid-column: auto / span 3;
+      }
+
+      .brickwall .item:nth-of-type(15n + 14) {
+        grid-column: auto / span 3;
+      }
+
+      .brickwall .item:nth-of-type(15n + 13) {
+        grid-column: auto / span 2;
+      }
+
+      .brickwall .item:nth-of-type(15n + 12) {
+        grid-column: auto / span 3;
+      }
+
+      .brickwall .item:nth-of-type(15n + 11) {
+        grid-column: auto / span 3;
+      }
+
+      .brickwall .item:nth-of-type(15n + 10) {
+        grid-column: auto / span 2;
+      }
+
+      .brickwall .item:nth-of-type(15n + 9) {
+        grid-column: auto / span 3;
+      }
+
+      .brickwall .item:nth-of-type(15n + 8) {
+        grid-column: auto / span 3;
+      }
+
+      .brickwall .item:nth-of-type(15n + 7) {
+        grid-column: auto / span 3;
+      }
+
+      .brickwall .item:nth-of-type(15n + 6) {
+        grid-column: auto / span 3;
+      }
+
+      .brickwall .item:nth-of-type(15n + 5) {
+        grid-column: auto / span 3;
+      }
+
+      .brickwall .item:nth-of-type(15n + 4) {
+        grid-column: auto / span 3;
+      }
+
+      .brickwall .item:nth-of-type(15n + 3) {
+        grid-column: auto / span 3;
+      }
+
+      .brickwall .item:nth-of-type(15n + 2) {
+        grid-column: auto / span 3;
+      }
+
+      .brickwall .item:nth-of-type(15n + 1) {
+        grid-column: auto / span 2;
+      }
+    }
+
+    .brickwall .item {
+      height: 100%;
+      background: #222;
+      color: #ddd;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Responsive Waterfall</h2>
+  <div class="waterfall">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+    <div class="item">10</div>
+    <div class="item">11</div>
+    <div class="item">12</div>
+    <div class="item">13</div>
+    <div class="item">14</div>
+    <div class="item">15</div>
+    <div class="item">16</div>
+    <div class="item">17</div>
+  </div>
+  <h2>Responsive Brickwall</h2>
+  <div class="brickwall">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+    <div class="item">10</div>
+    <div class="item">11</div>
+    <div class="item">12</div>
+    <div class="item">13</div>
+    <div class="item">14</div>
+    <div class="item">15</div>
+    <div class="item">16</div>
+    <div class="item">17</div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scale</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+            transition: all .3s;
+            transform-origin: left bottom;
+        }
+
+        /* 修改width或者height，会影响其他盒子 */
+        div:hover {
+            /* 数字不更单位 1就是一倍，2就是两倍*/
+            transform: scale(2, 2);
+            /* 等比例缩放 整体缩小为0.5 */
+            transform: scale(0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+
+        // 对象属性名没有限制,可以使用关键字,保留字,但__proto__不能设置为非对象的值
+
+        //方法一,利用构造函数
+        let user = new Object();
+        //方法二,字面量方式
+        let user2 = {};
+
+        //我们可以随时的添加,删除和读取对象
+        const user3 = {
+            name: 'zs',
+            age: 18,
+            sex: '男'
+        }
+
+        //添加
+        user3.eat = function () {
+            console.log('吃饭');
+        }
+
+        //删除
+        delete user3.sex;
+
+        //使用[]号
+        user3["hobby lovest"] = '篮球';
+
+        //使用变量和[]
+        let str = 'name';
+        console.log(user3[str]);
+
+        //使用[]和.的区别:[]允许键为任意字符串
+
+        console.log(user3);
+    </script>
+</body>
+
+</html>

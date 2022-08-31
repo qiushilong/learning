@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        点击按钮实现数据累加
+    -->
+
+    <div id="app">
+        <span>{{num}}</span>
+        <span v-text='num'></span>
+        <div>
+            <button v-on:click='num++'>点击</button>
+            <button @click='num++'>点击2</button>
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                num: '0'
+            }
+        });
+    </script>
+</body>
+
+</html>

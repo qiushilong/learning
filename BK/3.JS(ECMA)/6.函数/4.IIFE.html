@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // IIFE(立即调用函数表达式)
+    // 是一个在定义时就会立即执行的  JavaScript 函数
+
+    // 语法:
+    // (function () {
+    //   statements
+    // })();
+
+    // 实例
+    var result = (function () {
+      var name = "Barry";
+      return name;
+    })();
+    // IIFE 执行后返回的结果：
+    console.log(result);; // "Barry"
+  </script>
+</body>
+
+</html>

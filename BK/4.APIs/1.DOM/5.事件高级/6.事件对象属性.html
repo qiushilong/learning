@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div>123</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        var div = document.querySelector('div');
+        div.onclick = function (event) {
+            console.log(event);
+            // 1.返回触发对象           ie678中是window.event.stcElement
+            console.log(event.target);
+            console.log(this);
+
+
+        }
+        //区别：target返回触发对象，this返回绑定对象          例子：
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function (event) {
+            console.log(event.target);
+            console.log(this);
+            // 2.类似this
+            console.log(event.currentTarget);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <!-- 
+        axios的常用API
+        1.get:查询数据
+            1.1 通过url传递
+            1.2 通过params选项传递参数
+        2.post:添加数据
+            2.1 通过选项传递参数(默认传递json格式数据)
+            2.2 通过URLSearchParams传递参数(application/x-www-form-urlencoded)
+        3.put:修改数据      类似post
+        4.delete:删除数据   类似get
+    -->
+
+    <script src="./js/axios.js"></script>
+    <script>
+        //1.1
+        axios.get('http://localhost:3000/axios?id=123').then(function (ret) {
+            console.log(ret.data);
+        })
+        //1.1 方法二
+        axios.get('http://localhost:3000/axios/123').then(function (ret) {
+            console.log(ret.data);
+        })
+        //1.2
+        axios.get('http://localhost:3000/axios', {
+            params: {
+                id: 789
+            }
+        }).then(function (ret) {
+            console.log(ret.data);
+        })
+
+        //post请求
+        //2.1
+        axios.post('http://localhost:3000/axios', {
+            uname: 'lisi',
+            pwd: '123'
+        }).then(function (ret) {
+            console.log(ret.data);
+        })
+        //2.2
+        var params = new URLSearchParams();
+        params.append('uname', 'zhangsan');
+        params.append('pwd', '321');
+        axios.post('http://localhost:3000/axios', params).then(function (ret) {
+            console.log(ret.data);
+        })
+    </script>
+</body>
+
+</html>

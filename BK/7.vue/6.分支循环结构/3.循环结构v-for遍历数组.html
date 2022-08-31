@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <!-- 
+        v-for遍历数组
+        <li v-for='item in list'>{{item}}</li>
+        <li v-for'(item,index) in list'>{{item}}+'---'+{{index}}</index>
+        key的作用:帮助Vue区分不用的元素,从而提高性能
+        <li :key='item.id' v-for'(item,index) in list'>{{item}}+'---'+{{index}}</index>   
+
+    -->
+
+  <div id="app">
+    <div>水果列表</div>
+    <ul>
+      <li v-for='item in fruits'>{{item}}</li>
+    </ul>
+    <div>水果列表,带索引</div>
+    <ul>
+      <li v-for='(item,index) in fruits'>{{item+'---'+index}}</li>
+    </ul>
+    <div>水果列表,对象</div>
+    <ul>
+      <li v-for='item in myFruits'>
+        <span>{{item.ename}}</span>
+        <span>----</span>
+        <span>{{item.cname}}</span>
+      </li>
+    </ul>
+    <div>水果列表,对象并用key,提高性能</div>
+    <ul>
+      <li :key='item.index' v-for='(item,index) in myFruits'>
+        <span>{{item.ename}}</span>
+        <span>----</span>
+        <span>{{item.cname}}</span>
+      </li>
+    </ul>
+    <div>水果列表,对象并用key,提高性能2</div>
+    <ul>
+      <li :key='item.id' v-for='item in myFruits'>
+        <span>{{item.ename}}</span>
+        <span>----</span>
+        <span>{{item.cname}}</span>
+      </li>
+    </ul>
+    <div>水果列表,attr</div>
+    <ul>
+      <li :key='item.id' v-for='(item) in myFruits'>
+        <span>{{attr}}</span>
+        <span>{{item.ename}}</span>
+        <span>----</span>
+        <span>{{item.cname}}</span>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        fruits: ['apple', 'orange', 'banana'],
+        myFruits: [{
+          id: 1,
+          ename: 'apple',
+          cname: '苹果'
+        }, {
+          id: 2,
+          ename: 'orange',
+          cname: '橘子'
+        }, {
+          id: 3,
+          ename: 'banana',
+          cname: '香蕉'
+        }]
+      }
+    })
+  </script>
+</body>
+
+</html>

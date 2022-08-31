@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        v-for遍历对象
+        <div v-for='(value,key,index) in object'></div>
+        v-if和v-for结合使用
+        <div v-if='value==12' v-for='(value,key,index) in object'></div>
+    -->
+
+    <div id="app">
+        <div v-for='(v,k,i) in obj'>{{v+' -- '+k+' -- '+i}}</div>
+        <hr>
+        <div v-if='v==12' v-for='(v,k,i) in obj'>{{v+' -- '+k+' -- '+i}}</div>
+    </div>
+
+    <script>
+
+        //原生js遍历对象
+        var obj = {
+            uname: 'lisi',
+            age: 12,
+            gender: 'male'
+        }
+        for (var key in obj) {
+            console.log(key, obj[key])
+        }
+
+        //Vue
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                obj: {
+                    uname: 'lisi',
+                    age: 12,
+                    gender: 'male'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

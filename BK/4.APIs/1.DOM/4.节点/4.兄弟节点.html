@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兄弟节点</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div>div</div>
+    <span>span</span>
+    <script>
+        var div = document.querySelector('div');
+        // 兄弟节点 IE>9
+        // 下一个兄弟节点element.nextSibling,包括文本节点 ，不常用
+        var span = div.nextSibling;
+        console.log(span);
+        // 下一个兄弟节点element.nextElementSibling,不包括文本节点 ，常用
+        span = div.nextElementSibling;
+        console.log(span);
+
+        // 上一个兄弟节点element.previousSibling,包括文本节点 ，不常用
+        var pre = div.previousSibling;
+        console.log(pre);
+        // 上一个兄弟节点element.previousElementSibling,不包括文本节点 ，常用
+        pre = div.previousElementSibling;
+        console.log(pre);
+
+        // 最好的办法
+        // 封装一个兼容性的函数
+    </script>
+</body>
+
+</html>

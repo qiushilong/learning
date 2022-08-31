@@ -1,0 +1,6 @@
+jQuery是一个快速，简介的javaScript框架
+简化html文档操作，事件处理，动画设计，Ajax交互
+
+jQuery-xxx.js和jQuery-xxx-min.js的区别
+jQuery-xxx.js:开发版本，给程序员看的，有良好的缩进
+jQuery-xxx-min.js:是程序中使用的，没有缩进，体积更小，程序加载更快

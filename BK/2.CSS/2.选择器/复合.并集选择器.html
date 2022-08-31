@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>并集选择器</title>
+    <style>
+        /* 把熊大熊二改为红色 */
+        div,
+        p {
+            color: red;
+        }
+
+        /* 把熊大熊二光头强改为粉色,把小猪佩奇一家改为粉色 */
+        div,
+        p,
+        span,
+        .pig li {
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>熊大</div>
+    <p>熊二</p>
+    <span>光头强</span>
+    <ul class="pig">
+        <li>小猪佩奇</li>
+        <li>猪爸爸</li>
+        <li>猪妈妈</li>
+    </ul>
+</body>
+
+</html>

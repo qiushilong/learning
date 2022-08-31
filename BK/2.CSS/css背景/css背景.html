@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css背景</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            /* background-color: transparent(默认透明); */
+            background-color: pink;
+        }
+
+        /* 背景图片：用css方便控制位置  */
+        .pic {
+            display: block;
+            /* width: 1500px; */
+            height: 900px;
+            background-color: green;
+
+            /* 背景半透明 0.3表示30%透明，0.3可用.3代替*/
+            background: rgba(0, 0, 0, .6);
+
+            background-image: url(../pic/bilibili.png);
+            /* 背景图片平铺，默认会沿着xy轴平铺，即repeat，还有no-repeat,repeat-x,repeat-y */
+            background-repeat: no-repeat;
+
+            /* 背景图片位置 方位center top，bottom，left，right，或者是精确位置*/
+            /* center和其他位置可用调换，如top center，效果一致 */
+            /* center center表示水平居中，垂直居中 */
+            background-position: center center;
+            /* background-position: 200px 100px; */
+            /* background-position: 20px top; */
+
+            /* 背景图片固定 视差滚动 */
+            /* 取值srcoll（默认）滚动，fixed固定 */
+            background-attachment: fixed;
+
+            /* 背景复合性写法 */
+            /* 无固定顺序，习惯性规定 color url repeat attachment position*/
+            /* background: green url(../pic/bilibili.png) no-repeat fixed center top; */
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>小盒子</div><br>
+    <span class="pic"></span>
+</body>
+
+</html>

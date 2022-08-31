@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示隐藏文本框内容</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 30px;
+            border: 2px solid blue;
+            margin: 100px auto;
+        }
+
+        input {
+            float: left;
+            width: 300px;
+            height: 24px;
+            border-color: transparent;
+            outline: none;
+            color: #ccc;
+        }
+
+        .box2 {
+            float: left;
+            width: 92px;
+            height: 30px;
+            background-color: blue;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" value="手机">
+        <div class="box2">搜索</div>
+    </div>
+    <script>
+        var input = document.querySelector('input');
+        input.onfocus = function () {
+            input.style.color = '#000';
+            input.value = '';
+        }
+        input.onblur = function () {
+            input.style.color = '#ccc';
+            input.value = '手机';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖动的模态框</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        h1 {
+            cursor: pointer;
+            font-size: 25px;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        h2 {
+            cursor: move;
+            font-size: 20px;
+            font-weight: 400;
+            text-align: center;
+            padding: 18px 0;
+        }
+
+        input {
+            width: 400px;
+            height: 30px;
+            border: 1px solid #ccc;
+        }
+
+        table tr {
+            line-height: 55px;
+        }
+
+        table tr td {
+            text-align: right;
+        }
+
+        button {
+            cursor: pointer;
+            width: 170px;
+            height: 50px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 28px 171px;
+            outline: none;
+        }
+
+        .login {
+            display: none;
+            position: absolute;
+            top: 125px;
+            left: 527px;
+            width: 514px;
+            height: 282px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            /* margin: 100px auto; */
+            box-shadow: 0px 0px 10px 10px #ccc;
+        }
+
+        .login .off {
+            position: absolute;
+            cursor: pointer;
+            top: -15px;
+            right: -15px;
+            width: 30px;
+            height: 30px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 30px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>点击弹出登录框</h1>
+    <div class="login">
+        <div class="off">关闭</div>
+        <h2>登陆会员</h2>
+        <table>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;用户名：</td>
+                <td><input type="text" placeholder="请输入账号"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;密码：</td>
+                <td><input type="password" placeholder="请输入密码"></td>
+            </tr>
+        </table>
+        <button>登陆会员</button>
+    </div>
+    <script>
+        var h1 = document.querySelector('h1');
+        var login = document.querySelector('.login');
+        var h2 = document.querySelector('h2');
+        var off = document.querySelector('.login .off');
+        var mmove = null;
+        h1.addEventListener('click', function () {
+            document.body.style.backgroundColor = '#ccc';
+            login.style.display = 'block';
+        })
+        off.addEventListener('click', function () {
+            document.body.style.backgroundColor = '#fff';
+            login.style.display = 'none';
+        })
+        // 拖拽原理
+        h2.addEventListener('mousedown', function (e) {
+            var x = e.pageX - login.offsetLeft;
+            var y = e.pageY - login.offsetTop;
+            document.addEventListener('mousemove', move);
+            function move(e) {
+                login.style.left = e.pageX - x + 'px';
+                login.style.top = e.pageY - y + 'px';
+            }
+            document.addEventListener('mouseup', function () {
+                document.removeEventListener('mousemove', move);
+            });
+        })
+
+    </script>
+</body>
+
+</html>

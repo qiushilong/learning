@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //异步编程 文件操作 网络操作(ajax,request) 数据库操作
+        //案例:1s后输出111,2s后输出222,3s后输出333
+
+        function one() {
+            setTimeout(() => {
+                console.log(111);
+                itetator.next();
+            }, 1000);
+        };
+        function two() {
+            setTimeout(() => {
+                console.log(222);
+                itetator.next();
+            }, 2000);
+        };
+        function three() {
+            setTimeout(() => {
+                console.log(333);
+                itetator.next();
+            }, 3000);
+        };
+        function* gen() {
+            yield one();
+            yield two();
+            yield three();
+        }
+
+        //调用
+        let itetator = gen();
+        itetator.next();
+    </script>
+</body>
+
+</html>

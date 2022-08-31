@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        局部组件
+        var ComponentA={/*...*/}
+        var ComponentB={/*...*/}
+        new Vue({
+            el:'#app',
+            components:{
+                'component-a':ComponentA,
+                'component-b':ComponentB
+            }
+        })
+        只能在定义他的父组件中使用
+    -->
+
+    <div id="app">
+        <hello-world></hello-world>
+        <hello-tom></hello-tom>
+        <hello-jerry></hello-jerry>
+    </div>
+
+    <script>
+        var HelloWorld = {
+            data: function () {
+                return {
+                    msg: 'HelloWorld'
+                }
+            },
+            template: '<div>{{msg}}</div>'
+        }
+        var HelloTom = {
+            data: function () {
+                return {
+                    msg: 'HelloTom'
+                }
+            },
+            template: '<div>{{msg}}</div>'
+        }
+        var HelloJerry = {
+            data: function () {
+                return {
+                    msg: 'HelloJerry'
+                }
+            },
+            template: '<div>{{msg}}</div>'
+        }
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+
+            },
+            components: {
+                'hello-world': HelloWorld,
+                'hello-tom': HelloTom,
+                'hello-jerry': HelloJerry
+            }
+        })
+    </script>
+</body>
+
+</html>

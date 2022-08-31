@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时效果</title>
+    <style>
+        div,
+        span {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 150px;
+            height: 30px;
+            margin: 100px auto;
+        }
+
+        span {
+            float: left;
+            width: 37px;
+            height: 30px;
+            margin: 0 3px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        window.addEventListener('load', function () {
+
+            var hour = document.querySelector('.hour');
+            var minute = document.querySelector('.minute');
+            var second = document.querySelector('.second');
+            var time = '2020-8-22 12:0:0';
+            function countDown() {
+                var nowTime = +new Date();//现在的时间戳
+                var inputTime = +new Date(time);//输入的时间戳
+                var times = (inputTime - nowTime) / 1000;//过去的秒数
+                var h = parseInt(times / 60 / 60 % 24);//小时数
+                var m = parseInt(times / 60 % 60);//分钟数
+                var s = parseInt(times % 60);//秒数
+                hour.innerHTML = h;
+                minute.innerHTML = m;
+                second.innerHTML = s;
+            }
+            countDown();
+            setInterval(countDown, 1000);
+
+        })
+    </script>
+    <div>
+        <span class="hour">1</span>
+        <span class="minute">2</span>
+        <span class="second">3</span>
+    </div>
+</body>
+
+</html>

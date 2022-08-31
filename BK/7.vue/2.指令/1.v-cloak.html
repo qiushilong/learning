@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-cloak</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+         v-cloak指令
+
+         作用:防止闪动(刷新时不会不稳定)
+
+         使用步骤:
+         1.提供样式
+         [v-cloak]{
+             display:none;
+         }
+         2.在差值表达式所在的标签中添加v-cloak指令
+
+         原理:先通过样式隐藏内容,然后在内存中进行值的替换,
+              替换完再显示内容
+    -->
+
+    <div id="app">
+        <div v-cloak>
+            {{msg}}
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue'
+            }
+        });
+    </script>
+</body>
+
+</html>

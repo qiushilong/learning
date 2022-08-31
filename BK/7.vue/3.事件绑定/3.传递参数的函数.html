@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        普通参数和事件对象
+        <button v-on:click='say("hi',$event)'>btn</button>
+        
+        事件绑定-参数传递:
+        1.如果事件直接绑定函数名称,那么默认会传递事件对象作为事件函数的第一个参数
+        2.如果事件绑定函数调用,那么事件对象必须作为最后一个参数显示传递,并且事件对象的名称必须是$event
+    -->
+    <div id="app">
+        <div>
+            <button @click='handle(123)'>点击</button>
+            <button @click='handle2(123,456)'>点击2</button>
+            <button @click='handle3(123,456,$event)'>点击3</button>
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                num: 0
+            }, methods: {
+                handle: function (p) {
+                    console.log(p);
+                },
+                handle2: function (p1, p2) {
+                    console.log(p1, p2);
+                },
+                handle3: function (p1, p2, event) {
+                    console.log(p1, p2, event);
+                    console.log(event);
+                    console.log(event.target.innerHTML);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

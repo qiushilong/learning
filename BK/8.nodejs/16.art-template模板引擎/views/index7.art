@@ -1,0 +1,3 @@
+{{date}}
+
+{{dateFormat(date,'yyyy-mm-dd')}}

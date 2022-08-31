@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    // 事件绑定,react事件绑定语法与dom事件语法相似
+    // 语法:on+事件名称=(事件处理程序)
+    // 使用驼峰命名
+
+    function handleClick() {
+      console.log('click');
+    }
+
+    function Btn() {
+      return (
+        <button onClick={handleClick}>按钮</button>
+      )
+    }
+
+    ReactDOM.render(
+      <Btn />,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+
+</html>

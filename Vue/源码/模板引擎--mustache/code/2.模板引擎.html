@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title></title>
+	</head>
+	<body>
+		<script src="./mustache.js"></script>
+		<script>
+			const templateStr = `
+        <ul>
+          {{#arr}}
+            <li>
+              <div class="msg">
+                <p>姓名：{{name}}</p>
+                <p>年龄：{{age}}</p>
+              </div>
+            </li>
+          {{/arr}}
+        </ul>
+      `;
+
+			const data = {
+				arr: [
+					{ name: 'zs', age: 12 },
+					{ name: 'ls', age: 15 },
+				],
+			};
+
+			const domStr = Mustache.render(templateStr, data);
+			const div = docoment.createElement('div');
+			div.innerHtml = domStr;
+			document.querySelector('body').appendChild(div);
+		</script>
+	</body>
+</html>

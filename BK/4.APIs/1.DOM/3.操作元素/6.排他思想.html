@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排他</title>
+    <style>
+        p {
+            color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 只能选中一个按钮 -->
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+    <button>按钮6</button>
+    <script>
+        var btns = document.getElementsByTagName('button');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                // 用this可以，用btns[i]不可以
+                // 这里的i已经变成6了，因为这段代码被执行了
+                this.style.backgroundColor = 'pink';
+                for (var j = 0; j < btns.length; j++) {
+                    if (btns[j] === this)
+                        continue;
+                    btns[j].style.backgroundColor = 'transparent';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

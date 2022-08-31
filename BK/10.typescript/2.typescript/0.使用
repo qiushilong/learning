@@ -1,0 +1,10 @@
+yarn init --yes
+yarn add typescript --dev
+
+ts转为js
+  yarn tsc .\1.first.ts
+
+typescript配置文件
+  yarn tsc --init
+使用配置文件的ts转为js 
+  yarn tsc

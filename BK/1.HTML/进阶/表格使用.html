@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格使用</title>
+</head>
+
+<!--
+    表格的一些属性：
+    align：表格的对其方式，默认left，还有center，right
+    border：边框设置，默认"",还有1
+    cellpadding：文字距离单元格的距离，默认为1
+    cellspacing：单元格和单元格的距离，默认为1
+    width：表格的宽度
+    height:表格的高度
+-->
+
+<body>
+    <!--表格标签-->
+    <table align="center" border="1" cellpadding="20" cellspacing="0">
+        <!--表格头部标签，必须包含tr标签-->
+        <thead>
+            <!--表格行标签-->
+            <tr>
+                <!--表头单元格标签，会加粗居中-->
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <!--表格身体标签-->
+        <tbody>
+            <tr>
+                <!--单元格标签-->
+                <td>刘德华</td>
+                <td>男</td>
+                <td>62</td>
+            </tr>
+            <tr>
+                <td>张学友</td>
+                <td>男</td>
+                <td>63</td>
+            </tr>
+            <tr>
+                <td>黎明</td>
+                <td>男</td>
+                <td>52</td>
+            </tr>
+            <tr>
+                <td>郭富城</td>
+                <td>男</td>
+                <td>72</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

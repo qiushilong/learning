@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel使得jsx语法可以转化为es5的语法 -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    // 属性名使用驼峰命名法:class应当使用className,for应当使用htmlFor
+    // 没有子节点的React可以使用单标签形式
+    // 推荐使用小括号包裹结构
+    const element = (
+      <h1 className="title">
+        Hello,JSX
+      </h1>
+    );
+
+    ReactDOM.render(
+      element,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+
+</html>

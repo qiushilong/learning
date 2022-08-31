@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        盒子一
+    </div>
+    <div class="box">
+        盒子二
+    </div>
+    <ul id="nav">
+        <li>首页</li>
+        <li>产品</li>
+    </ul>
+    <script>
+        // 1.getElementsByClassName() 所有类相同的都被选择了,用伪数组保存
+        var boxes = document.getElementsByClassName('box');
+        console.log(boxes);
+        console.log(boxes[0]);
+
+        //2.querySelector()返回指定选择器的第一个元素
+        var firstBox = document.querySelector('.box');
+        console.log('\n');
+        console.log(firstBox);
+
+        var nav = document.querySelector('#nav');
+        console.log('\n');
+        console.log(nav);
+
+        var li = document.querySelector('li');
+        console.log('\n');
+        console.log(li);
+
+        // querySelectorAll()返回指定选择器的所有对象，用伪数组返回
+        var allLi = document.querySelectorAll('li');
+        console.log('\n');
+        console.log(allLi);
+    </script>
+</body>
+
+</html>

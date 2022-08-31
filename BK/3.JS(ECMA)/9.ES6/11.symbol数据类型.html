@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        /*
+            ES6引入了一种新的原始数据类型Symbol，表示独一无二的值。它是JavaScript语言的第七种数据类型，是一种类似于字符串的数据类型。
+            Symbol特点
+            1) Symbol的值是唯一的，用来解决命名冲突的问题
+            2) Symbol值不能与其他数据进行运算
+            3) Symbol定义的对象属性不能使用for...in循环遍历，但是可以使用
+            Reflect.ownKeys来获取对象的所有键名
+        */
+        //创建Symbol
+        //方法一
+        let s = Symbol();
+        console.log(s, typeof s);
+
+        let s2 = Symbol('尚硅谷');
+        console.log(s2);
+
+        let s3 = Symbol('尚硅谷');
+        console.log(s3);
+
+        console.log(s2 === s3);
+
+        //方法二
+        let s4 = Symbol.for("foo"); // 创建一个 symbol 并放入 symbol 注册表中，键为 "foo"
+        console.log(s4);
+
+        let s5 = Symbol.for("foo"); // 从 symbol 注册表中读取键为"foo"的 symbol
+        console.log(s5);
+
+        console.log(s4 === s5);
+
+        /*
+            Symbol()和Symbol.for()的相同点：
+                它们定义的值类型都为"symbol"；
+            Symbol()和Symbol.for()的不同点：
+                Symbol()定义的值不放入全局 symbol 注册表中，每次都是新建，即使描述相同值也不相等；
+                用 Symbol.for() 方法创建的 symbol 会被放入一个全局 symbol 注册表中。Symbol.for() 并不是每次都会创建一个新的 symbol，它会首先检查给定的 key 是否已经在注册表中了。假如是，则会直接返回上次存储的那个。否则，它会再新建一个。
+            ————————————————
+            版权声明：本文为CSDN博主「codingWeb」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+            原文链接：https://blog.csdn.net/fesfsefgs/article/details/108354248
+        */
+
+        //记忆所有JavaScript的8种数据类型
+        //USONB
+        //u undefined
+        //s string symbol
+        //o object
+        //n null number
+        //b boolean bigint
+
+    </script>
+</body>
+
+</html>

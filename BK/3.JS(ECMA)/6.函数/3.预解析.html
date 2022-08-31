@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script>
+    // js引擎运行js时分两步，先预解析，再执行
+    // // 预解析：把全局的var和function分配空间，但var不会赋值
+    // console.log(a);
+    // var a = 10;
+
+    // fun();
+    // function fun() {
+    //     console.log(20);
+    // }
+
+    // fun2();
+    // var fun2 = function () {
+    //     console.log(30);
+    // }
+
+    console.log('举例');
+    // 举个例子
+    f1();
+    console.log(c);
+    console.log(b);
+    console.log(a);
+    function f1() {
+      var a = b = c = 9;
+      console.log(a);
+      console.log(b);
+      console.log(c);
+    }
+        // 程序运行流程
+        // 全局预解析
+        // function f1() {
+        //     // 局部预解析
+        //     var a;
+        //     a = 9;
+        //     b = 9;
+        //     c = 9;
+        //     console.log(a);
+        //     console.log(b);
+        //     console.log(c);
+        // }
+        // f1();
+        // console.log(c);
+        // console.log(b);
+        // console.log(a);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

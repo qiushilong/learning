@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置元素属性</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="demo" index="自定义属性"></div>
+    <script>
+        var div = document.getElementById('demo');
+        // 设置元素属性
+        //1.Element.属性='属性值';
+        div.id = 'demo2';
+        console.log(div.id);
+        // 2.Element.setAttribute('属性','值');
+        div.setAttribute('index', '自定义属性2')
+        console.log(div.getAttribute('index'));
+
+        // 区别
+        // Element.setAttribute('属性', '值')可以修改自定义属性，Element.属性不行
+        // 特殊的一个
+        // this.className='值'
+        // Element.setAttribute('class','值');
+
+        // 移出属性  Element.removeAttribute('属性名')
+        div.removeAttribute('id');
+        console.log(div.id);//空
+    </script>
+</body>
+
+</html>

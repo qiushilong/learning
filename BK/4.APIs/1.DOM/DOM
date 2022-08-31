@@ -1,0 +1,4 @@
+DOM（doucument object model）
+M3C指定了规则
+DOM树
+document->html->head(body)->元素（节点）->子元素（子节点）

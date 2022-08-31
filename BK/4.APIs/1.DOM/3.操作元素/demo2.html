@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿京东注册</title>
+    <style>
+        .box {
+            position: relative;
+            width: 400px;
+            border-bottom: 2px solid #ccc;
+            margin: 100px auto;
+        }
+
+        .box input {
+            width: 370px;
+            height: 30px;
+            border: 0;
+            outline: none;
+        }
+
+        .box img {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <label for="">
+            <img src="../images/close.png" alt="" id="eye">
+        </label>
+        <input type="password" name="" id="pwd">
+    </div>
+
+    <script>
+        var img = document.getElementById('eye');
+        var pwd = document.getElementById('pwd');
+        var flag = true;
+        img.onclick = function () {
+            if (flag === true) {
+                pwd.type = 'text';
+                img.src = '../images/open.png';
+                flag = false;
+            } else {
+                pwd.type = 'password';
+                img.src = '../images/close.png';
+                flag = true;
+            }
+        }
+    </script>
+</body>
+
+</html>

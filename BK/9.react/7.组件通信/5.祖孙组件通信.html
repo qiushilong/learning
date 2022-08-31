@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    // 创建context的得到两个组件
+    const { Provider, Consumer } = React.createContext()
+
+    class App extends React.Component {
+      render() {
+        return (
+          <Provider value="pink">
+            {/* 使用provider作为父节点,要传的值写在provider上 */}
+            <div className="app">
+              <Node />
+            </div>
+          </Provider>
+        )
+      }
+    }
+
+    const Node = props => {
+      return (
+        <div>
+          <SubNode />
+        </div>
+      )
+    }
+
+    const SubNode = props => {
+      return (
+        <div>
+          <Child />
+        </div>
+      )
+    }
+
+    const Child = props => {
+      return (
+        <div>
+          {/* 使用consumer接收传递值,调用回调函数得到值 */}
+          <Consumer>
+            {
+              data => <h1>我是子节点--{data}</h1>
+            }
+          </Consumer>
+        </div>
+      )
+    }
+
+    ReactDOM.render(
+      <App />,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+
+</html>

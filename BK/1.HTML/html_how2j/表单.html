@@ -1,0 +1,19 @@
+<meta http-equiv="Content-Type"content="text/html;charset=UTF-8">
+<!--form标签用于向服务器提交数据，比如账号密码 -->
+<!--action="/study/login.jsp" 表示把账号和密码提交到login.jsp这个页面去(还没学)-->
+<form action="https://how2j.cn/study/login.jsp">
+账号：<input type="text" name="name"><br/>
+密码：<input type="password" name="password"><br/>
+<input type="submit" value="登陆">
+</from>
+<!--如果form元素没有提供method属性，默认就是get方式提交数据-- >
+<!--get方式的一个特点就是，可以在浏览器的地址栏看到提交的参数，即便是密码也看得到 -->
+<!--使用method="post" 也可以提交数据 ,post不会在地址栏显示提交的参数 
+如果要提交二进制数据，比如上传文件，必须采用post方式 -->
+<!--使用post要在from后面加上 method="post"-->
+<hr/>
+<form method="post" action="https://how2j.cn/study/login.jsp">
+账号：<input type="text" name="name"><br/>
+密码：<input type="password" name="password"><br/>
+<input type="submit" value="登陆">
+</from>

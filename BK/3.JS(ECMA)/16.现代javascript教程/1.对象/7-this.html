@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        "use strict"
+        /*
+            this在对象中的使用:略
+            JavaScript的this可以直接在函数中使用
+            这样使用this的值在运行时计算出来
+            运算时没有对象时调用,即函数调用而非方法调用,非严格模式this为windows,严格模式下为undefined
+
+            箭头函数没有自己的this,他的this取决于外部的函数
+        */
+
+        function sayHi() {
+            console.log('hi~~' + this.name);
+        }
+
+        let user = { name: 'john' }
+        user.sayHi = sayHi;
+
+        user.sayHi()
+    </script>
+</body>
+
+</html>

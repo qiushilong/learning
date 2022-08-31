@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      border: 1px solid yellow;
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      /* 定义列 
+          grid-template-columns: 100px 2fr 1fr;
+          第一列和第三列宽度为100px,中间自动宽度
+      */
+      grid-template-columns: 100px auto 100px;
+    }
+
+    .box div {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+
+</html>

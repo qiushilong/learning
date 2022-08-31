@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        组件插槽的作用
+        *父组件向子组件传递内容
+
+        插槽的位置
+        名字是固定的slot
+        Vue.component('alert-box',{
+            template:`
+                <div class="demo-alert-box">
+                    <strong>Error!</strong>
+                    <slot></slot>
+                </div>
+            `
+        })
+
+        插槽内容
+        <alert-box>Something bad happened.</alert-box>
+    -->
+
+    <div id="app">
+        <test_cc>Something bad happened!</test_cc>
+        <test_cc>发生了错误</test_cc>
+        <test_cc></test_cc>
+    </div>
+
+    <script>
+        Vue.component('test_cc', {
+            template: `
+                <div>
+                    <strong>ERROR</strong>
+                    <slot>默认内容</slot>
+                </div>
+            `
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

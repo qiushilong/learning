@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图文</title>
+    <!-- 原理：浮动不会压着文字 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 300px;
+            height: 75px;
+            background-color: pink;
+            margin: 10px;
+        }
+
+        .box1 img {
+            float: left;
+            width: 215px;
+            height: 75px;
+        }
+
+        .box2 {
+            float: left;
+            width: 75px;
+            height: 75px;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+        <div class="box1">
+            <img src="bilibili.jpg" alt="">
+        </div>
+        <div class="box2">
+            这是很多文字
+        </div>
+    </div>
+</body>
+
+</html>

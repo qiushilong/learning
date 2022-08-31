@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        var divs = document.querySelectorAll('div');
+        divs[0].onclick = function () {
+            alert('11');
+            // 传统事件解绑
+            divs[0].onclick = null;
+        }
+        // 这种写法不用加()
+        divs[1].addEventListener('click', fn);
+
+        function fn() {
+            alert(22);
+            // 监听事件解绑
+            divs[1].removeEventListener('click', fn);
+        }
+
+        // attachEvent的解绑是detachEvent
+
+    </script>
+</body>
+
+</html>

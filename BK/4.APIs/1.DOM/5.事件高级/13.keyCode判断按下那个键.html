@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <script>
+        document.addEventListener('keyup', function (e) {
+            console.log(e);
+            // e.keyCode可以放回按键的ASCII值
+            console.log(e.keyCode);
+            // keyup和kedown事件不区分大小写 ，a和A都是65
+            // keypress区分大小写，a65，A97
+
+            if (e.keyCode === 65) {
+                alert('你按下了a');
+            }
+        })
+    </script>
+</body>
+
+</html>

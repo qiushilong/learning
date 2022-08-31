@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*   
+      启动数据服务器
+        json-server --watch data.json
+
+      ajax发送网络请求
+        1.创建XMLHttpRequest对象
+          let xhr=new XMLHttpRequest();
+        2.初始化XMLHttpRequest对象
+          xhr.open(method,url,[async,user,password])
+            参数:
+              method:HTTP方法
+              async:false时发送同步消息
+              user,password:HTTP基本身份验证
+        3.发送请求
+          xhr.send([body])
+        4.监听xhr事件以获取响应
+          常用事件:
+            load -- 请求完成,并且响应已完全下载
+            error -- 当无法发出请求,例如网络中断或者无效的URL
+            progress -- 在下载响应期间定期触发,报告已经下载了多少
+
+      可以使用xhr.responseType来设置响应格式
+        默认text:响应字符串
+        json,blob,arraybuffer
+
+      可以通过xhr.readyState来判断请求状态
+        UNSENT = 0; // 初始状态
+        OPENED = 1; // open 被调用
+        HEADERS_RECEIVED = 2; // 接收到 response header
+        LOADING = 3; // 响应正在被加载（接收到一个数据包）
+        DONE = 4; // 请求完成
+
+
+    */
+
+    function getData() {
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET', 'http://localhost:3000/data');
+      xhr.responseType = 'json';
+      xhr.send();
+      xhr.onload = function () {
+        let responseObj = xhr.response;
+        alert(responseObj);
+      };
+    }
+
+    getData();
+  </script>
+</body>
+
+</html>

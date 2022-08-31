@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        .stop阻止冒泡(也可以使用event.stopPropagetioin())
+        <button v-on:click.stop='handle'>点击</button>
+    -->
+    <div id="app">
+        <div v-text='num'></div>
+        <!-- 点击按钮后发生了冒泡,执行了div的事件 -->
+        <div @click="handle">
+            <button v-on:click='handle1'>点击</button>
+        </div>
+        <div @click="handle">
+            <button v-on:click.stop='handle1'>点击2</button>
+        </div>
+        <div @click="handle">
+            <button v-on:click.stop='handle2'>点击3</button>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                num: 0
+            },
+            methods: {
+                handle: function () {
+                    this.num++;
+                },
+                handle1: function () {
+                    this.num++;
+                },
+                handle2: function () {
+                    this.num++;
+                    event.stopPropagation();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

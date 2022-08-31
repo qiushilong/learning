@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .change {
+            background-color: purple;
+            color: #fff;
+            font-size: 25px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>文本</div>
+    <script>
+        // 样式多的时候 用 element.style.属性 繁琐
+        // 用className就更好些
+        var div = document.querySelector('div');
+        div.onclick = function () {
+            // 让div的class改为change 即class="change"    class 是js保留字，所以是className
+            this.className = 'change';
+            // 多类名的时候 注意
+            // 要是想保留原来的类名 要用多类名
+        }
+    </script>
+</body>
+
+</html>

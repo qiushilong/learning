@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //ES6引入rest参数,用于获取函数的实参,用来替代arguments
+        //ES5
+        function data() {
+            console.log(arguments);
+        }
+        data('柏芝', '阿娇', '思慧');
+
+        //ES6
+        function data2(...args) {
+            console.log(args);
+        }
+        data2('柏芝', '阿娇', '思慧');
+
+        //注意:rest参数必须要放到参数最后
+    </script>
+</body>
+
+</html>

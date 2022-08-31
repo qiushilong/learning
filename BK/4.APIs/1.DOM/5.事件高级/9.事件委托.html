@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件冒泡的好处</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>知否知否，应是绿肥红瘦1</li>
+        <li>知否知否，应是绿肥红瘦2</li>
+        <li>知否知否，应是绿肥红瘦3</li>
+        <li>知否知否，应是绿肥红瘦4</li>
+        <li>知否知否，应是绿肥红瘦5</li>
+    </ul>
+    <script>
+        // 事件委托的原理
+        // 给父节点添加侦听器，利用事件冒泡影响每一个子节点
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function (e) {
+            // alert('知否知否，应是绿肥红瘦');
+            e.target.style.backgroundColor = 'pink';
+        })
+    </script>
+</body>
+
+</html>

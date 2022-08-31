@@ -1,0 +1,40 @@
+Vue 脚手架的基本用法
+Vue 脚手架用于快速生成 Vue 项目基础架构，其官网地址为：https://cli.vuejs.org/zh/
+
+安装 3.x 版本的 Vue 脚手架：
+ npm install -g @vue/cli
+
+ 查看脚手架版本
+ vue -V
+
+ Vue 脚手架的基本用法
+ 基于3.x版本的脚手架创建vue项目
+ 1.基于交互式命令的方式,创建新版vue项目
+ vue create my-project 
+ 2.基于图形界面的方式,创建新版vue项目
+ vue ui 
+ 3.基于2.x的旧版本,创建旧版vue项目
+ npm install -g @vue/cli-init
+ vue init webpack my-project
+
+ Vue 脚手架的自定义配置
+1. 通过 package.json 配置项目
+ // 必须是符合规范的json语法
+ "vue": {
+ "devServer": {
+ "port": "8888",
+ "open" : true
+ }
+ },
+注意：不推荐使用这种配置方式。因为 package.json 主要用来管理包的配置信息；为了方便维护，推荐将 vue 脚
+手架相关的配置，单独定义到 vue.config.js 配置文件中。
+
+2. 通过单独的配置文件配置项目
+ // vue.config.js
+ module.exports = {
+ devServer: {
+ port: 8888
+ }
+ } 
+ ① 在项目的跟目录创建文件 vue.config.js
+② 在该文件中进行相关配置，从而覆盖默认配置

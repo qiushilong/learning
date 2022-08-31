@@ -1,0 +1,18 @@
+
+flow: 
+  javascript的类型检查器
+  安装flow支持(安装在开发环境):
+    yarn add flow-bin --dev
+  执行flow命令:
+    (需要先执行yarn flow init 生成flow配置文件)
+    yarn flow
+  结束flow命令:
+    yarn flow stop
+    
+  安装flow类型移除:
+    yarn add flow-remove-types
+  移除命令
+    yarn flow-remove-types . -d dist 
+    解释:
+      .       所有文件
+      dist    输出目录

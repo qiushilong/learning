@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D translate</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* translate3D里的xyz不能省略，不移动就写0，z轴的单位一般都是px */
+            transform: translate3D(100px, 100px, 100px);
+            /* transform: translateX(100px) translateY(100px) translateZ(100px); */
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

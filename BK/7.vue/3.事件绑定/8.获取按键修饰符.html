@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-on:keyup='handle' v-model='info'>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                info: ''
+            },
+            methods: {
+                handle: function (event) {
+                    console.log(event.keyCode);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

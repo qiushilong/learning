@@ -1,0 +1,6 @@
+action用来描述发生了什么,reducers根据action更新state 
+store就是把他们联系到一起
+
+import { createStore } from 'redux'
+import todoApp from './reducers'
+let store = createStore(todoApp)

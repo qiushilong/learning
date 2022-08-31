@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      border: 1px solid yellow;
+      display: grid;
+      /* 定义行 
+          repeat(重复次数,重复模式)
+          grid-template-rows: 1fr 2fr 1fr;
+          分为三份,中间一份是其他的两倍
+      */
+      grid-template-rows: 1fr 1fr 1fr;
+      /* 定义列 
+          grid-template-columns: 100px 2fr 1fr;
+          第一列宽度100px,第二列和第三列平分剩余空间,第二列占两份,第三列占一份
+      */
+      grid-template-columns: 100px 2fr 1fr;
+    }
+
+    .box div {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+
+</html>

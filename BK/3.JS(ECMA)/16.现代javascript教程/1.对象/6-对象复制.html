@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        /*
+            直接赋值:
+            直接赋值,b将引用传给a,ab是同地址,是同一对象的不用引用而已
+        */
+        let b = {}
+        let a = b;
+        console.log(a === b);
+
+        /*
+            浅克隆:将d的值依次赋给c
+            cd地址不一样,但是d属性中的对象属性会和c中的一样
+            如:b.size和c.size是同一对象的不同引用
+            可以使用Object.assign实现
+            语法:Object.assign(dest,[src1,src2,...])
+            该方法把所有src的属性拷贝到dest中
+        */
+        let d = {
+            name: 'xm'
+        }
+        let c = {}
+        Object.assign(c, d);
+        console.log(c);
+
+        /*
+            深克隆:e和f完全分离,f所有属性都被完全复制
+        */
+        //  实现深克隆
+        var cloneObj = function (obj) {
+            let newObj = {};
+            if (obj instanceof Array)
+                newObj = [];
+            for (let key in obj) {
+                let temp = obj[key];
+                newObj[key] = typeof obj[key] === 'Object' ? cloneObj(temp) : temp;
+            }
+            return newObj;
+        }
+
+        //将对象序列化在解析回来(深克隆)
+        let f = {
+            name: 'hw'
+        }
+
+        let e = JSON.parse(JSON.stringify(f));
+        console.log(e);
+
+    </script>
+</body>
+
+</html>

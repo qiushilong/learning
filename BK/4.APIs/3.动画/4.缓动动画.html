@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // 缓动：变速运动
+        // 缓动公式：移动距离（最好取整数）=（目标位置-现在的位置）/10
+        var div = document.querySelector('div')
+        function animate(obj, distination) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                if (div.offsetLeft >= distination) {
+                    clearInterval(obj.timer);
+                }
+                div.style.left = div.offsetLeft + Math.ceil((distination - div.offsetLeft) / 15) + 'px';
+            }, 100);
+        }
+        animate(div, 500);
+    </script>
+</body>
+
+</html>

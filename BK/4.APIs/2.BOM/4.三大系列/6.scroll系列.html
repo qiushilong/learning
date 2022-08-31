@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      border: 10px solid #ccc;
+      padding: 10px;
+      /* 滚动条 */
+      overflow: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+    我是内容
+  </div>
+  <script>
+    var div = document.querySelector('div');
+    // window.pageYOffset 页面被卷去的头部
+    // element.scrollTop,设置进度条卷去的内容条高度,overflow写在哪就在哪个元素上用
+    // element.scrollLeft,被进度条卷去的内容条宽度
+    // element.scrollHeight，内容的高度大小
+    // element.scrollWidth，内容的宽度大小
+    console.log(div.scrollHeight);
+
+    // 滚动条滚动事件
+    div.addEventListener('scroll', function () {
+      console.log(div.scrollTop);
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <script>
+        // 键盘弹起事件
+        // document.onkeyup = function () {
+        //     console.log('我弹起了');
+        // }
+        document.addEventListener('keyup', function () {
+            console.log('我弹起了');
+        })
+        // 键盘按下事件
+        // document.onkeydown（或者onkeypress） = function () {
+        //     console.log('我按下了');
+        // }
+        // keypress不能识别功能键 ctrl，shift啊，keydown都能识别
+        // keydown会优先keypress执行
+        // keyup和kedown事件不区分大小写 ，a和A都是65
+        // keypress区分大小写，a65，A97
+        document.addEventListener('keydown', function () {
+            console.log('我按下了，keydown');
+        })
+        document.addEventListener('keypress', function () {
+            console.log('我按下了,keypress');
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        //css里选择器写在$()里
+
+        /* 1.基本选择器
+                1.1 标签选择器(元素选择器)
+                $('html标签名')
+                1.2 id选择器
+                $('#id的属性值')
+                1.3 类选择器
+                $('.class的属性值')
+
+            2.层级选择器
+                2.1 后代选择器
+                $('A B'),选择A元素内部的所有B元素
+                2.2 子选择器
+                $('A>B'),选择A元素内部的所有B子元素,B孙元素及以下不能选择
+
+            3.属性选择器
+                3.1 属性名称选择器
+                $('A[属性名]')
+                3.2 属性选择器
+                $('A[属性名="属性值"]')
+                3.3 复合属性选择器
+                $('A[属性1名="属性1值"][属性2名="属性2值"]...')
+                = 可用用 !=不等于 ^=以什么开头 $=以什么结尾 *=包含什么 替换
+
+            4.过滤选择器
+                4.1 首选择器
+                :first
+                4.2 尾选择器
+                :last
+                4.3 非选择器
+                :not(cssSelecter)
+                4.4 偶数选择器,从0开始
+                :even
+                4.5 奇数选择器
+                :odd
+                4.6 等于索引选择器
+                :eq(index)
+                4.7 大于索引选择器
+                :gt(index)
+                4.8 小于索引选择器
+                :lt(index)
+                4.9 标题选择器
+                :header 获得标题(h1~h6)元素
+
+            5.表单过滤选择器
+                5.1 可用元素选择器
+                :enabled 获取可用元素
+                5.2 不可以元素选择器
+                :disabled 获取不可用元素
+                5.3 选中选择器
+                :checked 获得单选/复选框选中的元素
+                5.4 选中选择器
+                :selected 获得下拉框选中的元素
+        */
+    </script>
+</body>
+
+</html>

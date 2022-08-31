@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    let str = `{
+      "todo_list": [
+        {
+          "task": "node",
+          "date": "21-08-16"
+        },
+        {
+          "task": "java",
+          "date": "21-08-17"
+        },
+        {
+          "task": "c",
+          "date": "21-08-18"
+        },
+        {
+          "task": "c++",
+          "date": "21-08-19"
+        }
+      ],
+      "user": {}
+    }`;
+
+    let obj = JSON.parse(str);
+    console.log(obj);
+  </script>
+</body>
+
+</html>

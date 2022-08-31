@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      border: 10px solid #ccc;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+
+  </div>
+  <script>
+    // offset（偏移量）,可以动态的得到该元素的位置（偏移）、大小。
+    // element.offsetParent，返回该元素带定位的父元素
+    // element.offsetTop，返回元素相对带定位的父元素的上偏移
+    // element.offsetLeft，返回元素相对带定位的父元素的左偏移
+    // element.offsetWidth，放回自身包括padding、边框、内容的宽度，返回值不带单位
+    // element.offsetHeight，放回自身包括padding、边框、内容的高度，返回值不带单位
+    var div = document.querySelector('div');
+    console.log(div.offsetParent);
+    console.log(div.offsetTop);
+    console.log(div.offsetLeft);
+    console.log(div.offsetWidth);
+    console.log(div.offsetHeight);
+  </script>
+</body>
+
+</html>

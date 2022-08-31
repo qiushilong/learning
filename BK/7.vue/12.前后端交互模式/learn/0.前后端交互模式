@@ -1,0 +1,26 @@
+Promise用法
+接口调用-fetch用法
+接口调用-axios用法
+接口调用-async/await用法
+
+接口调用方式
+1.原生ajax 
+2.基于jquery的ajax 
+3.fetch
+4.axios 
+
+传统形式的url 
+格式:schema://host:port/path?query#fragment 
+schema:协议.例如http,https,ftp等
+host:域名或者IP地址
+port:端口,http默认端口80,可以省略
+path:路径,例如/abc/a/b/c
+query:查询参数,例如uname=lisi&age=12
+fragment:锚点(哈希Hash),用于定位页面某个位置
+
+Restful形式的url
+Http请求方式
+1.get
+2.post
+3.put 修改
+4.delete 删除

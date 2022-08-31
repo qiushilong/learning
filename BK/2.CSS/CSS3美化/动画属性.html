@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        /* 百分比要是整数，整数代表时间，是按时间来划分的 */
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(1000px, 0);
+            }
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            /* 2.调用动画 */
+            animation-name: move;
+            /* 3.持续时间 */
+            animation-duration: 2s;
+            /* 4.速度曲线 默认ease */
+            /* 
+                linear:匀速
+                ease:低速开始，然后加快，最后减速
+                ease-in:低速开始
+                ease-out:低速结束
+                ease-in-out:低速开始和结束
+                steps():指定了时间函数中的间隔数量（步长）
+             */
+            animation-timing-function: ease;
+            /* 5.延时,何时开始 默认0s*/
+            animation-delay: 0s;
+            /* 6.播放次数 默认为1 可以是n次 可以是infinite无限次*/
+            animation-iteration-count: infinite;
+            /* 7.逆向播放 默认normal 逆向播放alternate*/
+            animation-direction: alternate;
+            /* 8.结束状态 默认是backwards回到0% forwards100%*/
+            animation-fill-mode: forwards;
+            /* 9.运行状态 running运行，paused暂停*/
+            animation-play-state: running;
+
+            /* 简写，前两个不能少，简写里没有运动状态 */
+            /* animation:动画名称 持续时间 运动曲线 何时开始 播放次数 是否反方向 动画起始或者结束的状态 */
+            animation: move 2s ease 0s infinite alternate;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

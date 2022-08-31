@@ -1,0 +1,7 @@
+跨域：指的是浏览器不能执行其他网站的脚本。
+它是由浏览器的同源策略造成的，是浏览器对javascript施加的安全限制。
+
+响应信息设置请求头,
+res.setHeader('Access-Control-Allow-Origin','*')
+
+同域代理

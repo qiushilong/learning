@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        过滤器
+        作用:
+        格式化数据,比如将字符串格式转化未首字母大写,将日期格式指定为特定格式
+        语法:
+        Vue.filter('过滤器名称',function(value){
+            //过滤器业务逻辑
+        })
+        使用:
+        <div>{{msg|upper}}</div>
+        级联操作,把经过upper过滤器的值作为lower的输入,最终结果未lower的输出
+        <div>{{msg|upper|lower}}</div>
+        <div v-bind:id='id|formatId'></div>
+    -->
+
+    <!-- 首字符大写 -->
+    <div id="app">
+        <input type="text" v-model='msg'>
+        <div>{{msg|upper}}</div>
+        <div>{{msg|upper|lower}}</div>
+        <div :abc='msg|upper'>测试数据</div>
+    </div>
+
+    <script>
+        Vue.filter('upper', function (val) {
+            return val.charAt(0).toUpperCase() + val.slice(1);
+        });
+        Vue.filter('lower', function (val) {
+            return val.charAt(0).toLowerCase() + val.slice(1);
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: ''
+            },
+            filters: {//局部过滤器
+                upper: function (val) {
+                    return val.charAt(0).toUpperCase() + val.slice(1);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

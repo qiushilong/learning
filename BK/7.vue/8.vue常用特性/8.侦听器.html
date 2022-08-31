@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        侦听器
+        数据一旦发生变化就通知侦听器所绑定方法,侦听器调用方法
+        应用场景:
+            数据变化时的执行异步或开销较大的操作
+        用法:
+            watch:{
+                firstName:function(val){
+                    //val表示变化后的值
+                    this.fullName=val + this.lastName;
+                },
+                lastName:function(val){
+                    this.fullName=this.firstName+val;
+                }
+            }
+    -->
+
+    <div id="app">
+        <div>
+            <span>名:</span>
+            <span>
+                <input type="text" v-model='firstName'>
+            </span>
+        </div>
+        <div>
+            <span>姓:</span>
+            <span>
+                <input type="text" v-model='lastName'>
+            </span>
+        </div>
+        <div>{{fullName}}</div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                firstName: 'Jim',
+                lastName: 'Green',
+                fullName: 'Jim Green'
+            },
+            watch: {
+                firstName: function (val) {
+                    //val表示firstName更改的新值
+                    this.fullName = this.firstName + ' ' + this.lastName;
+                },
+                lastName: function (val) {
+                    //val表示firstName更改的新值
+                    this.fullName = this.firstName + ' ' + this.lastName;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

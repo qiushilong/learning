@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位初体验</title>
+    <!-- 定位=定位模式+边偏移 -->
+    <style>
+        .nav {
+            position: absolute;
+
+            top: 100px;
+            left: 100px;
+
+            width: 200px;
+            height: 150px;
+            background-color: pink;
+
+            /* 只有有定位才有z-index */
+            /* 谁大显示谁 */
+            z-index: 2;
+        }
+
+        .nav2 {
+            position: absolute;
+
+            top: 100px;
+            left: 100px;
+
+            width: 200px;
+            height: 150px;
+            background-color: blue;
+
+            z-index: 3;
+        }
+
+        .nav3 {
+            position: absolute;
+
+            top: 100px;
+            left: 100px;
+            width: 200px;
+            height: 150px;
+            background-color: red;
+
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav"></div>
+    <div class="nav2"></div>
+</body>
+
+</html>

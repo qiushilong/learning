@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <!-- 
+        axios简介
+            axios(官网 https//github.com/axios/axios)
+            是一个基于Promise用于浏览器和node.js的HTTP客户端
+        特性
+            支持浏览器和node.js
+            支持promise
+            能拦截请求和响应
+            自动转换json数据
+        语法
+            axios.get('/adata').then(ret=>{
+                //data属性名称固定,用于获取后台响应的数据
+                console.log(ret.data)
+            })
+    -->
+    <script src="./js/axios.js"></script>
+    <script>
+        axios.get('http://localhost:3000/adata').then(function (ret) {
+            console.log(ret.data);
+        })
+    </script>
+</body>
+
+</html>

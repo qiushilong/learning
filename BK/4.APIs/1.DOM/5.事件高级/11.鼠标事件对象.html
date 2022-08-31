@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        document.addEventListener('click', function (e) {
+            console.log(e);
+            //  e.clientX 返回鼠标相对浏览器可视窗口的X坐标
+            //  e.clientY 返回鼠标相对浏览器可视窗口的Y坐标
+            //  e.pageX 返回鼠标相对文档页面的X坐标 IE>=9
+            //  e.pageY 返回鼠标相对文档页面的Y坐标 IE>=9
+            //  e.screenX 返回鼠标相对电脑屏幕的X坐标
+            //  e.screenY 返回鼠标相对电脑屏幕的Y坐标
+            console.log(e.clientX);
+            console.log(e.clientY);
+            console.log(e.pageX);
+            console.log(e.pageY);
+            console.log(e.screenX);
+            console.log(e.screenY);
+        })
+    </script>
+</body>
+
+</html>

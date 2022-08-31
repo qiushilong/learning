@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-router.min.js"></script>
+</head>
+
+<body>
+    <!-- 
+        父级路由通过childred属性配置子集路由
+    -->
+
+    <div id="app">
+        <router-link to="/user">User</router-link>
+        <router-link to="/register">Register</router-link>
+
+        <router-view></router-view>
+    </div>
+
+    <script>
+
+        const User = {
+            template: '<h1>user组件</h1>'
+        }
+        const Register = {
+            template: `
+                <div>
+                    <h1>register组件</h1>
+                    <hr/>
+
+                    <!--子路由链接-->
+                    <router-link to="/register/tab1">tab1</router-link>
+                    <router-link to="/register/tab2">tab2</router-link>
+
+                    <!--子路由的占位符-->
+                    <router-view/>
+                </div>
+            `
+        }
+        const Tab1 = {
+            template: '<h3>tab1子组件</h3>'
+        }
+        const Tab2 = {
+            template: '<h3>tab2子组件</h3>'
+        }
+
+        const router = new VueRouter({
+            //所有路由规则
+            routes: [
+                { path: '/', redirect: '/user' },
+                { path: '/user', component: User },
+                //children表示子路由规则
+                {
+                    path: '/register', component: Register, children: [
+                        { path: '/register/tab1', component: Tab1 },
+                        { path: '/register/tab2', component: Tab2 }
+                    ]
+                }
+            ]
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            router
+        })
+    </script>
+</body>
+
+</html>

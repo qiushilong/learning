@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言框</title>
+    <style>
+        textarea {
+            width: 300px;
+            height: 200px;
+            resize: none;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea>dd</textarea>
+    <button>发布</button>
+    <ul>
+        <li>1</li>
+    </ul>
+    <script>
+        var btn = document.querySelector('button');
+        var area = btn.previousElementSibling;
+        var ul = btn.nextElementSibling;
+        btn.onclick = function () {
+            var str = area.value;
+            console.log(str);
+            var li = document.createElement('li');
+            li.innerHTML = str;
+            ul.insertBefore(li, ul.children[0]);
+        }
+    </script>
+</body>
+
+</html>

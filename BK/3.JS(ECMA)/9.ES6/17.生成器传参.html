@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        function* gen(arg) {
+            console.log(arg);
+            let one = yield 111;
+            console.log(one);
+            yield 222;
+            yield 333;
+        }
+
+        let iterator = gen('aaa');
+        console.log(iterator.next());
+        //next传入的参数会作为上一个yield的返回值
+        console.log(iterator.next('bbb'));
+        console.log(iterator.next());
+        console.log(iterator.next());
+    </script>
+</body>
+
+</html>

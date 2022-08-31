@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	let str='abcd';
+	let reg=/d/;
+	let reg2=/e/;
+
+	//因为正则是一个对象，可以直接调用他的方法
+	console.log(reg.test(str));//测试str是否符合正则表达式reg
+	console.log(reg2.test(str));//false,因为str没有e
+</script>
+</body>
+</html>

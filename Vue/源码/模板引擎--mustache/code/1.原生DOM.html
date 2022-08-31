@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title></title>
+	</head>
+	<body>
+		<!-- 预期结构 -->
+		<ul id="list">
+			<li>
+				<div class="msg">
+					<p>姓名：zs</p>
+					<p>年龄：12</p>
+				</div>
+			</li>
+			<li>
+				<div class="msg">
+					<p>姓名：ls</p>
+					<p>年龄：15</p>
+				</div>
+			</li>
+		</ul>
+
+		<ul id="list"></ul>
+
+		<script>
+			const arr = [
+				{ name: 'zs', age: 12 },
+				{ name: 'ls', age: 15 },
+			];
+
+			// 原生DOM法
+			const list = document.getElementById('list');
+
+			for (let i = 0; i < arr.length; i++) {
+				let oLi = document.createElement('li');
+				oLi.innerHTML = `
+        <li>
+          <div class="msg">
+            <p>姓名：${arr[i].name}</p>
+            <p>年龄：${arr[i].age}</p>
+          </div>
+        </li>`;
+				list.appendChild(oLi);
+			}
+		</script>
+	</body>
+</html>

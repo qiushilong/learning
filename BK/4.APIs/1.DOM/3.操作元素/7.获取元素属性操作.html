@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取元素属性</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="demo" index="自定义属性"></div>
+    <script>
+        var div = document.getElementById('demo');
+        // 获取元素属性
+        //1.
+        console.log(div.id);
+        // 2.element.getAttribute('属性') get得到获取 attribute属性
+        console.log(div.getAttribute('id'));
+
+        // 区别
+        // element.属性 获得的是HTML标签自带的属性
+        // element.getAttribute('属性') 还可以获得自定义属性
+        console.log(div.getAttribute('index'));
+    </script>
+</body>
+
+</html>

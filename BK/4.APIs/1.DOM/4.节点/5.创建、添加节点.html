@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建、添加节点（动态）</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <ul></ul>
+    <script>
+        // 增加节点
+        // 一、创建节点
+        var li = document.createElement('li');
+        li.innerHTML = '新增li';
+        // 二、添加节点 
+        // 1.追加 node.appendChild(child) node是父级，child是子级
+        var ul = document.querySelector('ul');
+        ul.appendChild(li);
+        // 2.在指定元素前面插入，node.insertBefore(child,指定元素);
+        var lili = document.createElement('li');
+        ul.insertBefore(lili, ul.children[0]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+    <script src="time.js"></script>
+</head>
+
+<body>
+    <!-- 
+
+    -->
+
+    <!-- 首字符大写 -->
+    <div id="app">
+        <div>{{date|format('yyyy-MM-dd')}}</div>
+    </div>
+
+    <script>
+        Vue.filter('format', function (value, arg) {
+            return dateFormat(value, arg);
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                date: new Date()
+            }
+        });
+    </script>
+</body>
+
+</html>

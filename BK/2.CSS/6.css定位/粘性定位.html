@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>粘性定位</title>
+    <!-- 定位=定位模式+边偏移 -->
+    <style>
+        .nav {
+            /* 粘性定位：占有位置，当划到该位置时，保留与浏览器的位置，随屏幕移动
+             兼容性不好，IE不支持*/
+            position: sticky;
+            /* 相对可视窗口进行偏移 */
+            /* 原来的位置继续占有 */
+            /* 必须添加top，bottom，left，right中的至少一个 */
+
+            top: 0px;
+
+            width: 200px;
+            height: 150px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body style="height: 2000px;">
+    <div class="nav">
+
+    </div>
+    <div>
+        123
+    </div>
+</body>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button>按钮</button>
+    <input type="text" value="请输入内容">
+    <script>
+        var btn = document.querySelector('button');
+        var input = document.querySelector('input');
+        btn.onclick = function () {
+            input.value = '请输入内容';
+            // 被禁用（js里的）
+            btn.disabled = true;
+            // 用this也行
+            // this.disabled = true;
+        }
+    </script>
+</body>
+
+</html>

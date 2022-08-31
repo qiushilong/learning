@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //创建promise对象
+        const p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('用户数据');
+            }, 1000);
+        });
+
+        //调用then方法,then方法的返回结果是Promise对象,对象状态由回调函数的执行结果决定
+        //1.如果回调函数中返回值的结果是 非promise类型的属性,状态为成功,返回值为对象的成功的值
+        //2.如果返回的是promise,该promise成功则父级promise成功,失败则父级promise失败,返回值作为父级返回值
+        //3.如果抛出异常 promise状态为失败,返回异常信息
+        const result = p.then(value => {
+            console.log(value);
+            return 123;
+        }, reason => {
+            console.warn(reason);
+        });
+
+        console.log(result);
+
+        //链式调用,then的第二个参数可以省略
+        p.then(value => {
+
+        }).then(value => {
+
+        });
+    </script>
+</body>
+
+</html>

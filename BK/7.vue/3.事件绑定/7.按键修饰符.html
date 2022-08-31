@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        按键修饰符
+        enter回车键
+        <input v-on:keyup.enter='submit'>
+        <input v-on:keyup.13='submit'>
+        delete删除键
+        <input @keyup.delete='handle'>
+        ......
+    -->
+    <div id="app">
+        <form action="">
+            <div>
+                用户名:
+                <input type="text" v-model='uname' v-on:keyup.delete='clearContent'>
+            </div>
+            <div>
+                密码:&nbsp;&nbsp;&nbsp;
+                <input type="password" v-model='pwd' @keyup.enter='handleSubmit'>
+            </div>
+            <div>
+                <input type="button" value="提交" @click='handleSubmit'>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                uname: '',
+                pwd: ''
+            },
+            methods: {
+                handleSubmit: function () {
+                    console.log(this.uname, this.pwd);
+                },
+                clearContent: function () {
+                    this.uname = '';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

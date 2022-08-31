@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div data-index="1" data-list-name="name"></div>
+    <script>
+        var div = document.querySelector('div');
+        // H5规定自定义属性，用data-名字，会被认为是自定义属性
+        // 兼容性差
+        // H5新增element.dataset.名字
+        // 不用加data-了
+        console.log(div.dataset.index);
+        console.log(div.dataset['index']);
+
+        //  多个小横线，要用驼峰命名法
+        console.log(div.dataset.listName);
+        console.log(div.dataset['listName']);
+    </script>
+</body>
+
+</html>

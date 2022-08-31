@@ -1,0 +1,1 @@
+*{margin:0;padding:0;box-sizing:border-box;-webkit-user-select:none}.page{width:1000px}.page .line{height:100px;margin-bottom:20px}.page .line .stage{float:left;width:200px;height:100px;background-color:#ebebeb}.page .line .cell{float:left;transition:all 1s;width:200px;margin-left:20px;height:100px;background-color:green;border:1px solid red}.page .move{cursor:move}

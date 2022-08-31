@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    // 非受控组件:ref使用dom来绑定,不推荐
+
+    class App extends React.Component {
+      constructor() {
+        super();
+
+        // 创建ref
+        this.txtRef = React.createRef();
+      }
+
+      // 获取文本框的值
+      getTxt = () => {
+        console.log('文本框的值为:' + this.txtRef.current.value);
+      }
+
+      render() {
+        return (
+          <div>
+            <input type="text" ref={this.txtRef} />
+            <button onClick={this.getTxt}> 获取文本框的值</button>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <App />,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+
+</html>

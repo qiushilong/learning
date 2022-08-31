@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        const banji = {
+            name: '终极一班',
+            stus: [
+                'xiaoming',
+                'xiaoning',
+                'xiaotian',
+                'knight'
+            ],
+            [Symbol.iterator]() {
+                let index = 0;
+                let _this = this;
+                return {
+                    next: function () {
+                        if (index < _this.stus.length) {
+                            index++;
+                            return { value: _this.stus[index], done: false }
+                        }
+                        else
+                            return { value: '...', done: true }
+                    }
+                }
+            }
+        }
+        for (let v of banji) {
+            console.log(v);
+        }
+
+    </script>
+</body>
+
+</html>

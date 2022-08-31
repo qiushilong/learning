@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        计算属性与方法的区别
+        *计算属性是基于它们的依赖进行缓存的
+        *方法不存在缓存
+
+        方法每次调用都会访问一次
+        计算属性在值未发生改变时只会访问一次,是为了节约资源
+    -->
+
+    <div id="app">
+
+        <div>计算属性把字符串反转</div>
+        <div>{{reverseString}}</div>
+        <div>{{reverseString}}</div>
+        <div>方法把字符串反转</div>
+        <div>{{reverseMsg()}}</div>
+        <div>{{reverseMsg()}}</div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello'
+            },
+            methods: {
+                reverseMsg: function () {
+                    console.log('methods');
+                    return this.msg.split('').reverse().join('');
+                }
+            },
+            computed: {
+                reverseString: function () {
+                    console.log('computed');
+                    return this.msg.split('').reverse().join('');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

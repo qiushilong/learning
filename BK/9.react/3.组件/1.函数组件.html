@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    // 函数组件:使用js的函数(或箭头函数)创建的组件
+    // 约定1:函数名称必须以大写字母开头,使用小写则会报错
+    // 约定2:函数组件必须有返回值,表示该组件的结构,无返回值则报错
+    // 如果返回null,则不进行渲染
+
+    function Hello() {
+      return (
+        <h1>Hello组件</h1>
+      )
+    }
+
+    // 自定以组件使用类似html标签
+
+    ReactDOM.render(
+      <Hello />,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+
+</html>

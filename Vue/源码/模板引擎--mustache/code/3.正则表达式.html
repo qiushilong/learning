@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title></title>
+	</head>
+	<body>
+		<script>
+			const templateStr = '<h1>我买了一个{{thing}},好{{mood}}</h1>';
+
+			const data = {
+				thing: '新手机',
+				mood: '开心',
+			};
+
+			// () 表示捕获
+			const result = templateStr.replace(
+				/\{\{(\w+)\}\}/g,
+				function (findStr, $1) {
+					return data[$1];
+				}
+			);
+			console.log(result);
+		</script>
+	</body>
+</html>

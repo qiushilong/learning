@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>translate</title>
+    <style>
+        /* 移动盒子的办法：1.定位 2.外边距 3.2d转换移动translate */
+        /* 
+            translate不会影响其他盒子
+            但是translate对行内元素没用
+        */
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            transform: translate(200px, 200px);
+            /* transform: translateX(200px) translateY(200px); */
+
+            /* 只动x轴，等价于 transform: translate(100px, 0);*/
+            /* transform: translateX(200px); */
+            /* 只动y轴，等价于 transform: translate(0, 100px);*/
+            /* transform: translateY(200px); */
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

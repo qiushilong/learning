@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>子选择器</title>
+    <style>
+        /* 只会改最前面的那个亲儿子 */
+        .nav>a {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="#">son</a>
+        <p>
+            <a href="#">son's son</a>
+        </p>
+    </div>
+</body>
+
+</html>

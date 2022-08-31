@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .box {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            /* 
+            align-items属性
+            控制侧轴(单行)子元素排列方式
+            flex-start(默认):默认从头开始,侧轴横着-从左到右,侧轴竖着-从上到下
+            flex-end:从尾部开始排列
+            center:在侧轴居中对齐
+            stretch:
+            当主轴为x轴时,当子盒子没有高度时,可以把子盒子拉伸的和父盒子一样高
+            当主轴为y轴时,当子盒子没有宽度时,可以把子盒子拉伸的和父盒子一样宽
+             */
+            width: 100%;
+            height: 400px;
+            background-color: skyblue;
+        }
+
+        .box div {
+            width: 100px;
+        }
+
+        .box div:nth-child(1) {
+            background-color: red;
+        }
+
+        .box div:nth-child(2) {
+            background-color: blue;
+        }
+
+        .box div:nth-child(3) {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+
+</html>

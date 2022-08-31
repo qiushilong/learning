@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        带参数的自定义指令
+        定义
+        例子(改变背景颜色)
+        Vue.directive('color',{
+            bind:function(el,形参bingding){
+                //bingding,一个对象,包含很多属性
+                //name:指令名
+                //value:指令的绑定值
+                el.style.backgroundColor=binding.value.color;
+            }
+        })
+        使用
+        <input type="text" v-color='{color:"orange"}'>
+    -->
+
+    <div id="app">
+        <input type="text" v-color='color'>
+    </div>
+
+    <script>
+        Vue.directive('color', {
+            bind: function (el, binding) {
+                el.style.backgroundColor = binding.value;
+            }
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                color: 'blue'
+            },
+            methods: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>

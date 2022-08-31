@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        若内置指令不满足需求,可以自定义指令
+
+        自定义指令的语法规则
+        例子(获取元素焦点)
+        Vue.directive('指令名focus'{
+            调用时机inserted:function(el){
+                //指令操作
+                //el表示指令绑定的元素
+                el.focus();
+            }
+        })
+
+        自定义指令的用法
+        <input type="text" v-focus>
+
+        调用时机:
+        bind:只调用一次,指令第一次绑定元素时调用,即初始化
+        inserted:被绑定元素插入父节点时调用(仅保证父节点存在,但不一定已被插入文档中)
+        ...
+    -->
+
+    <div id="app">
+        <input type="text" v-focus>
+        <input type="text">
+    </div>
+
+    <script>
+        Vue.directive('focus', {
+            inserted: function (el) {
+                el.focus();
+            }
+        });
+        //下面的要写了自定义指令才能生效
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>

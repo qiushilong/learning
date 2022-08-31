@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        事件函数的调用
+        1.直接绑定函数名称
+            <button v-on:click='say'>btn</button>
+        2.调用函数
+            <button v-on:click='say()'>btn</button>
+    -->
+    <div id="app">
+        <div v-text='num'></div>
+        <div>
+            <button @click='handle'>点击</button>
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                num: 0
+            },
+            methods: {
+                handle: function () {
+                    this.num++;
+                    //不用this不能访问到num
+                    //这里的this是vue的实例对象vm
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

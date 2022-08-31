@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        window.addEventListener('load', function () {
+            var btn = document.querySelector('button');
+            var div = document.querySelector('div');
+            var time = 5;
+            var timer = null;
+            btn.addEventListener('click', function () {
+                // console.log(window.location.href);
+                setTimeout(function () {
+                    // console.log('1');
+                    location.href = '1.location对象.html';
+                }, 5000);
+                timer = setInterval(function () {
+                    if (time === 0) {
+                        clearInterval(timer);
+                        return;
+                    }
+                    div.innerHTML = '将在' + time + 's后跳转';
+                    time--;
+                }, 1000);
+            })
+        })
+    </script>
+    <button>点击</button>
+    <div></div>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span class="erweima">x</span>
+    </div>
+    <script>
+        var box = document.querySelector('.box');
+        // 节点三个属性：节点类型nodeType，节点名称nodeName，节点值nodeValue
+        // 元素节点 nodeType为1
+        // 属性节点 nodeType为2
+        // 文本节点 nodeType为3（文本节点包括文字，空格，换行等）
+        // 开发中主要操作元素节点
+        console.dir(box);
+    </script>
+</body>
+
+</html>

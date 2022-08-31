@@ -1,0 +1,14 @@
+Action只是描述了有事情发生这一事实,并没有指定如何更新state,
+而reducer指定了state如何更新
+
+reducer就是一个纯函数,接收旧的state和action,返回新的state 
+
+state的结构
+1.当前选中任务的过滤条件
+2.完整的数据
+
+在reducer中一定要保持纯净:
+1.不能修改传入参数
+2.不能执行有副作用的操作,如API请求或者路由跳转
+3.不能调用非纯函数,如Data.now()或 Math.random()
+

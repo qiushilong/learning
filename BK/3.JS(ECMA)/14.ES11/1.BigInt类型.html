@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        // 在 JavaScript 中，“number” 类型无法表示大于(2⁵³ - 1) （即 9007199254740991），或小于 - (2⁵³ - 1) 的整数。这是其内部表示形式导致的技术限制。
+        // 在大多数情况下，这个范围就足够了，但有时我们需要很大的数字，例如用于加密或微秒精度的时间戳。
+        // BigInt 类型是最近被添加到 JavaScript 语言中的，用于表示任意长度的整数。
+        // 可以通过将 n 附加到整数字段的末尾来创建 BigInt 值。
+        // 尾部的 "n" 表示这是一个 BigInt 类型
+        const bigInt = 1234567890123456789012345678901234567890n;
+        console.log(bigInt);
+    </script>
+</body>
+
+</html>

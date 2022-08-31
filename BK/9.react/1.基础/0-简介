@@ -1,0 +1,16 @@
+React是一个用于构建用户界面的JavaScript库。用户界面:HTML页面(前端)
+React主要用来写HTML页面，或构建Web应用
+如果从MVC的角度来看，React仅仅是视图层(V)，也就是只负责视图的渲染，而并非提供了完整的M和C的功能。
+
+特点:
+1.声明式
+2.基于组件
+3.学习一次,随处使用 web应用,移动端应用,vr
+
+react安装
+命令:npm i react react-dom
+
+使用步骤:
+1.引入react和react-dom两个js文件
+2．创建React元素
+3．渲染 React元素到页面中

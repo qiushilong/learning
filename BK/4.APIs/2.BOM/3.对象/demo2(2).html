@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        window.addEventListener('load', function () {
+            console.log(location.search);//?uname=andy
+            // substr(index,length)，length省略就是字符串长度
+            var params = location.search.substr(1);
+            // console.log(params);
+            var arr = params.split('=');
+            // console.log(arr);
+            var div = document.querySelector('div');
+            div.innerHTML = '欢迎你，' + arr[1];
+        })
+    </script>
+    <div></div>
+</body>
+
+</html>

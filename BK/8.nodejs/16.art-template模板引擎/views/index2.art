@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+
+<body>
+  <!-- 标准语法 -->
+  {{name}}
+  {{age}}
+
+  <!-- 原始语法 -->
+  <%= name %>
+
+  <!-- 上面两种语法都可以进行运算 -->
+
+  <!-- 原文输出 -->
+  {{@content}}
+  <%- content%>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        let str = 'zshs';
+
+        //字符串长度
+        console.log(str.length);
+
+        //访问字符
+        console.log(str[0]);
+        console.log(str.charAt(0));
+        //当[]找不到时返回undefined,charAt返回空字符串
+        //建议使用[]
+
+        //遍历字符 for of
+        for (let c of str) {
+            console.log(c);
+        }
+
+        //字符串不可改变
+
+        //str.toLowerCase():转为小写
+        //str.toUpperCase():转为大写
+        //str[index].toLowerCase():index位置转为小写
+        //str[index].toUpperCase():index位置转为大写
+
+        //查找子字符串
+        //str.indexOf(substr,pos):从pos位置开始找字符串,找到返回第一个位置,找不到返回-1
+
+        //str.includes(str2):判断是否含有str2
+        //str.startsWith(str2):判断是否以str2开头
+        //str.endsWith(str2):判断是否以str2结尾
+
+        //获取子字符串
+        //str.slice(start[,end]):从start到end截取字符串
+        //str.subString(start[,end])
+    </script>
+</body>
+
+</html>

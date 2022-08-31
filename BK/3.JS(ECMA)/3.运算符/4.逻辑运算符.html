@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        //特殊
+        //逻辑与返回第一个假值，如果全是真，则返回第一个值
+
+        // 逻辑与运算 表达式1为true，返回表达式2
+        console.log(123 && 456);//456
+        // 逻辑与运算 表达式1为false，返回表达式1
+        console.log(0 && 456);//0
+        // 逻辑与短路
+        console.log(0 && 123 + 123 * 1 + 0);//0
+
+
+        //逻辑或返回第一个真值，如果全是假，则返回最后一个值
+
+        // 逻辑或运算 表达式1为true，返回表达式1
+        console.log(123 || 456);//123
+        // 逻辑或运算 表达式1为false，返回表达式2
+        console.log(0 || 456);//456
+        // 逻辑或与短路
+        console.log(123 || 0 + 123 * 1 + 0);//0
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

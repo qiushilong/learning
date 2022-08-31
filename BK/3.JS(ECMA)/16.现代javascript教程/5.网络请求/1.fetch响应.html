@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*   
+      启动数据服务器
+        json-server --watch data.json
+
+      fetch发送网络请求
+      语法
+        let promise = fetch(url, [options])
+        没有options,就是一个简单的get请求
+
+      fetch获取响应分为两个阶段
+        第一阶段: 返回响应,可以对响应解析得到响应头,来检查http状态确定请求是否成功
+          属性:
+            status: HTTP状态码
+            ok: 布尔值,如果状态码为200-299,则为true
+        第二阶段: 使用response的api的到请求体
+          api:
+            response.text() -- 读取response,并以文本形式返回响应体
+            response.json() -- 将响应体解析为JSON
+            response.formData() -- 以FormData对象的形式返回响应体
+            response.blob() -- 二进制数据形式
+            response.arrayBuffer() -- 低级别的二进制数据形式
+      
+    */
+
+    async function getData() {
+      // 第一阶段
+      let response = await fetch('http://localhost:3000/data');
+      console.log(response);
+      // 如果response.ok是false,表示请求失败
+      if (!response.ok) {
+        console.error('请求数据失败');
+        return
+      }
+      // 第二阶段
+      let data = await response.text();
+      console.log(data);
+    }
+
+    getData();
+  </script>
+</body>
+
+</html>

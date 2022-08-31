@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .box {
+            display: flex;
+            width: 100%;
+            height: 400px;
+            background-color: skyblue;
+        }
+
+        .box div {
+            width: 100px;
+            height: 100px;
+        }
+
+        .box div:nth-child(1) {
+            background-color: red;
+        }
+
+        .box div:nth-child(2) {
+            background-color: blue;
+        }
+
+        .box div:nth-child(3) {
+            background-color: green;
+        }
+    </style>
+</head>
+<!-- 
+    任何元素都可以指定为flex盒子(弹性盒子)
+    
+    flex盒子中的盒子(无论块级,行内)
+        1.可以设置高宽
+        2.float，clear，vertical-align属性将失效
+    
+    flex布局：
+        通过给父盒子添加flex属性，来控制子盒子的位置和排列方式
+-->
+
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+
+</html>

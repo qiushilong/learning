@@ -1,0 +1,31 @@
+
+<!--url定位-->
+<img src="https://how2j.cn/example.gif"/>
+
+
+<!--同级目录-->
+<img src="picture.jpg"/>
+
+<!--若图片在上级目录，则在src上加上 ../，即可访问上级目录的图片 
+如果是在上级目录的上级目录，则使用 ../../ -->
+<img src="../picture.jpg"/>
+<!--此时图片不存在，会显示叉叉图，可以加上alt属性，只有图片不存在时显示-->
+<img src="../picture.jpg"/ alt="图片不存在">
+
+<meta http-equiv="Content-Type"content="text/html;charset=UTF-8">
+<!--使用图片所在的绝对路径，并在前面加上file:// -->
+<img src="file://C:\Users\asus\Desktop\html_learn\picture.jpg"/>
+
+<!--设置图片的大小>
+<img width="1280" height="720" src="file://C:\Users\asus\Desktop\html_learn\picture.jpg"/>
+
+<!--设置位置-->
+<div align="left">
+  <img src="https://how2j.cn/example.gif"/>
+</div>
+<div align="center">
+  <img src="https://how2j.cn/example.gif"/>
+</div>
+<div align="right">
+  <img src="https://how2j.cn/example.gif"/>
+</div>

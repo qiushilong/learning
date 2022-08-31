@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        Vue生命周期:
+        1.挂载(初始化相关属性)
+            beforeCreate
+            created
+            beforeMount:在挂载开始之前被调用
+            mounted:el被新创建的vm.$el替换,并挂载到实例上去之后调用该钩子
+        2.更新(元素或组件的变更操作)
+            beforeUpdate
+            updated
+        3.销毁(销毁相关属性)
+            beforeDestroy
+            destroyed
+    -->
+
+    <div id="app">
+        <div>{{msg}}</div>
+        <button @click='update'>更新</button>
+        <button @click='destroy'>销毁</button>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '生命周期'
+            },
+            methods: {
+                update: function () {
+                    this.msg = 'hello'
+                },
+                destroy: function () {
+                    this.$destroy();
+                }
+            },
+            beforeCreate: function () {
+                console.log('beforeCreate');
+            },
+            created: function () {
+                console.log('created');
+            },
+            beforeMount: function () {
+                console.log('beforeMount');
+            },
+            mounted: function () {
+                console.log('mounted');
+            },
+            beforeUpdate: function () {
+                console.log('beforeUpdate');
+            },
+            updated: function () {
+                console.log('updated');
+            },
+            beforeDestroy: function () {
+                console.log('beforeDestroy');
+            },
+            destroyed: function () {
+                console.log('destroyed');
+            }
+        });
+    </script>
+</body>
+
+</html>

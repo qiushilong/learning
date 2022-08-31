@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-text</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        v-text:填充纯文本
+        优点:
+            1.相对插值表达式更加简洁
+            2.没有闪动问题
+    -->
+
+    <div id="app">
+        <div v-text='msg'></div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue'
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特殊样式</title>
+    <style>
+        * {
+            /* CSS3盒子模型 */
+            box-sizing: border-box;
+        }
+
+        a {
+            /* 去除高亮 */
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        input {
+            /* 去除样式 */
+            -webkit-appearance: none;
+        }
+
+        img,
+        a {
+            /* 禁止弹出菜单 */
+            -webkit-touch-callout: none;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">去除高亮</a>
+    <input type="button" value="按钮">
+</body>
+
+</html>

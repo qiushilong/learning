@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- DOM事件流：分3个阶段
+    1.捕获阶段：从document到目标阶段
+    2.当前目标阶段：目标阶段
+    3.冒泡阶段：目标阶段到document
+-->
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father,
+        .father2 {
+            overflow: hidden;
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            background-color: pink;
+            text-align: center;
+        }
+
+        .son,
+        .son2 {
+            width: 200px;
+            height: 200px;
+            margin: 50px;
+            text-align: center;
+            line-height: 200px;
+            color: #fff;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">son盒子</div>
+    </div>
+    <div class="father2">
+        <div class="son2">son2盒子</div>
+    </div>
+    <script>
+        // 注意：
+        // 1.js代码中只能执行捕获或者冒泡中的一个阶段
+        // 2.onclick和attachEvent只能得到冒泡阶段
+        var son = document.querySelector('.son');
+        // 3(1).第三个参数是true 那么处于捕获阶段 document->html->body->father->son
+        son.addEventListener('click', function () {
+            alert('son');
+        }, true);
+        var father = document.querySelector('.father');
+        father.addEventListener('click', function () {
+            alert('father');
+        }, true);
+
+        var son2 = document.querySelector('.son2');
+        // 3(2).第三个参数是false 那么处于冒泡阶段 son2->father2->body->html->document
+        son2.addEventListener('click', function () {
+            alert('son2');
+        }, false);
+        var father2 = document.querySelector('.father2');
+        father2.addEventListener('click', function () {
+            alert('father2');
+        }, false);
+
+        // 4.实际开发中我们很少用事件捕获，而是更关注事件冒泡
+        // 5.有些事件是没有冒泡的，如onblur,onfocus,onmouseenter,onmouseleave
+        // 6.事件冒泡带来的麻烦可以处理
+    </script>
+</body>
+
+</html>

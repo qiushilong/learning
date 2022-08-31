@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新表单属性</title>
+    <style>
+        input::placeholder {
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <!-- required:"required"，输入不能为空 -->
+        <input type="text" required><br>
+        <!-- placeholder:"提示文本"，输入后提示文本消失 -->
+        <input type="text" placeholder="请输入"><br>
+        <!-- autofocus:"autofocus"，自动获取焦点 -->
+        <input type="text" autofocus><br>
+        <!-- autocomplete:"on/off"，默认打开记录，记录成功提交的内容，但是必须添加name属性 -->
+        <input type="text" autocomplete="on" name="search"><br>
+        <!-- multiple:"multiple"，多文件上传 -->
+        <input type="file" multiple><br>
+
+        <input type="submit" value="提交">
+    </form>
+</body>
+
+</html>

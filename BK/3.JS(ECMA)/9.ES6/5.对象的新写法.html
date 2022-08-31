@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        let name = '尚硅谷';
+        let change = function () {
+            console.log('我们可以改变你');
+        }
+        const school = {
+            name,
+            change,
+            //老式方法声明
+            old: function () {
+                console.log('老声明');
+            },
+            //ES6方法声明
+            new() {
+                console.log('新方法');
+            }
+        }
+        console.log(school);
+    </script>
+</body>
+
+</html>

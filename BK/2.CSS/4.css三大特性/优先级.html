@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优先级</title>
+    <style>
+        /* 优先级(权重)顺序：继承or* 0<元素选择器 1<类选择器 10<id选择器 100<行类样式style 1000<!important 无穷*/
+        /* 继承的权重为0 */
+        body {
+            color: pink;
+            font-size: 20px;
+        }
+
+        div {
+            color: red !important;
+        }
+
+        .van {
+            color: green;
+        }
+
+        #demo {
+            color: indigo;
+        }
+
+        p {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="van" id="demo" style="color: yellow">你笑起来真好看</div>
+    <!-- p继承div，但权重为0，是小于类选择器的 -->
+    <div>
+        <p>你好看</p>
+    </div>
+    <!-- a标签都是，有默认样式，color：blue -->
+    <a href="#">我是独立的</a>
+</body>
+
+</html>

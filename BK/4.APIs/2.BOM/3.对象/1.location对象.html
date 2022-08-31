@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location对象</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        window.addEventListener('load', function () {
+            // url
+            // 一般格式protocol://host[:port]/path/[?query]#fragment
+            // 例子http://www.itcast.cn/index.html?name=andy&age=18#link
+            // protocol：通信协议 如http，ftp，maito...
+            // host：主机（域名）
+            // port：端口号，省略时使用方案的默认端口，如http的默认端口为80
+            // path：路径，用来表示主机上的一个目录或文件地址
+            // query：参数，以键值对的形式通过&符号来分隔
+            // gragment：片段 #接锚点
+
+            // location对象属性
+            // url
+            console.log(location.href);
+            // host
+            console.log(location.host);
+            // port
+            console.log(location.port);
+            // pathname
+            console.log(location.pathname);
+            // 参数
+            console.log(location.search);
+            // 锚点
+            console.log(location.hash);
+
+            // location对象方法
+            // 跳转页面 可以后退
+            location.assign('demo.html');
+            // 不可以后退
+            location.replace('demo.html');
+            // 重新加载，f5   
+            location.reload();
+            // 强制刷新 ctrl+f5 从服务器取数据
+            location.reload(true);
+        })
+    </script>
+
+</body>
+
+</html>

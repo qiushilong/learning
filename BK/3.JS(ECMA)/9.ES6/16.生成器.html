@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //生成器其实就是一个特殊的函数,用来异步编程
+        //yield是函数代码的分割符
+        function* gen() {
+            console.log('hello generator');
+        }
+        //这样不执行
+        gen();
+        //这样才执行
+        gen().next();
+        //或者这样
+        let iterator = gen();
+        iterator.next();
+
+        function* gen2() {
+            console.log(111);
+            yield '一只没有耳朵';
+            console.log(222);
+            yield '一只没有尾巴';
+            console.log(333);
+            yield '真奇怪';
+            console.log(444);
+        }
+
+        console.log(gen2().next());
+        console.log(gen2().next());
+        console.log(gen2().next());
+        console.log(gen2().next());
+
+        let iterator2 = gen2();
+        console.log(iterator2.next());
+        console.log(iterator2.next());
+        console.log(iterator2.next());
+        console.log(iterator2.next());
+    </script>
+</body>
+
+</html>

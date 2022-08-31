@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        Vue修改响应式数据
+        写法一
+        Vue.set(vm.items,indexOfItem,newValue)
+        写法二
+        vm.$set(vm.items,indexOfItem,newValue)
+            1.参数一表示要处理的数组名称,对象则是对象名
+            2.参数二表示要处理的数组索引,对象则是对象的属性名
+            3.参数三表示要修改的数组的值,对象同
+    -->
+
+    <div id="app">
+        <ul>
+            <li v-for='item in list'>{{item}}</li>
+        </ul>
+        <div>
+            <div>{{info.name}}</div>
+            <div>{{info.age}}</div>
+            <div>{{info.gender}}</div>
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: ['apple', 'orange', 'banana'],
+                info: {
+                    name: 'lisi',
+                    age: 12
+                }
+            }
+        });
+        //vm.list[1]='lemon';   非响应式
+        Vue.set(vm.list, 2, 'lemon');
+        vm.$set(vm.list, 1, 'lemon');
+
+        //vm.info.gender = 'male';   非响应式
+        vm.$set(vm.info, 'gender', 'female')
+    </script>
+</body>
+
+</html>

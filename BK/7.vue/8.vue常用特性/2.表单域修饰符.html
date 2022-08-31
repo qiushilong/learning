@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        表单修饰符:
+        1.number:转换为数值
+        2.trim:去掉开始和结尾的空格
+        3.lazy:将input事件切换为change事件  
+            input事件:每次输入内容都触发
+            change事件:失去焦点才触发
+    -->
+
+    <div id="app">
+        <div>number</div>
+        <input type="text" v-model.number='age'>
+        <div>trim</div>
+        <input type="text" v-model.trim='info'>
+        <button @click='handle'>点击</button>
+        <div>lazy</div>
+        <input type="text" v-model='msg'>
+        <div>{{msg}}</div>
+        <input type="text" v-model.lazy='msg2'>
+        <div>{{msg2}}</div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                age: '',
+                info: '111',
+                msg: '',
+                msg2: ''
+            },
+            methods: {
+                handle: function () {
+                    console.log(this.age + 13);
+                    console.log(this.info.length);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

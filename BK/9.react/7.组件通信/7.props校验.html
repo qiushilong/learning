@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/prop-types/15.7.2/prop-types.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    /* 
+      props传入的值不符合要求时,会报错
+      所以需要校验
+
+      props校验:允许在创建组件的时候,就指定props的类型,格式等
+      作用:捕获使用组件时因为props导致的错误,给出明确的错误提示,增加组件的健壮性
+
+      使用步骤:
+      1.安装prop-types包
+      2.导入prop-types包
+      3.使用 组件名.propTypes={} 来给组件的props添加校验规则
+
+      props类型:
+        array,bool,func,number,object,string
+        React元素类型:element
+        必填项:isRequired
+        特定结构对象:shape({})
+    */
+
+
+    const App = props => {
+      const arr = props.colors;
+      const lis = arr.map((item, index) => <li key={index}>{item}</li>)
+      return (
+        <div>
+          <h2>{props.children}</h2>
+        </div>
+      )
+    }
+
+    // 添加约束
+    App.propTypes = {
+      colors: PropTypes.array
+    }
+
+    ReactDOM.render(
+      <App colors={['red', 'blue']} />,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+
+</html>

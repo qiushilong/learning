@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮点数运算</title>
+    <script>
+        // 浮点数运算存在问题，精度有误差
+        console.log(0.1 + 0.2);//0.30000000000000004
+        console.log(0.07 * 100);//7.000000000000001
+        // 不能直接拿浮点数进行比较
+        var num = 0.1 + 0.2;
+        console.log(num == 0.3);//false
+
+        x = 10;
+        console.log(x++ + ++x);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

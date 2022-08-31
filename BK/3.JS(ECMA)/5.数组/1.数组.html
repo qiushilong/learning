@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+    <script>
+        // 1.new Array()
+        var arr = new Array();//空数组
+        //2.字面量创建
+        var arr2 = [];//空数组
+
+        //3.初始化创建
+        var arr3 = [1, 2, 'pink', true, 1.2];//逗号隔开
+        console.log(arr3);
+
+        // 越界的是undefined
+        console.log('\n');
+        console.log(arr3[5]);
+
+        // 数组长度(动态更新)
+        console.log('\n');
+        console.log(arr3.length);
+
+        // 数组扩容
+        //1.改length
+        arr3.length += 2;
+        console.log('\n');
+        console.log(arr3);
+        // 2.直接加
+        arr3[arr3.length] = 10;
+        console.log('\n');
+        console.log(arr3);
+
+        //直接给数组名赋值
+        arr3 = 'xm';
+        console.log('\n');
+        console.log(arr3);//'xm'
+
+        // 删除数组，还没给出来
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

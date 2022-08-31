@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // 通过定时器setInterval()不断移动盒子位置
+        //1.获得盒子
+        var div = document.querySelector('div');
+        //2.盒子位置在当前位置加1
+        //3.定时器重复
+        var timer = setInterval(function () {
+            //4.结束,停定时器
+            if (div.offsetLeft >= 400) {
+                clearInterval(timer);
+            }
+            div.style.left = div.offsetLeft + 10 + 'px';
+        }, 30);
+        // 5.注意一定要有定位，不然left不能用
+    </script>
+</body>
+
+</html>
