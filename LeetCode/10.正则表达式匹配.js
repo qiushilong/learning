@@ -19,8 +19,43 @@ var isMatch = function (s, p) {
 		return preValue;
 	}, []);
 
-	console.log(pArr);
+	const sArr = s.split("").reduce((preValue, current, index, array) => {
+		if (current === "*") return preValue;
+		array[index + 1] === "*"
+			? preValue.push(current + array[index + 1])
+			: preValue.push(current);
+		return preValue;
+	}, []);
+
+	console.log(pArr, sArr);
+
+	let k = "&*";
+
+	for (let i = pArr.length - 1; i >= 0; i--) {
+		console.log(pArr[i], sArr[sArr.length - 1]);
+		if (pArr[i].length === 1) {
+			if (isEqual(sArr[sArr.length - 1], pArr[i])) {
+				pArr.pop();
+				sArr.pop();
+			} else {
+				// 判断和 k 是否符合
+				if (isEqual(sArr[sArr.length - 1], k[0])) {
+					sArr.pop();
+				} else {
+					return false;
+				}
+			}
+		} else if (pArr[i].length === 2) {
+			k = pArr[i];
+			pArr.pop();
+		}
+	}
+	return true;
 };
 
-console.log(isMatch("aabbaa", "a*b.a*"));
+var isEqual = function (a, b) {
+	return a === b || b === ".";
+};
+
+console.log(isMatch("aabbaa", "a*ab.a*"));
 // @lc code=end
