@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      border: 1px solid yellow;
+      display: grid;
+      /* 定义行 
+          repeat(重复次数,重复模式)
+          grid-template-rows: repeat(3, 100px);
+          重复三次,每一次都是100px
+      */
+      grid-template-rows: repeat(3, 100px);
+      /* 定义列 
+          grid-template-columns: repeat(1, 100px 20px 80px);
+          重复一次,模式是一个100px,一个20px,一个80px
+      */
+      grid-template-columns: repeat(1, 100px 20px 80px);
+    }
+
+    .box div {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+
+</html>

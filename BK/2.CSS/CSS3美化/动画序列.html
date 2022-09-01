@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        /* 百分比要是整数，整数代表时间，是按时间来划分的 */
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(1000px, 0);
+            }
+
+            50% {
+                transform: translate(1000px, 500px);
+            }
+
+            75% {
+                transform: translate(0px, 500px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            /* 2.调用动画 */
+            animation-name: move;
+            /* 3.持续时间 */
+            animation-duration: 10s;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

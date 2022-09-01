@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			/**
+			 * 使用 liver sever 打开在 http://127.0.0.1:5500/origin1/index.html
+			 * 因为跨域问题会拿不到
+			 */
+			fetch('http://localhost:3000').then((res) => {
+				console.log(res);
+			});
+		</script>
+
+    <!-- 
+      使用 JSONP 技术：
+      在 script 中可以拿到跨域资源。
+      并且 script 的 type 默认为 text/javascript，会把对应脚本执行。
+     -->
+     <script>
+      /**
+       * 定义回调函数，通过在服务端调用，传递信息
+       */ 
+      var callBack=function(data){
+        console.log(data)
+      }
+     </script>
+     <script src="http://localhost:3000/jsonp.js"></script>
+
+     <script>
+			/**
+			 * 使用 liver sever 打开在 http://127.0.0.1:5500/origin1/index.html
+			 * 因为跨域问题会拿不到
+			 */
+			fetch('http://localhost:3000/cors').then((res) => {
+				console.log(res);
+			});
+		</script>
+  </body>
+	</body>
+</html>

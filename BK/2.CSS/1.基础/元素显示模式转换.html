@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模式转换</title>
+    <style>
+        a {
+            width: 150px;
+            height: 50px;
+            background-color: pink;
+            /* 把行内元素a设置为块级元素 */
+            display: block;
+        }
+
+        div {
+            background-color: red;
+            /* 把块级元素div设置为行内元素 */
+            display: inline;
+        }
+
+        span {
+            width: 300px;
+            height: 100px;
+            background-color: green;
+            /* 把行内元素span设置为行内块元素 */
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">金星阿姨</a>
+    <a href="#">金星阿姨</a>
+    <div>块级元素1</div>
+    <div>块级元素2</div>
+    <span>行内元素->行内块元素</span>
+    <span>行内元素->行内块元素</span>
+</body>
+
+</html>

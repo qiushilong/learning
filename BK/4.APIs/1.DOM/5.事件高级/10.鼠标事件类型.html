@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    我是一段不愿分享的文字
+    <script>
+        // 鼠标事件
+        // onclick             鼠标左键点击触发
+        // onmouseover         鼠标经过触发（鼠标经过父盒子触发，那经过子盒子也会触发）
+        // onmouseenter        鼠标经过触发（鼠标经过父盒子触发，但经过子盒子不会触发）
+        // onmouseleave        鼠标离开触发（鼠标经过父盒子触发，但经过子盒子不会触发）
+        // onmouseout          鼠标离开触发（鼠标经过父盒子触发，那经过子盒子也会触发）
+        // onfocus             获得鼠标焦点触发
+        // onblur              失去鼠标焦点触发
+        // onmousemove         鼠标移动触发
+        // onmouseup           鼠标弹起触发
+        // onmousedown         鼠标按下触发
+
+        // 新增
+        document.addEventListener('contextmenu', function (e) {
+            // contextmenu鼠标右键菜单
+            e.preventDefault();
+        })
+        document.addEventListener('selectstart', function (e) {
+            // selectstart选中文字
+            e.preventDefault();
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        // map允许键位任意类型，包括对象
+        // 对象的键只能是字符串
+        //Map 使用 SameValueZero  算法来比较键是否相等。它和严格等于 === 差不多，但区别
+        //是 NaN 被看成是等于 NaN
+        //set也有forEach()方法
+
+        //声明map
+        let m = new Map();
+
+        //添加元素
+        m.set('name', '尚硅谷');
+        m.set('change', function () {
+            console.log('改变方法');
+        });
+        let key = {
+            school: 'sgg'
+        }
+        m.set(key, ['北京', '上海']);
+
+        //获取
+        console.log(m.get('name'));
+
+        //size
+        console.log(m.size);
+
+        //删除
+        m.delete('name');
+
+        //清空
+        // m.clear(); 
+
+        //遍历
+        for (let v of m) {
+            console.log(v);
+        }
+
+        /*
+            如果要在 map 里使用循环，可以使用以下三个方法：
+            map.keys() —— 遍历并返回所有的键（returns an iterable for keys），
+            map.values() —— 遍历并返回所有的值（returns an iterable for values），
+            map.entries() —— 遍历并返回所有的实体（returns an iterable for entries） [key,
+            value] ， for..of 在默认情况下使用的就是这个。
+        */
+
+        console.log(m.keys());
+        console.log(m.values());
+        console.log(m.entries());
+    </script>
+</body>
+
+</html>

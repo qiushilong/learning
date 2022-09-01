@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>60s发送短信</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        window.addEventListener('load', function () {
+
+            var time = 6;
+            var btn = document.querySelector('button');
+            var djs = null;
+            btn.addEventListener('click', function () {
+                btn.disabled = true;
+                ck();
+                djs = setInterval(ck, 1000)
+
+            })
+            function ck() {
+                btn.innerHTML = time + 's';
+                if (time === 0) {
+                    clearInterval(djs);
+                    time = 6;
+                    btn.disabled = false;
+                    btn.innerHTML = '发送短信';
+                }
+                time--;
+            }
+        })
+    </script>
+    手机号码：
+    <input type="text">
+    <button>发送短信</button>
+</body>
+
+</html>

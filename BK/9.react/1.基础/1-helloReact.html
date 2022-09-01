@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel使得jsx语法可以转化为es5的语法 -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // 创建react组件
+    const title = React.createElement('h1', null, 'hello React');
+    // 渲染react组件
+    ReactDOM.render(
+      title,
+      document.getElementById('root')
+    );
+
+    /*
+      用到的api:
+      React.createElement(标签类型,标签属性对象,标签内容):创建元素
+      React.render(react元素,挂载点的dom元素):渲染到页面
+
+    */
+  </script>
+</body>
+
+</html>

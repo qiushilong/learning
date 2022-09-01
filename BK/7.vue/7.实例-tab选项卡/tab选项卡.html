@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab选项卡</title>
+    <style>
+        #app span {
+            display: inline-block;
+            width: 60px;
+            height: 40px;
+            border: 1px solid blue;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+
+        .on {
+            background-color: greenyellow;
+        }
+
+        img {
+            display: none;
+        }
+
+        .on_img {
+            display: block;
+        }
+    </style>
+    <script src="../js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <span v-on:click='change(index)' :class='currentIndex==index?"on":""' :key='item.id'
+            v-for='(item,index) in list'>{{item.title}}</span>
+        <div v-for='(item,index) in list'>
+            <img :class="currentIndex==index?'on_img':''" :key='item.id' :src="item.path" alt="">
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                currentIndex: 0,//标表示选项卡当前索引
+                list: [
+                    {
+                        id: 1,
+                        title: 'app',
+                        path: 'img/apple.png'
+                    },
+                    {
+                        id: 2,
+                        title: 'orange',
+                        path: 'img/orange.png'
+                    },
+                    {
+                        id: 3,
+                        title: 'lemon',
+                        path: 'img/lemon.png'
+                    }
+                ]
+            },
+            methods: {
+                change: function (index) {
+                    //实现选项卡切换:本质是操作类名
+                    //通过索引来操作
+                    this.currentIndex = index;
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

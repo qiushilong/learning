@@ -1,0 +1,44 @@
+{
+  "id": "1976854",
+  "name": "project1",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "16213481",
+      "name": "面性高脚杯",
+      "font_class": "mianxinggaojiaobei",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "16213487",
+      "name": "面性水杯",
+      "font_class": "mianxingshuibei",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "16213496",
+      "name": "面性鱼缸",
+      "font_class": "mianxingyugang",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "16213515",
+      "name": "面性海岛",
+      "font_class": "mianxinghaidao",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "16213527",
+      "name": "面性日出",
+      "font_class": "mianxingrichu",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    }
+  ]
+}

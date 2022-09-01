@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        // 函数声明
+        function sayHi() {
+            console.log('hi~');
+        }
+        // 调用
+        sayHi();
+
+        // 带参数(形参，实参) 不用var
+        function cook(food) {
+            console.log(food);
+        }
+        cook('酸辣土豆丝');
+
+        // 不带返回值 返回undefined
+        console.log(cook('酸辣土豆丝'));
+
+        //带返回值
+        function num(num1, num2) {
+            return num1 + num2;
+        }
+        var b = num(1, 2);
+        console.log(b);
+        console.log(num(2, 3, 4));//不会报错 输出5
+        console.log(num(2));//num2会成为undefined 不会报错 输出NaN
+
+        // 第二种函数 函数表达式
+        var fun = function (aru) {
+            console.log('我是第二种声明');
+            console.log(aru);
+        }
+        fun();
+        fun('pink');
+
+        //全局变量只有应用关闭才会销毁，一直占内存
+        // 局部变量函数完事就销毁， 短暂占用内存
+
+        //函数表达式是在代码执行到达时被创建，并且仅从那一刻起可用。
+        //在函数声明被定义之前，它就可以被调用。
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>响应式布局</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .inner {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<!-- 
+    响应式布局：用一套界面可以适用于不同分辨率的设备。
+    实现原理：栅格式布局，把一行平均分为12个格子，可以指定元素占几个格子。
+    步骤：
+        1.定义容器
+            容器分类：
+                *container:两边有空位
+                *container-fluid:充满容器,100%宽度
+        2.定义行
+            row
+        3.定义元素
+            设备代号：
+                *xs:超小屏幕 手机(<768px) : col-xs-12
+                *sm:小屏幕 平板 (>=768px)
+                *md:中等屏幕 桌面显示器(>=992px)
+                *lg:大屏幕 大桌面显示器(>=1200px)
+
+    注意:
+        1.如果格子中数字超过12,就自动进行换行
+        2.栅格类属性可以向上兼容
+        3.如果真实设备宽度小于了设置栅格类属性的设备代码的最小值,就会一个元素占一行
+ -->
+
+<body>
+    <!-- 1.定义容器 -->
+    <div class="container">
+        <!-- 2.定义行 -->
+        <div class="row">
+            <!-- 3.定义容器 -->
+            <div class="col-lg-1 col-sm-13 col-md-2 inner">栅格</div>
+            <div class="col-lg-1 col-sm-1 col-md-2 inner">栅格</div>
+            <div class="col-lg-1 col-sm-1 col-md-2 inner">栅格</div>
+            <div class="col-lg-1 col-sm-1 inner">栅格</div>
+            <div class="col-lg-1 col-sm-1 inner">栅格</div>
+            <div class="col-lg-1 col-sm-1 inner">栅格</div>
+            <div class="col-lg-1 col-sm-1 inner">栅格</div>
+            <div class="col-lg-1 col-sm-1 inner">栅格</div>
+            <div class="col-lg-1 col-sm-1 inner">栅格</div>
+            <div class="col-lg-1 col-sm-1 inner">栅格</div>
+            <div class="col-lg-1 col-sm-1 inner">栅格</div>
+            <div class="col-lg-1 col-sm-1 inner">栅格</div>
+        </div>
+    </div>
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

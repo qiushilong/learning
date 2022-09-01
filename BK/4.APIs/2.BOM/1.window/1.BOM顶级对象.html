@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>顶级对象window</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <script>
+        console.log(window);
+        var num = 10;
+        console.log(num);
+        // num其实是window.num
+        console.log(window.num);
+        function fn() {
+            console.log(11);
+        }
+        fn();
+        // 调用时其实是window.fn();
+
+        //之所以不用 var name;
+        console.log(window.name);
+    </script>
+</body>
+
+</html>

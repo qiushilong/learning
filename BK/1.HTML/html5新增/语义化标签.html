@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语义化标签</title>
+    <style>
+        header,
+        nav {
+            height: 120px;
+            width: 800px;
+            background-color: pink;
+            border-radius: 15px;
+            margin: 15px auto;
+        }
+
+        section,
+        article {
+            width: 500px;
+            height: 300px;
+            background-color: skyblue;
+            margin: 15px auto;
+        }
+    </style>
+</head>
+<!-- 本质上都是div,但是有语义化 -->
+<!-- 
+    这种语义化主要针对搜索引擎
+    标签可以多次使用
+    IE9中,需要把这些元素转换为块级元素
+    移动端更多使用这种标签
+    还有其他的html5新增标签
+ -->
+
+<body>
+    <!-- 头部标签 -->
+    <header>头部标签</header>
+    <!-- 导航栏标签 -->
+    <nav>导航栏标签</nav>
+    <!-- 内容标签 -->
+    <article>内容标签</article>
+    <!-- 定义文档某个区域 -->
+    <section>定义文档某个区域</section>
+    <!-- 侧边栏标签 -->
+    <aside>侧边栏标签</aside>
+    <!-- 尾部标签 -->
+    <footer>尾部标签</footer>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        let user = {
+            name: 'john',
+            age: 30,
+            sex: '男',
+            eat() {
+                console.log('吃东西');
+            }
+        }
+
+        //使用for in
+        for (let key in user) {
+            console.log(key);
+            console.log(user[key]);
+        }
+    </script>
+</body>
+
+</html>

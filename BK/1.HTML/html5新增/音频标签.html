@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音频</title>
+    <!-- 无需其他插件 -->
+    <!-- 
+        兼容性：
+        只支持MP3,Wav,Ogg
+        MP3基本支持所有浏览器
+        Wav不支持IE
+        Ogg不支持IE,Safari
+     -->
+    <!-- 
+         audio属性：
+         autoplay：atuoplay 音频就绪自动播放（谷歌不能放背景音乐 js处理）
+         controls：controls 向用户显示播放控件
+         width：px 宽度
+         height：px 高度
+         loop：loop 是否循环播放
+         src：url 音频地址
+      -->
+    <style>
+        audio {
+            width: 100%;
+            outline: none;
+            /* 不能设置其他属性 */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 写法一 -->
+    <!-- controls是controls="controls"的简写，只有设置了controls才可以看见内容，不加就是背景音乐 -->
+    <audio src="bk.mp3" type="audio/mp3" controls></audio>
+    <!-- 写法二 -->
+    <audio controls>
+        <!-- 使音频兼容性更好，但现在MP3基本都可以用，可以不这么写 -->
+        <source src="bk.mp3" type="audio/mp3">
+        <source src="bk.mp3" type="audio/mav">
+        <source src="bk.mp3" type="audio/webm">
+    </audio>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //科学计数法
+        //100000000
+        let a = 1e8;
+        console.log("1e8:\n" + a);
+        //0.00000001
+        let b = 1e-8;
+        console.log(`1e-8:\n${b}`);
+
+        //16进制 0x开头
+        //8进制  0o开头
+        //2进制  0b开头
+
+        //num.toString(base):把数字转为base进制的字符串
+        num = 8;
+        console.log(`num.toString(2):\n${num.toString(2)}`);
+        //直接在数字上调用方法,得用..,第一个点说明8后面没有小数了,第二个点才是调方法的点
+        console.log(`8..toString(2):\n${8..toString(2)}`);
+
+        //舍入操作
+        //Math.floor():向下舍入
+        //Math.ceil():向上舍入
+        //Math.round():寻找最接近的整数
+        //Math.trunc():移除小数,ie不支持
+        //toFixed(n):保留n位小数,寻找最接近的小数,返回字符串
+        console.log(`Math.round(4.5):\n${Math.round(4.5)}`);
+        console.log(`Math.trunc(4.5):\n${Math.trunc(4.5)}`);
+        console.log(`12.3555.toFixed(2):\n${12.3555.toFixed(2)}`);
+
+        console.log('-----------------------------------');
+
+        //浮点数误差
+        console.log(0.1 + 0.2);//0.30000000000000004
+        //解决
+        console.log(+(0.1 + 0.2).toFixed(1));//0.3
+
+        //特殊值
+        //Infinity(-Infinity)是一个特殊的数值,比任何值都大(小)
+        //NaN表示计算错误
+        //NaN是独一无二的
+        console.log(NaN === NaN);//false
+        console.log(Object.is(NaN, NaN));//true
+
+        //isNaN(value):将参数转为数字,测试是否为NaN
+        //isFinite(value):将值转为数字,如果是常规数字,则返回true
+
+        //Object.is(obj1,obj2)
+        console.log(Object.is(0, -0));//false
+        console.log(Object.is(NaN, NaN));//true
+        //其他情况和===完全相同
+
+        //parseInt(str):从头开始寻找整数,遇到错误停止,返回找到的数字,没找到一个数字则返回NaN
+        //parseFloat(str):从头开始寻找小数,遇到错误停止,返回找到的数字,没找到一个数字则返回NaN
+        //使用+和Number(str)转数字是严格的,如果值不是纯数字,则会出现NaN
+        console.log(Number("12px"));//NaN
+        console.log(parseInt('100px'));//100
+        console.log(parseFloat('12.2.2'));//12.2
+        console.log(parseInt('a123'));//NaN
+        //parseInt(str,radix):以radix进制解析str,得到10进制数
+        console.log(parseInt('10000', 2));
+
+        //Math.random():返回一个0到1(不包括1的随机数)
+        console.log(Math.random());//0.5436023042027398
+        //Math.max(a,b,c...):从任意数中找到最大值
+        //Math.min(a,b,c...):从任意数中找到最小值
+        //Math.pow(n,power):返回n的power次幂
+    </script>
+</body>
+
+</html>

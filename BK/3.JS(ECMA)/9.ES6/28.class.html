@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //// 手机(ES5)
+        ////构造器
+        // function Phone(brand, price) {
+        //     this.brand = brand;
+        //     this.price = price;
+        // }
+        ////方法
+        // Phone.prototype.call = function () {
+        //     console.log('电话');
+        // }
+        ////静态成员
+        // Phone.prototype.name = '手机';
+
+        // let hw = new Phone('hw', 199);
+        // hw.call();
+        // console.log(hw);
+
+        //ES6 class
+        class Phone {
+
+            //静态变量,属于类,不属于变量,静态方法同
+            static name = '手机';
+
+            static change() {
+                console.log('我可以');
+            }
+
+            //构造方法
+            constructor(brand, price) {
+                this.brand = brand;
+                this.price = price;
+            }
+
+            //定义方法,在类中只能用ES6的声明
+            call() {
+                console.log('我可以打电话');
+            }
+
+            //get和set
+            get price() {
+                console.log('读取价格');
+                return 100;
+            }
+            set price(newVal) {
+                console.log('设置价格');
+            }
+        }
+
+        let onePlus = new Phone('一加', 200);
+        console.log(onePlus);
+        console.log(Phone.name);
+
+        class SmartPhone extends Phone {
+            constructor(brand, price, color, size) {
+                super(brand, price);
+                this.color = color;
+                this.size = size;
+            }
+
+            photo() {
+                console.log('我可以拍照');
+            }
+        }
+
+        let xm = new SmartPhone('小米', 300, '红色', 5.5);
+        console.log(xm);
+
+    </script>
+</body>
+
+</html>

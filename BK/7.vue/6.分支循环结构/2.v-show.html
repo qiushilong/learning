@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        v-show指令
+        v-if控制元素是否渲染到界面,控制元素的增减,开销较v-show大
+        v-show控制元素是否显示(已经渲染到页面)
+    -->
+
+    <div id="app">
+        <div v-show='flag'>测试v-show</div>
+        <button v-on:click='handle' v-text='msg'></button>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                score: 10,
+                flag: false,
+                msg: '显示'
+            },
+            methods: {
+                handle: function () {
+                    if (this.flag == false) {
+                        this.flag = true;
+                        this.msg = '隐藏';
+                    } else {
+                        this.flag = false;
+                        this.msg = '显示';
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

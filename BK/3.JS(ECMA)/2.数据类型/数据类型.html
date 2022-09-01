@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型</title>
+    <script>
+        // javascript是一种弱类型语言（动态语言）。在程序运行时，类型会自动确定，不用提前声明变量类型
+        // 是根据等号后面的类型来确定，且类型可以变化（动态语言）
+        var x = 10;
+        x = 'pink';
+        console.log(x);
+        //上面的操作合法
+
+        //简单数据类型
+        // Number(数字型，可以是整数，浮点数),Boolean,String,Undefined,null
+        // 八进制写法，0开头，表示八进制
+        var y = 010;
+        console.log(y);
+        // 十六进制 0-9，a-f，0x开头，表示十六进制
+        var z = 0xa;
+        console.log(z);
+        // 数字的最大值
+        console.log(Number.MAX_VALUE);
+        console.log(Infinity);
+        // 数字的最小值
+        console.log(Number.MIN_VALUE);
+        // 无穷大 Infinity
+        console.log(Number.MAX_VALUE * 2);
+        //无穷小 -Infinity
+        console.log(-Number.MAX_VALUE * 2);
+
+        // 运算错误 NaN
+        //NaN 代表一个计算错误。它是一个不正确的或者一个未定义的数学操作所得到的结果
+        // NaN 是粘性的。任何对 NaN 的进一步操作都会返回 NaN
+        // 在 JavaScript 中做数学运算是安全的。我们可以做任何事：除以 0，将非数字字符串视为数字，等等。脚本永远不会因为一个致命的错误（“死亡”）而停止。最坏的情况下，我们会得到 NaN 的结果。
+        console.log('pink' - 100);
+
+        // 判断是否数字 isNaN(),是数字返回false
+        console.log(isNaN(10));
+        // 字符型String可以用''也可以用"",js可以用双引号嵌套单引号，或者单引号嵌套双引号
+        var a = "我是'小可爱'";
+        console.log(a);
+        var b = '我是"小可爱"';
+        console.log(b);
+        // 转义字符 \n,newline \\ \' \" \t \b,空格
+        // 获取字符串长度length 字符串.length
+        console.log(a.length);
+        // 字符串的拼接
+        console.log(a + 1 + '\n' + b + 2);
+        //布尔型 true相加当1或'true'，false相加当0或'false'
+        console.log(true + 1);
+        console.log('1' + true);
+        // undefined未赋值的
+        var c;
+        console.log(c);
+        console.log(c + 1);//NaN
+        // null空值
+        var d = null;
+        console.log(d);
+        console.log(d + 1);//1
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

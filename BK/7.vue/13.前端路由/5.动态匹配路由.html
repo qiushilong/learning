@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-router.min.js"></script>
+</head>
+
+<body>
+    <!-- 
+        19,20,21,30,41
+    -->
+
+    <div id="app">
+        <router-link to="/user/1">User1</router-link>
+        <router-link to="/user/2">User2</router-link>
+        <router-link to="/user/3">User3</router-link>
+        <router-link to="/register">Register</router-link>
+
+        <router-view></router-view>
+    </div>
+
+    <script>
+
+        const User = {
+            template: '<h1>user组件---用户id为:{{$route.params.id}}</h1>'
+        }
+        const Register = {
+            template: '<h1>register组件</h1>'
+        }
+
+        const router = new VueRouter({
+            //所有路由规则
+            routes: [
+                { path: '/', redirect: '/user' },
+                //动态路由,以:开头
+                { path: '/user/:id', component: User },
+                { path: '/register', component: Register }
+            ]
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            router
+        })
+    </script>
+</body>
+
+</html>

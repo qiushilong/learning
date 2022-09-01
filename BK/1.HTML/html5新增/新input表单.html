@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新input表单</title>
+    <style>
+        ul li {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        ul li input {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 新增语义 -->
+    <form action="" method="GET">
+        <ul>
+            <li>
+                <!-- 限制必须输入Email -->
+                email:<input type="email">
+            </li>
+            <li>
+                <!-- 限制必须输入url -->
+                url:<input type="url">
+            </li>
+            <li>
+                <!-- 限制必须输入日期类型 -->
+                date:<input type="date">
+            </li>
+            <li>
+                <!-- 限制必须输入时间类型 -->
+                time:<input type="time">
+            </li>
+            <li>
+                <!-- 限制必须输入月类型 -->
+                month:<input type="month">
+            </li>
+            <li>
+                <!-- 限制必须输入周类型 -->
+                week:<input type="week">
+            </li>
+            <li>
+                <!-- 限制必须输入数字类型 -->
+                number:<input type="number">
+            </li>
+            <li>
+                <!-- 电话号码 -->
+                telphone<input type="tel">
+            </li>
+            <li>
+                <!-- 搜索栏 -->
+                search:<input type="search">
+            </li>
+            <li>
+                <!-- 生成一个颜色选择表单 -->
+                color:<input type="color">
+            </li>
+            <li>
+                <!-- 生成一个文件表单 multiple是多文件上传-->
+                文件:<input type="file" multiple>
+            </li>
+            <!-- 当我们提交表单就可以进行验证了 -->
+            <li>
+                <input type="submit" value="提交">
+            </li>
+        </ul>
+    </form>
+
+</body>
+
+</html>

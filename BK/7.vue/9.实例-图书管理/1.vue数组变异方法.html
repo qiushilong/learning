@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        Vue的数组变异方法相对js的数组方法添加了响应式
+
+        变异方法(修改原有数据):
+            push()
+            pop()
+            shift()
+            unshift()
+            splice()
+            sort()
+            reverse()
+        替换数组(生成新的数组):
+            filter()
+            concat()
+            slice(index,length):截取数组,从index开始,长度为length
+    -->
+
+    <div id="app">
+        <div>
+            <span>
+                <input type="text" v-model='fname'>
+                <button @click='add'>添加</button>
+                <button @click='del'>删除</button>
+                <button @click='change'>替换</button>
+            </span>
+        </div>
+        <ul>
+            <li :key='index' v-for='(item,index) in list'>{{item}}</li>
+        </ul>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                fname: '',
+                list: ['apple', 'orange', 'banana']
+            },
+            methods: {
+                add: function () {
+                    this.list.push(this.fname);
+                },
+                del: function () {
+                    this.list.pop();
+                },
+                change: function () {
+                    this.list = this.list.slice(0, 2);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

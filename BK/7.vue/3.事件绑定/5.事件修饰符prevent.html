@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        .prevent阻止默认行为(也可以使用event.preventDefault())
+        <button v-on:click.prevent='handle'>点击</button>
+    -->
+
+    <div id="app">
+        <div>
+            <a href="http://www.baidu.com">百度</a>
+        </div>
+        <div>
+            <a href="http://www.baidu.com" v-on:click.prevent>百度</a>
+        </div>
+        <div>
+            <a href="http://www.baidu.com" v-on:click="handle2">百度</a>
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            methods: {
+                handle2: function (event) {
+                    event.preventDefault();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

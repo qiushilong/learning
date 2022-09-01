@@ -1,0 +1,6 @@
+<!ELEMENT students (student+)>                     <!--根目录students 可以定义多个student-->             
+<!ELEMENT student (name,age,sex)>                  <!--student的属性有name，age，sex-->
+<!ELEMENT name (#PCDATA)>                          <!--name为字符串类型-->
+<!ELEMENT age (#PCDATA)>                           <!--age为字符串类型-->
+<!ELEMENT sex (#PCDATA)>                           <!--sex为字符串类型-->
+<!ATTLIST student number ID #REQUIRED>             <!--student必须有number属性且唯一-->

@@ -1,0 +1,10 @@
+createElement()存在的问题
+  1.太繁琐
+  2.不直观,不能直接看出结构
+  3.不优雅
+
+
+jsx(JavaScript XML)是javascript的语言扩展
+JSX 可以很好地描述 UI 应该呈现出它应有交互的本质形式
+JSX 可以生成 React 元素
+JSX 是React的核心内容

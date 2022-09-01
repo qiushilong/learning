@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <!-- 
+        fetch请求参数
+        1.常用配置选项
+            method(String):HTTP请求方式,默认位GET(GET,POST,PUT,DELETE)
+            body(String):HTTP的请求参数
+            headers(Object):HTTP请求头,默认为{}
+        语法:
+            fetch('/abc',{
+                method:'get'
+            }).then(data=>{
+                return data.text();
+            }).then(ret=>{
+                console.log(ret);
+            })
+    -->
+    <script>
+        //get请求
+        fetch('http://localhost:3000/books?id=123', {
+            method: 'get'
+        }).then(function (data) {
+            //text方法属于fetchAPI的一部分,它返回一个Promise实例对象,用于获取后台返回的数据
+            return data.text();
+        }).then(function (ret) {
+            console.log(ret);//这里才是真的返回结果
+        });
+
+        fetch('http://localhost:3000/books/456', {
+            method: 'get'
+        }).then(function (data) {
+            //text方法属于fetchAPI的一部分,它返回一个Promise实例对象,用于获取后台返回的数据
+            return data.text();
+        }).then(function (ret) {
+            console.log(ret);//这里才是真的返回结果
+        });
+
+        //delete请求
+        fetch('http://localhost:3000/books/789', {
+            method: 'delete'
+        }).then(function (data) {
+            //text方法属于fetchAPI的一部分,它返回一个Promise实例对象,用于获取后台返回的数据
+            return data.text();
+        }).then(function (ret) {
+            console.log(ret);//这里才是真的返回结果
+        });
+
+        //post请求
+        fetch('http://localhost:3000/books', {
+            method: 'post',
+            body: 'uname=lisi&pwd=123',
+            headers: {//post提交必须
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }).then(function (data) {
+            return data.text();
+        }).then(function (data) {
+            console.log(data);
+        });
+
+        //post请求2
+        fetch('http://localhost:3000/books', {
+            method: 'post',
+            body: JSON.stringify({
+                uname: '张三',
+                pwd: '456'
+            }),
+            headers: {//post提交必须
+                'Content-Type': 'application/json'
+            }
+        }).then(function (data) {
+            return data.text();
+        }).then(function (data) {
+            console.log(data);
+        });
+
+        //put请求
+        fetch('http://localhost:3000/books/123', {
+            method: 'put',
+            body: JSON.stringify({
+                uname: '张三',
+                pwd: '789'
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function (data) {
+            return data.text();
+        }).then(function (data) {
+            console.log(data);
+        });
+    </script>
+</body>
+
+</html>

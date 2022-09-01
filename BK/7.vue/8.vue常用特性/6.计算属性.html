@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        计算属性
+        表达式的计算逻辑可能会比较复杂,使用计算属性可以使模板内容更加简洁
+        用法:
+        computed:{
+            属性名reversedMessage:function(){
+                属性返回值
+                return this.msg.split(''),reverse().join('');
+            }
+        }
+    -->
+
+    <div id="app">
+        <div>{{msg}}</div>
+        <div>计算逻辑把字符串反转</div>
+        <div>{{msg.split('').reverse().join('')}}</div>
+        <div>计算属性把字符串反转</div>
+        <div>{{reverseString}}</div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello'
+            },
+            computed: {
+                reverseString: function () {
+                    return this.msg.split('').reverse().join('');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

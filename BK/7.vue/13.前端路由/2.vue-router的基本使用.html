@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-router.min.js"></script>
+</head>
+
+<body>
+    <!-- 
+        vue-router:是专门用来管理路由的
+        基本使用:
+        1.引入相关的库文件(注意vue-router依赖vue,所以引入在vue后面)
+        2.添加路由链接
+            router-link是vue中提供的标签,默认会被渲染为a标签
+            to属性默认被渲染位href属性
+            to属性的默认值为#开头的hash地址
+        3.添加路由填充位
+            router-view,也叫路由占位符
+            将来通过路由规则匹配到的组件,会被渲染到router-view的位置
+        4.定义路由组件
+
+        5.配置路由规则并创建路由实例
+        6.把路由挂载到Vue根实例中
+    -->
+
+    <div id="app">
+        <router-link to="/user">User</router-link>
+        <router-link to="/register">Register</router-link>
+
+        <router-view></router-view>
+    </div>
+
+    <script>
+
+        //4.定义路由组件
+        const User = {
+            template: '<h1>user组件</h1>'
+        }
+        const Register = {
+            template: '<h1>register组件</h1>'
+        }
+
+        //5.配置路由规则并创建路由实例
+        const router = new VueRouter({
+            //所有路由规则
+            routes: [
+                { path: '/user', component: User },
+                { path: '/register', component: Register }
+            ]
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            //6.把路由挂载到Vue根实例中
+            router: router
+        })
+    </script>
+</body>
+
+</html>

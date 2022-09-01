@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        alert("Hello");
+
+        /*
+        prompt
+        prompt 函数接收两个参数：
+        result = prompt(title, [default]);
+        浏览器会显示一个带有文本消息的模态窗口，还有 input 框和确定/取消按钮。
+        title
+        显示给用户的文本
+        default
+        可选的第二个参数，指定 input 框的初始值。
+
+        访问者可以在提示输入栏中输入一些内容，然后按“确定”键。
+        然后我们在 result 中获取该文本。或者他们可以按取消键或按 Esc 键取消输入，
+        然后我们得到 null 作为 result。
+        */
+        let age = prompt('How old are you?', 100);
+
+        /*
+        confirm
+        语法：
+        result = confirm(question);
+        confirm 函数显示一个带有 question 以及确定和取消两个按钮的模态窗口。
+        点击确定返回 true，点击取消返回 false。
+
+
+        */
+
+
+        let isBoss = confirm("Are you the boss?");
+
+        alert(isBoss); // 如果“确定”按钮被按下，则显示 true
+    </script>
+</body>
+
+</html>

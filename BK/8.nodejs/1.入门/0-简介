@@ -1,0 +1,12 @@
+简单的说，Node.js就是运行在服务端的JavaScript 
+Node.js是一个基于Chrome JavaScript运行时建立的一个平台
+Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好
+
+cmd窗口操作
+    查看node版本
+        node -v
+        node --version
+    进入命令交互模式
+        node
+    退出命令交互模式
+        ctrl+d,ctrl+c(两次),输入命令.exit

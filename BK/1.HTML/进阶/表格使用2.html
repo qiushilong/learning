@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格使用2</title>
+</head>
+
+<!--
+    合并单元格
+    跨行：rowspan
+    跨列：clospan
+    1.确定跨行or跨列
+    2.确定单元格
+    3.写合并属性
+    4.删除多余单元格
+-->
+
+<body>
+    <table align="center" border="1" cellpadding="20" cellspacing="0">
+        <thead>
+            <tr>
+                <th colspan="2"></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

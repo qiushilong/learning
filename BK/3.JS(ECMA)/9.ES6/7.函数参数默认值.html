@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //ES6允许给函数赋初始值
+        let fn = (a = 10) => console.log(a);
+        fn();
+        fn(20);
+        //建议带初始值的参数往后放
+
+        //和解构赋值结合
+        function connect({ host = '127.0.0.1', uname, password, port }) {
+            console.log(host, uname, password, port);
+        }
+        connect({
+            host: 'atuigu.com',
+            uname: 'root',
+            password: 'root',
+            port: 3306
+        })
+    </script>
+</body>
+
+</html>

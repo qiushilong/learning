@@ -1,0 +1,44 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://shilong-ddu.gitee.io",
+  "elements": [
+    {
+      "id": "4-QNwYS1m4X5jGOFzVkAA",
+      "type": "text",
+      "x": 92.80000305175781,
+      "y": 153.40000915527344,
+      "width": 613,
+      "height": 2887,
+      "angle": 0,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "strokeSharpness": "sharp",
+      "seed": 1336179824,
+      "version": 2840,
+      "versionNonce": 1574880880,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1642316195576,
+      "text": "dva使用\n\nmodel文件\nnamespace：命名空间，不能重复。\nstate：用来保存状态。\nreducers：同步操作。\neffects：异步操作。\nsubscriptions: 订阅操作。\n\n全局index.js中要引入全局的model。\n\n组件内要使用connect连接model和组件\n如IndexPage中引入 \nconnect(mapStateToProps)(IndexPage)\n\n// model.js code\nexport default{\n  namespace: 'indexTest',\n  state: {\n    name: 'Mesa',\n    cnodeData: []\n  },\n  reducers: {\n    setName(state,payload){\n      // can't use one object, else view no fresh\n      let _state=JSON.parse(JSON.stringify(state));\n      _state.name=payload.data.name;\n      return _state;\n    },\n    setCnodeDataList(state, payload){\n      let _state=JSON.parse(JSON.stringfy(state));\n      _state.cnodeData=payload.data;\n      return _state;\n    }\n  },\n  effects:{\n    *setNameAsync(payload, {put,call}){\n      // put like a dispatch，effects use reducers to change\n      put({\n        type: 'setName',\n        data: {\n          name: 'chaorenqiang'\n        }\n      })\n    },\n    *testCnode(payload,{put,call}){\n      let res = yield call(api.testCnode);\n      if(res.data){\n        yield put({\n          type: 'setCnodeDataList',\n          data: res.data.data\n        })\n      }\n    }\n  },\n  subscriptions:{\n    haha({dispatch,history}){\n      history.listen(({pathname})=>{\n        if(pathname==='/use'){\n          ...\n        }\n      }\n    }\n  }\n}\n\n\n// IndexPage.jsx code\nclass IndexPage extends React.components{\n  ...\n  // use model.js methods\n  handleSetName=()=>{\n    this.props.dispatch({\n      type: 'indexTest/setName',\n      data:{\n        name: 'zhuzhuxia'\n      }\n    })\n  }\n  // use model.js methods async\n  handleSetNameAsync=()=>{\n    this.props.dispatch({\n      type: 'indexTest/setNameAsync',\n      data:{\n        name: 'xiaodaidai'\n      }\n    })\n  }\n}\n\nconst mapStateToProps=state=>{\n  return {\n    name:'zs',\n    age:23,\n    cnodeData:state.indexTest.cnodeData\n  }\n}\n\nexport default connect(mapStateToProps)(IndexPage);\n\n\n// service.js code\nexport function textCnode(){\n  return fetch('api/v1/topic');\n}\n\n\n// mock.js code\nmodule.exports={\n  'GET /api/mockdata': (req,res)=>{\n    res.send({\n      name: 'xiyangyang'\n    })\n  }\n} ",
+      "fontSize": 20,
+      "fontFamily": 2,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "baseline": 2880,
+      "containerId": null,
+      "originalText": "dva使用\n\nmodel文件\nnamespace：命名空间，不能重复。\nstate：用来保存状态。\nreducers：同步操作。\neffects：异步操作。\nsubscriptions: 订阅操作。\n\n全局index.js中要引入全局的model。\n\n组件内要使用connect连接model和组件\n如IndexPage中引入 \nconnect(mapStateToProps)(IndexPage)\n\n// model.js code\nexport default{\n  namespace: 'indexTest',\n  state: {\n    name: 'Mesa',\n    cnodeData: []\n  },\n  reducers: {\n    setName(state,payload){\n      // can't use one object, else view no fresh\n      let _state=JSON.parse(JSON.stringify(state));\n      _state.name=payload.data.name;\n      return _state;\n    },\n    setCnodeDataList(state, payload){\n      let _state=JSON.parse(JSON.stringfy(state));\n      _state.cnodeData=payload.data;\n      return _state;\n    }\n  },\n  effects:{\n    *setNameAsync(payload, {put,call}){\n      // put like a dispatch，effects use reducers to change\n      put({\n        type: 'setName',\n        data: {\n          name: 'chaorenqiang'\n        }\n      })\n    },\n    *testCnode(payload,{put,call}){\n      let res = yield call(api.testCnode);\n      if(res.data){\n        yield put({\n          type: 'setCnodeDataList',\n          data: res.data.data\n        })\n      }\n    }\n  },\n  subscriptions:{\n    haha({dispatch,history}){\n      history.listen(({pathname})=>{\n        if(pathname==='/use'){\n          ...\n        }\n      }\n    }\n  }\n}\n\n\n// IndexPage.jsx code\nclass IndexPage extends React.components{\n  ...\n  // use model.js methods\n  handleSetName=()=>{\n    this.props.dispatch({\n      type: 'indexTest/setName',\n      data:{\n        name: 'zhuzhuxia'\n      }\n    })\n  }\n  // use model.js methods async\n  handleSetNameAsync=()=>{\n    this.props.dispatch({\n      type: 'indexTest/setNameAsync',\n      data:{\n        name: 'xiaodaidai'\n      }\n    })\n  }\n}\n\nconst mapStateToProps=state=>{\n  return {\n    name:'zs',\n    age:23,\n    cnodeData:state.indexTest.cnodeData\n  }\n}\n\nexport default connect(mapStateToProps)(IndexPage);\n\n\n// service.js code\nexport function textCnode(){\n  return fetch('api/v1/topic');\n}\n\n\n// mock.js code\nmodule.exports={\n  'GET /api/mockdata': (req,res)=>{\n    res.send({\n      name: 'xiyangyang'\n    })\n  }\n} "
+    }
+  ],
+  "appState": {
+    "gridSize": null,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}

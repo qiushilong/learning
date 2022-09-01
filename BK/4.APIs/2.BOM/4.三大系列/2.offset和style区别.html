@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        console.log(div.offsetWidth);//200
+        console.log(div.style.width);//空
+        // 区别一：style只能的到写在标签里的css，并且带有单位（字符串），offset可以得到任意样式表中的样式值（整数型）
+        // 区别二：style可以赋值，offset不能赋值
+    </script>
+</body>
+
+</html>

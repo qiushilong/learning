@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪元素选择器</title>
+    <!-- 
+        注意：
+        before和after创建一个元素，但是属于行内元素
+        新创建的这个元素再文档树中是找不到的，故称伪元素
+        语法：element::before{}
+        before和after必须有content属性
+        before在父元素内容的前面创建元素，after在父元素内容的后面插入元素
+        伪元素选择器和标签选择器一样，权重为1
+     -->
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        /* ::before是最开始的，::after是最后面的 */
+        /* content是必须属性 */
+        div::before {
+            display: inline-block;
+            content: '我';
+            width: 30px;
+            height: 50px;
+            background-color: purple;
+        }
+
+        div::after {
+            content: '小猪佩奇';
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        是
+    </div>
+</body>
+
+</html>

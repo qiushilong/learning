@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <!-- 
+        props属性值类型
+        字符串String
+        数值Number
+        布尔值Boolean
+        数值Array
+        对象Object
+
+        数值,布尔的pnum,pbool前带冒号:则是数值,布尔型,不带则是字符型
+    -->
+
+  <div id="app">
+    <menu-item :pstr='pstr' :pnum='12' :pbool='true' :parr='parr' :pobj='pobj'></menu-item>
+  </div>
+  <script src="../js/vue.min.js"></script>
+  <script>
+    Vue.component('menu-item', {
+      props: ['pstr', 'pnum', 'pbool', 'parr', 'pobj'],
+      template: `
+        <div>
+          {{pstr}}
+          {{pnum}}
+          {{pbool}}
+          <ul>
+            <li :key='index' v-for="(item,index) in parr">{{item}}</li>
+          </ul>
+          <div>
+            <span>{{pobj.name}}</span>
+            <span>{{pobj.age}}</span>
+          </div>
+        </div>
+      `
+    })
+
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        pstr: 'hello',
+        parr: [
+          'apple',
+          'banana',
+          'orange'
+        ],
+        pobj: {
+          name: 'lisi',
+          age: 23
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

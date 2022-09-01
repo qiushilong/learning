@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        // Date
+        // 构造方法
+        // 1.
+        var date = new Date();
+        console.log(date);
+        // 2.
+        // 10是11月，从0开始记月数
+        var date2 = new Date(2019, 10, 01);
+        console.log(date2);
+        // 3.
+        //这里的10就是10月
+        var date3 = new Date('2019-10-1 8:8:8');
+        console.log(date3);
+
+        // 函数
+        // 获取年
+        console.log(date.getFullYear());
+        // 获取月(0-11)
+        console.log(date.getMonth());
+        // 获取日(0-6 周日为0)
+        console.log(date.getDate());
+        // 获取星期
+        console.log(date.getDay());
+        // 获取小时
+        console.log(date.getHours());
+        // 获取分钟
+        console.log(date.getMinutes());
+        // 获取秒
+        console.log(date.getSeconds());
+
+        // 格式化
+        function getTimes() {
+            var time = new Date();
+            var y = time.getFullYear();
+            var mo = time.getMonth() + 1;
+            var d = time.getDate();
+            var week = time.getDay();
+            var h = time.getHours();
+            var m = time.getMinutes();
+            var s = time.getSeconds();
+            mo = mo < 10 ? '0' + mo : mo;
+            d = d < 10 ? '0' + d : d;
+            h = h < 10 ? '0' + h : h;
+            m = m < 10 ? '0' + m : m;
+            s = s < 10 ? '0' + s : s;
+            return y + '-' + mo + '-' + d + '  ' + h + ':' + m + ':' + s;
+        }
+        console.log(getTimes());
+
+        //毫秒数，时间戳，从1970.1.1开始
+        //1.
+        console.log('时间戳' + date.getTime());
+        // 2.
+        console.log('时间戳' + date.valueOf());
+        // 3.
+        var ms = +new Date();
+        console.log(ms);
+        //4.H5新增
+        console.log(Date.now());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

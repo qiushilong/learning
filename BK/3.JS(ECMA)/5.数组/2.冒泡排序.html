@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒泡排序</title>
+    <script>
+        var arr = [5, 4, 3, 2, 1];
+        for (var i = 0, temp; i < arr.length; i++) {
+            for (var j = 0; j < arr.length - i; j++) {
+                if (arr[j + 1] < arr[j]) {
+                    temp = arr[j + 1];
+                    arr[j + 1] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        console.log(arr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

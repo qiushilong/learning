@@ -1,0 +1,20 @@
+Action是把数据从应用传到store的有效载荷
+它是store数据的唯一来源
+一般使用store.dispatch(action)将action传到store
+也可以使用connect
+
+action内必须要使用一个字段为type的字符串,来表示它将执行的行为
+
+action的样子
+{
+  type:'ADD_TODO',
+  text:'...'
+}
+
+Action 创建函数 就是⽣成 action 的⽅法
+function addTodo(text) {
+  return {
+    type: ADD_TODO,
+    text
+  }
+}

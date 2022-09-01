@@ -1,0 +1,37 @@
+<div class="control">
+  <input type="text" id="example" name="example" />
+</div>
+
+<br />
+<div class="event-log">
+  <textarea readonly class="event-log-contents" rows="8" cols="25"></textarea>
+  <button class="clear-log">Clear</button>
+</div>
+<script>
+  let flag = false;
+
+  const inputElement = document.querySelector('input[type="text"]');
+  const log = document.querySelector(".event-log-contents");
+  const clearLog = document.querySelector(".clear-log");
+  clearLog.addEventListener("click", () => {
+    log.textContent = "";
+  });
+
+  function handleEvent (event) {
+    log.textContent = log.textContent + event.target.value + '\n';
+  }
+
+  inputElement.addEventListener("compositionstart", (e) => {
+    flag = true;
+  });
+  //inputElement.addEventListener('compositionupdate', handleEvent);
+  inputElement.addEventListener("compositionend", (e) => {
+    handleEvent(e);
+    flag = false;
+  });
+  inputElement.addEventListener("input", (e) => {
+    if (!flag) {
+      handleEvent(e);
+    }
+  });
+</script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      border: 1px solid yellow;
+      display: grid;
+      grid-template-rows: 100px 100px 100px;
+      grid-template-columns: 100px 100px 100px;
+      grid-auto-flow: row dense;
+      /* 
+        justify-items:设置box盒子的div的水平位置
+        align-items:设置box盒子的div的垂直位置
+
+        start：对齐单元格的起始边缘
+        end：对齐单元格的结束边缘
+        center：单元格内部居中
+        stretch：拉伸，占满单元格的整个宽度（默认值）
+       */
+      justify-items: center;
+      align-items: center;
+      /* 上面两句简写
+          place-items:center center;
+          第一个是align-items,第二个是justify-items
+       */
+    }
+
+    .box div {
+      width: 50px;
+      height: 50px;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="div1">1</div>
+    <div class="div2">2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+  </div>
+</body>
+
+</html>

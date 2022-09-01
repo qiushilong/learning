@@ -1,0 +1,10 @@
+使用node.js操作MongoDB数据库需要依赖第三方包mongoose
+
+启动MongoDB 
+net start mongodb
+关闭MongoDB 
+net stop mongodb
+
+关于数据库的操作都是异步操作
+
+mongodb是javascript写的,返回的对象也是json对象

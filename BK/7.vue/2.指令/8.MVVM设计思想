@@ -1,0 +1,6 @@
+MVVM设计思想
+M(model):js对象
+V(view):DOM
+VM(view-model):控制逻辑,vue
+
+vue双向绑定了DOM和js对象

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+
+        // window.setTimeout(调用函数[, 延时时间]);
+        // 过了延时时间就调用函数，延时时间单位是ms，省略则为0
+        // window可以省略        
+        // setTimeout()需要等待时间，时间到了才调用，称为回调函数
+        // 之前的监听也是回调函数
+        // 写法一
+        setTimeout(function () {
+            console.log('时间到了');
+        }, 2000);
+        // 写法二
+        function callback() {
+            console.log('爆炸了');
+        }
+        setTimeout(callback, 3000);
+        // 写法三
+        setTimeout('callback()', 3000);
+
+        // 页面中可能有很多定时器
+        // 就应当取名字
+        var time1 = setTimeout(callback, 5000);
+        var time2 = setTimeout(callback, 6000);
+    </script>
+
+</body>
+
+</html>

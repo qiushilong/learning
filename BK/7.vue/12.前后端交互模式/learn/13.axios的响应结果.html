@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <!-- 
+        axios的响应结果
+        响应结果的主要属性
+            data:实际响应回来的数据
+            headers:响应头信息
+            status:响应状态码
+            statusText:响应状态信息
+    -->
+    <script src="./js/axios.js"></script>
+    <script>
+        axios.get('http://localhost:3000/axios').then(function (ret) {
+            console.log(ret);
+        })
+
+        axios.get('http://localhost:3000/axios-json').then(function (ret) {
+            console.log(ret.data);
+            console.log(ret.data.uname);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        function fun(){
+            $.ajax(
+                {
+                    url:"ajaxServlet",//请求路径
+                    type:"POST",//请求方式,不写默认get
+                    //data:"username=jack&age=23"//携带的参数
+                    //用json
+                    data:{
+                        "username":"jack",
+                        "age":23
+                    },
+                    success:function (msg){
+                        //响应成功的回调函数
+                        alert(msg);
+                    },
+                    error:function(){
+                        //请求响应错误出现的回调函数
+                        alert('出错了...')
+                    },
+                    dataType:"text"//设置接收到的响应数据的格式
+                }
+            )
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="发送异步请求" onclick="fun();">
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //ES6引入了新的声明字符串的方式,模板字符串
+        //`新方式`
+        let str = `新字符串声明`;
+        console.log(str, typeof str);
+
+        //特性
+        //1.可以带换行
+        let str2 = `
+            <ul>
+                <li>沈腾</li>
+                <li>马丽</li>
+                <li>艾伦</li>
+            </ul>
+        `
+        console.log(str2);
+
+        //2.变量拼接
+        let lovest = '沈腾';
+        let out = `${lovest}是搞笑演员`;
+        console.log(out);
+    </script>
+</body>
+
+</html>

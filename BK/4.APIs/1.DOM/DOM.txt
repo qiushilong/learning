@@ -1,0 +1,2 @@
+DOM(Document Object Model)，是W3C组织推荐的处理可扩展标记语言(HTML,XML)的标准编程接口
+W3C已经定义了一系列的DOM接口，通过这些DOM接口可以改变网页的内容，结构，样式

@@ -1,0 +1,8 @@
+Gulp可用做什么
+  1.项目上线,html css js文件的压缩合并
+  2.语法转换 es6,less等转es5,css... 
+  3.公共文件抽离
+  4.修改文件浏览器自动刷新
+
+Gulp使用
+  1.下载gulp库文件   npm install gulp

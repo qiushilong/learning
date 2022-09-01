@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel使得jsx语法可以转化为es5的语法 -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    const songs = [
+      { id: 1, name: '痴心绝对' },
+      { id: 2, name: '向往' },
+      { id: 3, name: '南上' }
+    ]
+
+    // 列表渲染,key指定索引
+    const list = (
+      <ul>
+        {songs.map(item => <li key={item.id}>{item.name}</li>)}
+      </ul>
+    )
+
+    ReactDOM.render(
+      <h1>
+        列表渲染:
+        {list}
+      </h1>,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+
+</html>

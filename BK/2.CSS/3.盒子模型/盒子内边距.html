@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子内边距</title>
+
+    <style>
+        /* 设置盒子内边距，也会影响盒子大小 若是不指定宽度，则不会撑大盒子*/
+        div {
+            width: 500px;
+            height: 300px;
+            background-color: pink;
+            /* 设置各各方位的内边距 */
+            padding-left: 20px;
+            padding-top: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+
+            /* 简写 上下左右都是20px的内边距*/
+            /* padding: 20px; */
+            /* 上下10px，左右20px */
+            /* padding: 10px 20px; */
+            /* 上5px，左右10px，下20px */
+            /* padding: 5px 10px 20px; */
+            /* 上5px，左10px，下20px 右30px*/
+            /* padding: 5px 10px 20px 30px; */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>内边距</div>
+</body>
+
+</html>

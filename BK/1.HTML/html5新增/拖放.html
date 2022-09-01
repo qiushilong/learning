@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖放(drag和drop)</title>
+    <style>
+        #div1 {
+            width: 336px;
+            height: 400px;
+            border: 1px solid skyblue;
+        }
+    </style>
+</head>
+<!-- 
+    拖拽操作,可以把一个盒子通过拖动放到另一个盒子中
+    使用步骤:
+    1.给要拖拽的盒子添加可拖动,即draggable="true"
+    2.盒子拖动时ondragstart,触发拖动事件,设置移动类型为DOMString,参数二为拖动盒子id
+    3.给容纳的盒子设置拖动经过事件ondragover,在事件中阻止默认行为
+    4.给容纳的盒子设置放事件ondrop,进行事件操作
+ -->
+
+<body>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <img id="drag1" src="语义化标签.jpg" draggable="true" ondragstart="drag(event)" width="336" />
+    <script type="text/javascript">
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("Text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("Text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</body>
+
+</html>

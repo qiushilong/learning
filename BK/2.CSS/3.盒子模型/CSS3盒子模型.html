@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子模型</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border: 20px solid red;
+            padding: 15px;
+            /* 默认 盒子大小为width+border*2+padding*2 */
+            box-sizing: content-box;
+        }
+
+        /* border和paddig不会改变盒子大小 */
+        p {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border: 20px solid red;
+            padding: 15px;
+            /* 盒子最终的大小就是width的大小 */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        小猪乔治
+    </div>
+    <p>
+        小猪佩奇
+    </p>
+</body>
+
+</html>

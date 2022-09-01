@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量</title>
+    <script>
+        /* 规范：
+        由字目a-z，A-Z，_，$组成
+        严格区分大小写
+        数字不能开头
+        不能是关键字和保留字，还有name,(保留字：现在还不是关键字，将来可能是关键字)
+        名字需要有意义
+        驼峰命名法
+         */
+        // var是variable
+        var age;
+        age = 10;
+        console.log(age);
+        // 初始化赋值，注意name是关键词
+        var myname = 'pink';
+        console.log(myname);
+        // 声明多个变量
+        var address = '木叶',
+            gz = 2000,
+            islive = true;
+        //只声明不赋值，结果是undefined（未定义的）
+        var b;
+        console.log(b);
+        // 不声明直接使用,但是全局变量，不推荐使用
+        c = 100;
+        console.log(c);
+        //不声明不赋值，会报错
+        console.log(d);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

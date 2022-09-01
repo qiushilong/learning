@@ -1,0 +1,29 @@
+vuex是实现组件全局状态（数据）管理的一种机制，可以方便的实现组件之间的数据共享
+
+使用Vuex统一管理状态的好处
+    能够在vuex中集中管理共享的数据,易于开发和后期维护
+    能够高效地实现组件之间的数据共享,提高开发效率
+    存储在vuex中的数据都是响应式的,能够实时保持数据与页面的同步
+
+什么样的数据适合存储到Vuex中
+    一般情况下，只有组件之间共享的数据，才有必要存储到vuex中;
+    对于组件中的私有数据，依旧存储在组件自身的 data中即可。
+
+基本使用
+    1.安装vuex依赖包
+        npm install vuex --save
+    2.导入vuex包
+        import Vuex from 'vuex'
+        Vue.use(Vuex)
+    3.创建store对象
+        const store=new Vuex.Store({
+            //state中存放的就是全局共享的数据
+            state:{count:0}
+        })
+    4.将store对象挂载到vue实例中
+        new Vue({
+            el:'#app',
+            //将创建的共享数据对象,挂载到Vue实例中
+            //所有的组件,可以直接从store中获取
+            store
+        })

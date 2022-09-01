@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn1">前进</button>
+    <button class="btn2">后退</button>
+    <div></div>
+    <script>
+        // 缓动：变速运动
+        // 缓动公式：移动距离（最好取整数）=（目标位置-现在的位置）/10
+        // 取整时，正数往大取，负数往小取
+        var div = document.querySelector('div')
+        function animate(obj, distination, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                // 用等于
+                if (div.offsetLeft == distination) {
+                    clearInterval(obj.timer);
+                    // 回调函数
+                    if (callback)
+                        callback();
+                }
+                var x = (distination - div.offsetLeft) / 15;
+                if (x > 0)
+                    div.style.left = div.offsetLeft + Math.ceil(x) + 'px';
+                else
+                    div.style.left = div.offsetLeft + Math.floor(x) + 'px';
+
+            }, 100);
+        }
+        var btn1 = document.querySelector('.btn1')
+        var btn2 = document.querySelector('.btn2')
+        btn1.addEventListener('click', function () {
+            animate(div, 500, function () {
+                alert('结束了');
+            });
+        });
+        btn2.addEventListener('click', function () {
+            animate(div, 0, function () {
+                alert('结束了');
+            });
+        });
+
+    </script>
+</body>
+
+</html>

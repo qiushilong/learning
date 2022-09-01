@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: url(../images/1.jpg) no-repeat;
+        }
+
+        div {
+            width: 400px;
+            height: 62.5px;
+            margin: 100px auto;
+            background-color: #fff;
+        }
+
+        div li {
+            float: left;
+            box-sizing: border-box;
+            width: 100px;
+            list-style: none;
+        }
+
+        div li img {
+            width: 100px;
+            border: 2px solid #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li class="lis" id="lis"><img src="../images/1.jpg" alt=""></li>
+            <li class="lis" id="lis"><img src="../images/2.jpg" alt=""></li>
+            <li class="lis" id="lis"><img src="../images/3.jpg" alt=""></li>
+            <li class="lis" id="lis"><img src="../images/4.jpg" alt=""></li>
+        </ul>
+    </div>
+    <script>
+        // var lis = document.getElementsByTagName('lis');
+        // var lis = document.getElementsByClassName('lis');
+        // var lis = document.querySelectorAll('div ul li');
+        // var lis = document.querySelector('div').querySelector('ul').querySelectorAll('li');
+
+        // var body = document.body;
+        // for (var i = 0; i < lis.length; i++) {
+        //     lis[i].onclick = function () {
+        //         for (var j = 0; j < lis.length; j++) {
+        //             if (lis[j] === this) {
+        //                 body.style.background = 'url(../images/' + (j + 1) + '.jpg) no-repeat'
+        //                 break;
+        //             }
+        //         }
+        //     }
+        // }
+
+        var lis = document.querySelectorAll('div ul img');
+        var body = document.body;
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].onclick = function () {
+                body.style.background = 'url(' + this.src + ') no-repeat'
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    class App extends React.Component {
+      constructor() {
+        super();
+
+        this.state = {
+          count: 0
+        }
+
+        // 使用bind绑定this
+        // 使用bind绑定过this的函数,this指向不会再变化
+        this.onIncrement = this.onIncrement.bind(this)
+      }
+
+      onIncrement() {
+        this.setState({
+          count: this.state.count + 1
+        })
+      }
+
+      render() {
+        // render中的this是App
+        // 在render中使用this
+        return (
+          <div>
+            <h1>计数器:{this.state.count}</h1>
+            <button onClick={this.onIncrement}>+1</button>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <App />,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+
+</html>

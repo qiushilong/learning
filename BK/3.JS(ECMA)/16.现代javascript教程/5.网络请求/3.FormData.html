@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*   
+      FormData
+      构造方法:
+        let formData=new FormData([form])
+      FormData对象API
+        formData.append(name,value) -- 添加指定name和value的表单字段
+        formData.append(name,blob,fileName) -- 添加文件,并指定文件名
+        formData.delete(name) -- 移除带有给定name的字段
+        formData.get(name) -- 获取带有给定name的字段
+        formData.has(name) -- 如果存在带有name的字段,则返回true,否则返回false
+      
+      fetch请求的body可以直接指定为FormData对象
+    */
+
+    async function getData() {
+      // 第一阶段
+      let response = await fetch('http://localhost:3000/data', {
+        method: 'GET',
+        header: {},
+        body: ''
+      });
+      console.log(response);
+      // 如果response.ok是false,表示请求失败
+      if (!response.ok) {
+        console.error('请求数据失败');
+        return
+      }
+      // 第二阶段
+      let data = await response.text();
+      console.log(data);
+    }
+
+    getData();
+  </script>
+</body>
+
+</html>

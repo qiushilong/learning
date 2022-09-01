@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        1.单独的事件中心管理组件间的通信
+        var eventHub=new Vue()
+        2.监听事件与销毁事件
+        eventHub.$on('add-todo',addTodo)
+        eventHub.$off('add-todo')
+        3.触发事件
+        eventHub.$emit('add-todo',id)
+    -->
+
+    <div id="app">
+        <div>父组件</div>
+        <div>
+            <button @click='handle'>销毁事件</button>
+        </div>
+        <test-tom></test-tom>
+        <test-jerry></test-jerry>
+    </div>
+
+    <script>
+        //1.提供事件中心
+        var hub = new Vue();
+
+
+
+        Vue.component('test-tom', {
+            data: function () {
+                return {
+                    num: 0
+                }
+            },
+            template: `
+                <div>
+                    <div>TOM:{{num}}</div>
+                    <button @click='handle'>点击</button>
+                </div>
+            `,
+            methods: {
+                handle: function () {
+                    //触发兄弟组件的事件
+                    hub.$emit('jerry-event', 2);
+                }
+            },
+            mounted: function () {
+                //监听事件
+                hub.$on('tom-event', (val) => {
+                    this.num += val;
+                });
+            }
+        });
+        Vue.component('test-jerry', {
+            data: function () {
+                return {
+                    num: 0
+                }
+            },
+            template: `
+                <div>
+                    <div>JERRY:{{num}}</div>
+                    <button @click='handle'>点击</button>
+                </div>
+            `,
+            methods: {
+                handle: function () {
+                    //触发兄弟组件的事件
+                    hub.$emit('tom-event', 1);
+                }
+            },
+            mounted: function () {
+                //监听事件
+                hub.$on('jerry-event', (val) => {
+                    this.num += val;
+                });
+            }
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                handle: function () {
+                    //销毁事件
+                    hub.$off('tom-event');
+                    hub.$off('jerry-event');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

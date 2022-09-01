@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        style样式处理
+        对象语法:
+        <div v-bind:style="{color:activeColor,fontSize:fontSize}"></div>
+        数组语法:
+        <div v-bind:style="[baseStyles,overridingSyles]"></div>
+        baseStyles里有的不会覆盖,没有的会添加进来
+    -->
+
+    <div id="app">
+        <div v-bind:style='[objStyles,overrideStyles]'></div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                objStyles: {//另一种写法
+                    border: '1px solid green',
+                    width: '200px',
+                    height: '200px'
+                },
+                overrideStyles: {
+                    border: '5px solid orange',
+                    backgroundColor: 'blue'
+                }
+            },
+            methods: {
+                handle: function () {
+                    this.heightStyle = '100px'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

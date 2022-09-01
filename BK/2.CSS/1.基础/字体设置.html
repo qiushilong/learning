@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字体设置</title>
+
+    <!-- color有三种表示，red，#16进制，rgb(255,0,0) -->
+
+    <style>
+        * {
+            /* font-family: "微软雅黑"; */
+            /* font-family:"Microsoft Yahei"; */
+            font-family: 'Times New Roman', Times, serif;
+            /* 从前往后走，有就显示改字体 */
+        }
+
+        h2 {
+            font-family: '微软雅黑';
+            font-style: normal;
+        }
+
+        /* 改body里的大小，body里的都改了 */
+        body {
+            font-size: 20px;
+            font-weight: bold;
+            /* weight可用数字，不用加单位 */
+            font-style: italic;
+        }
+
+        p {
+            /* 必须严格按顺序来 至少必须有font-size和font-family*/
+            /* font: font-style font-weight font-size/line-height font-family; */
+            font: italic 700 16px 'Microsoft yahei'
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2 align="center">小猪佩奇的故事</h2>
+    <pre>
+        小猪佩奇的头像吹风机               吹的我发慌
+    </pre>
+    <p>字体复合属性</p>
+</body>
+
+</html>

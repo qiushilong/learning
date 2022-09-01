@@ -1,0 +1,4 @@
+1.在命令行工具中使用npm install art-template命令进行下载
+2.使用const template = require ('art-template')引入模板引擎
+3.告诉模板引擎要拼接的数据和模板在哪 
+  const html = template(‘模板路径’，数据);

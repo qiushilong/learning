@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>权重叠加</title>
+    <style>
+        /* 复合选择器有权重叠加问题 */
+        ul li {
+            color: green;
+            /* 这里面li的权重为1+1=2 */
+        }
+
+        li {
+            color: red;
+            /* 这里的权重就是1 */
+        }
+
+        .nav li {
+            color: yellow;
+            /* 这里面li的权重为10+1=11 */
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>大猪蹄子</li>
+        <li>大猪蹄子</li>
+        <li>大猪蹄子</li>
+    </ul>
+</body>
+
+</html>

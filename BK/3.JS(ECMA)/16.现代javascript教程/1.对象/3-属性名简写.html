@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //常规写法
+        function makeUser(name, age) {
+            return {
+                name: name,
+                age: age,
+                // ……其他的属性
+            };
+        }
+
+        //简写
+        function makeUser2(name, age) {
+            return {
+                name, // 与 name: name 相同
+                age,  // 与 age: age 相同
+                // ...
+            };
+        }
+    </script>
+</body>
+
+</html>

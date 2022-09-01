@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片底空隙</title>
+    <style>
+        div {
+            border: 5px solid red;
+        }
+
+        .var {
+            /* 不是基线对齐就无空隙 */
+            vertical-align: bottom;
+        }
+
+        .var2 {
+            /* 缺点会占一行 */
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="ldh.jpg" alt="" class="var">
+    </div>
+    <div>
+        <img src="ldh.jpg" alt="" class="var2">
+    </div>
+</body>
+
+</html>

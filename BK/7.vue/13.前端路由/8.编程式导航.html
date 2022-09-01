@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-router.min.js"></script>
+</head>
+
+<body>
+    <!-- 
+        声明式导航:通过点击链接实现导航的方式，叫做声明式导航
+        例如:普通网页中的<a></a>链接或vue 中的<router-link></router-link>
+        编程式导航:通过调用JavaScript形式的API实现导航的方式，叫做编程式导航
+        例如:普通网页中的 location.href
+
+        vue常用的编程式导航API如下:
+        this.$router.push ('hash地址')
+            
+        this.$router.go(n)
+            传n向前移动n个界面
+            传-n向后移动n个界面
+    -->
+    <div id="app">
+        <router-link to="/user/1">User1</router-link>
+        <router-link to="/user/2">User2</router-link>
+        <!-- 使用命名路由 -->
+        <router-link :to="{name:'user',params:{id:3}}">User3</router-link>
+        <router-link to="/register/1">Register1</router-link>
+
+        <router-link to="/reg/1">Reg1</router-link>
+
+        <router-view></router-view>
+    </div>
+
+    <script>
+
+        const User = {
+            props: ['id'],
+            template: `
+                <div>
+                    <h1>user组件---用户id为:{{id}}</h1>
+                    <button @click="goRegister">跳到注册界面</button>    
+                </div>
+            `,
+            methods: {
+                goRegister: function () {
+                    this.$router.push('/register/1');
+                }
+            }
+        }
+        const Register = {
+            props: ['id', 'uname', 'age'],
+            template: `
+                <div>
+                    <h1>register组件---{{uname}}--{{age}}</h1>    
+                    <button @click="goback">后退</button>    
+                </div>
+            `,
+            methods: {
+                goback: function () {
+                    this.$router.go(-1);
+                }
+            }
+        }
+        const Reg = {
+            props: ['id', 'uname', 'age'],
+            template: '<h1>reg组件---{{id}}---{{uname}}--{{age}}</h1>'
+        }
+
+        const router = new VueRouter({
+            //所有路由规则
+            routes: [
+                //用name可以取一个名字
+                { path: '/user/:id', component: User, name: 'user', props: true },
+                { path: '/register/:id', component: Register, props: { uname: 'lisi', age: 20 } },
+                { path: '/reg/:id', component: Reg, props: route => ({ uname: 'zs', age: 20, id: route.params.id }) }
+            ]
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            router
+        })
+    </script>
+</body>
+
+</html>

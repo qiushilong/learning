@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // js3兼容移动端
+        var div = document.querySelector('div');
+        // touchstart,touchmove,touchend都各自有各自的触摸对象
+        // 触摸点击事件
+        div.addEventListener('touchstart', function (e) {
+            console.log(e);
+            // 所有触摸点的列表
+            console.log(e.touches);
+            // 正在触摸当前DOM元素的触摸点的列表
+            console.log(e.targetTouches);
+            // 正在触摸当前DOM元素的第一个触摸点
+            console.log(e.targetTouches[0]);
+            // 手指状态改变（有到无，无到有）的列表
+            console.log(e.changedTouches);
+        })
+        // 触摸拖动事件
+        div.addEventListener('touchmove', function () {
+        })
+        // 触摸拖动离开事件
+        div.addEventListener('touchend', function (e) {
+            console.log(e.changedTouches);
+        })
+
+    </script>
+</body>
+
+</html>

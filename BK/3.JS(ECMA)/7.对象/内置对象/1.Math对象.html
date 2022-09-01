@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        // Math不可以构造
+        // e
+        console.log(Math.E);
+        //圆周率
+        console.log(Math.PI);
+        //max()求最大值
+        console.log(Math.max(1, 2, 3, 100));
+        //max()求最小值
+        console.log(Math.min(1, 2, 3, 100));
+        // 绝对值
+        console.log(Math.abs(-250));
+        console.log(Math.abs('-250'));//隐式转换
+        //向下取整
+        console.log(Math.floor(3.14));
+        //向上取整
+        console.log(Math.ceil(3.14));
+        //四舍五入
+        console.log(Math.round(3.4));
+        console.log(Math.round(-1.5));//-1
+        // *随机数random* 返回一个随机的浮点数[0,1)
+        // 得到一个大于等于0，小于1之间的随机数
+        console.log('随机数1 :' + Math.random());
+        // 得到一个两数之间的随机数
+        console.log('随机数2 :' + Math.random() * (max - min) + min);
+        // 得到一个两数之间的随机整数
+        console.log('随机数3 :' + Math.floor(Math.random() * (max - min)) + min);
+        // 得到一个两数之间的随机整数，包括两个数在内
+        console.log('随机数4 :' + Math.floor(Math.random() * (max - min + 1)) + min);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

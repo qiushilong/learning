@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建对象</title>
+    <script>
+        //1.利用字面量创建
+        var obj = {
+            uname: '张三丰',
+            age: 18,
+            sex: '男',
+            sayHi: function () {
+                console.log('hi~');
+            }
+        }
+
+        //2.利用new Object()创建 
+        var obj2 = new Object();
+        obj2.uname = '李小龙';
+        obj2.age = 20;
+        obj2.sex = '男';
+        obj2.sayHi = function () {
+            console.log('hi~');
+        }
+
+        // 3.构造函数 第一个字母大写 构造方法不用return
+        function Star(uname, age, sex) {
+            this.uname = uname;
+            this.age = age;
+            this.sex = sex;
+            this.sayHi = function () {
+                console.log('hi~~');
+            }
+        }
+        // 构造对象必须用new
+        var obj3 = new Star('黎明', 18, '男');
+        var obj4 = new Star('张学友', 19, '男');
+        console.log(obj3);
+        obj3.sayHi();
+        console.log(obj4);
+
+
+        // 调用方法
+        // 1.
+        console.log(obj.uname);
+        console.log(obj.age);
+        console.log(obj.sex);
+        obj.sayHi();
+        // 2.
+        console.log(obj['uname']);
+        console.log(obj['age']);
+        console.log(obj['sex']);
+        // 方法只有一种调用
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

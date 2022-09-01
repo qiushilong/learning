@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="./demo.css">
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    class Stage extends React.Component {
+      render() {
+        return (
+          <div className="stage">
+            <span className="move">...</span>
+            <h1>{this.props.name}</h1>
+          </div>
+        )
+      }
+    }
+
+
+    class Page extends React.Component {
+
+      constructor() {
+        super();
+        this.state = {
+          x: 0,
+          y: 0,
+          lx: 0,
+          ly: 0,
+          stage_data: [
+            {
+              id: 1,
+              big_stage: {
+                name: '大阶段'
+              },
+              small_stage: [
+                {
+                  id: 2,
+                  name: '小阶段1'
+                },
+                {
+                  id: 3,
+                  name: '小阶段2'
+                },
+                {
+                  id: 4,
+                  name: '小阶段2'
+                }
+              ]
+            },
+            {
+              id: 5,
+              big_stage: {
+                name: '大阶段2'
+              },
+              small_stage: [
+                {
+                  id: 6,
+                  name: '小阶段2.1'
+                },
+                {
+                  id: 7,
+                  name: '小阶段2.2'
+                }
+              ]
+            },
+          ]
+        }
+      }
+
+
+      dragStart = e => {
+        e.persist();
+        const { x, y } = this.state;
+        this.setState({
+          x: e.clientX,
+          y: e.clientY
+        })
+      }
+
+      drapOver = e => {
+        e.persist();
+        const { x, y } = this.state;
+        let lx = e.clientX;
+        let ly = e.clientY;
+        this.changeStage(x, y, lx, ly)
+      }
+
+      changeStage(x, y, lx, ly) {
+        // 根据x,y,lx,ly得到第几组,第几个
+        let l1 = 0;
+        let r1 = 1;
+        let l2 = 1;
+        let r2 = 1;
+
+        // 得到新的stage_data
+        let temp = this.state.stage_data;
+        temp[l2].small_stage.splice(r2, 0, temp[l1].small_stage[r1]);
+        console.log(temp);
+        temp[l1].small_stage.splice(r1, 1);
+
+      }
+
+      render() {
+        return (
+          <div className="page">
+            {this.state.stage_data.map(item => (
+              <div className="line" key={item.id} draggable="true">
+                <Stage name={item.big_stage.name} />
+                {item.small_stage.map(item2 => (
+                  <div className="cell" key={item2.id} draggable="true" onDragStart={this.dragStart} onDragOver={this.drapOver}>
+                    <span className="move">...</span>
+                    <h2>{item2.name}</h2>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <Page />
+      , document.getElementById('root'))
+  </script>
+</body>
+
+</html>

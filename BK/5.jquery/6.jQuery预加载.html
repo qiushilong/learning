@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        //和js的window.onload相同
+        $(
+            function () {
+                //给b1添加点击事件
+                $("#b1").click(
+                    function () {
+                        alert('abc');
+                    }
+                );
+            }
+        );
+
+        window.addEventListener('load', function () {
+
+        });
+
+        //window.onload和$(function)的区别
+        //window.onload只能使用一次，后面的会盖掉前面的
+        //window.addEventListener('load',function(){});
+        //$(function)可用多次
+    </script>
+</head>
+
+<body>
+
+    <input type="button" value="点我" id="b1">
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      border: 1px solid yellow;
+      display: grid;
+      /* 定义行 
+          repeat(重复次数,重复模式)
+          grid-template-rows: repeat(3, 100px);
+          重复三次,每一次都是100px
+      */
+      grid-template-rows: repeat(3, 100px);
+      /* 定义列 
+          grid-template-columns: repeat(auto-fill, 100px);
+          auto-fill自动填充
+          以每个盒子宽度为100px自动填充容器盒子
+      */
+      grid-template-columns: repeat(auto-fill, 100px);
+    }
+
+    .box div {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rotate</title>
+    <style>
+        img {
+            width: 200px;
+            transform: rotate(45deg);
+            border-radius: 50%;
+            border: 5px solid pink;
+            transition: all 0.9s;
+        }
+
+        img:hover {
+            transform: rotate(360deg);
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            transition: all 0.2s;
+            /* 设置旋转点 */
+            transform-origin: left bottom;
+            background-color: pink;
+            margin: 0 auto;
+        }
+
+        div:hover {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="media/pic.jpg" alt="">
+    <br>
+    <div></div>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清除浮动</title>
+    <!-- 
+        清除浮动可以使盒子自动容纳浮动盒子，自动扩大
+     -->
+    <style>
+        /* 方案三 */
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            /* IE6,7专有 */
+            *zoom: 1;
+        }
+
+        .box {
+            border: 1px solid blue;
+            background-color: pink;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 150px;
+            float: left;
+            background-color: red;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 150px;
+            float: left;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box clearfix">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+</body>
+
+</html>

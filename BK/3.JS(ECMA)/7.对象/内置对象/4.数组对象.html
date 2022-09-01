@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        // 数组对象
+        var arr = new Array();
+        // 长度为2的数组
+        var arr1 = new Array(2);
+        console.log(arr1);
+        // 存了2和3元素的数组
+        var arr2 = new Array(2, 3);
+        console.log(arr2);
+
+        // 检测是不是数组
+        //1.instanceof运算符
+        console.log(arr instanceof Array);
+        //2.Array.isArray() IE9以上兼容
+        console.log(Array.isArray(arr));
+
+        // 添加数组元素
+        //1.push()在数组末尾添加一个或者多个数组元素,返回值为新数组长度
+        arr.push(1);
+        console.log('\n' + arr)
+        arr.push(1, 2, 'pink');
+        console.log(arr)
+        //2.unshift()在数组开头添加一个或者多个数组元素,返回值为新数组长度
+        arr.unshift(1);
+        console.log('\n' + arr)
+        arr.unshift(1, 2, 'pink');
+        console.log(arr)
+        //删除数组元素
+        //1.pop()删除数组最后一个元素，返回值为被删除的元素
+        arr.pop();
+        console.log('\n' + arr)
+        //2.shift()删除数组第一个元素，返回值为被删除的元素
+        arr.shift();
+        console.log(arr);
+
+        // 反转
+        arr.reverse();
+        console.log('\n' + arr);
+        //冒泡排序
+        arr.sort(function (a, b) {
+            return a - b;//升序
+            // return b-a;//降序
+        });
+        console.log('\n' + arr);
+
+        // 数组索引
+        // indexOf()找到第一个相等的值，找不到返回-1
+        console.log('\n' + arr.indexOf('pink'));
+        console.log(arr.indexOf(5));
+        // lastIndexOf()找到最后一个相等的值，找不到返回-1
+        console.log('\n' + arr.lastIndexOf('pink'));
+        console.log(arr.lastIndexOf(5));
+
+        // 数组->字符串
+        //1.toString()
+        console.log('\n' + arr.toString());
+        //2.join() 可以按指定符号连接，默认逗号
+        console.log(arr.join('-'));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

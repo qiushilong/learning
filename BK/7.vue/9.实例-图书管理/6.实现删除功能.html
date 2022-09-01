@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>图书管理</title>
+    <style type="text/css">
+        .grid {
+            margin: auto;
+            width: 500px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .grid table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .grid th,
+        td {
+            padding: 10;
+            border: 1px dashed orange;
+            height: 35px;
+            line-height: 35px;
+        }
+
+        .grid th {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="grid">
+            编号:
+            <input type="text" v-model='id' :disabled='flag'>
+            名称:
+            <input type="text" v-model='name'>
+            <input type="submit" value="提交" @click='handle'>
+        </div>
+        <div class="grid">
+            <table>
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>名称</th>
+                        <th>时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr :key='item.id' v-for='item in books'>
+                        <td v-text='item.id'></td>
+                        <td v-text='item.name'></td>
+                        <td v-text='item.date'></td>
+                        <td>
+                            <a href="" @click.prevent='updateBook(item.id)'>修改</a>
+                            <span>|</span>
+                            <a href="" @click.prevent='deleteBook(item.id)'>删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript">
+        /*
+          实现修改图书步骤:
+          1.修改信息填充到表单
+          2.修改后重新提交表单
+          3.重用添加个修改的方法
+        */
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                id: '',
+                name: '',
+                flag: false,
+                books: [{
+                    id: 1,
+                    name: '三国演义',
+                    date: ''
+                }, {
+                    id: 2,
+                    name: '水浒传',
+                    date: ''
+                }, {
+                    id: 3,
+                    name: '红楼梦',
+                    date: ''
+                }, {
+                    id: 4,
+                    name: '西游记',
+                    date: ''
+                }]
+            },
+            methods: {
+                handle: function () {
+                    if (this.flag == false) {
+                        //添加
+                        var newBook = {
+                            id: this.id,
+                            name: this.name,
+                            date: ''
+                        }
+                        this.books.push(newBook);
+                    } else {
+                        //修改
+                        var book;
+                        for (var i in this.books) {
+                            if (this.books[i].id == this.id) {
+                                book = this.books[i];
+                                break;
+                            }
+                        }
+                        book.name = this.name;
+                        this.flag = false;
+                    }
+                    //清空表单
+                    this.id = '';
+                    this.name = '';
+                },
+                updateBook: function (id) {
+                    //填充信息
+                    this.id = id;
+                    var book;
+                    for (var i in this.books) {
+                        if (this.books[i].id == id) {
+                            book = this.books[i];
+                            break;
+                        }
+                    }
+                    this.name = book.name;
+                    //锁定输入
+                    this.flag = true;
+                },
+                deleteBook: function (id) {
+                    var index = this.books.findIndex(function (item) {
+                        return item.id == id;
+                    });
+                    console.log(index);
+                    this.books.splice(index, 1);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

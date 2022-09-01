@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        window.addEventListener('load', function () {
+            // 同步就是单线程，从上到下依次执行
+            // 异步就是多线程，同时做多个任务
+            // console.log('1');
+            // setTimeout(function () {
+            //     console.log('3');
+            // }, 1000);
+            // // 2不会等3打印完了才执行，js的异步机制
+            // console.log('2');
+
+            // 还是打印123
+            console.log('1');
+            setTimeout(function () {
+                console.log('3');
+            }, 0);
+            // 2不会等3打印完了才执行，js的异步机制
+            console.log('2');
+
+            // js有一个同步任务执行栈，一个异步任务执行栈
+            // 异步任务：
+            // 1.普通任务 click、resize... 
+            // 2.资源加载 load、error...
+            // 3.定时器 setInterval、setTimeout...
+
+            // 执行机制
+            // 1.先执行同步任务
+            // 2.若遇到异步任务（回调函数），就把异步任务放到异步栈
+            // 3.一旦执行栈中的同步任务执行完毕，系统就会按次序读取任务队列的异步任务，
+            // 于是被读取的异步任务结束等待状态，进入执行栈，开始执行。
+
+            // 3. 第三个问题
+
+            console.log(1);
+            document.onclick = function () {
+                console.log('click');
+            }
+            // 不点击，就不会提交function给异步任务队列
+            // 点击了，就提交给异步任务队列，异步任务执行器执行了又提交给同步任务，同步任务有提交给异步任务处理器
+            // 这种机制叫时间循环
+            console.log(2);
+            setTimeout(function () {
+                console.log(3)
+            }, 3000)
+            // 没到三秒，就不会提交function给异步任务队列
+
+        })
+    </script>
+
+</body>
+
+</html>

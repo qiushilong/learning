@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型转换</title>
+    <script>
+        //转换为字符串
+        // 1.toString()
+        var num = 10;
+        var str = num.toString();
+        console.log(typeof str);
+        //2.String
+        console.log(typeof String(num));
+        // 3.
+        console.log(typeof (num + ""));
+
+        // 转换为数值型
+        var num2;
+        // 1.parseInt()
+        console.log(parseInt(str));
+        console.log(parseInt('3.14'));
+        console.log(parseInt('3.95'));
+        console.log(parseInt('120px'));//去掉后面的符号
+        console.log(parseInt('num120'));//前面的不能识别
+        //2.parseFloat()
+        console.log(parseFloat('3.14'));
+        console.log(parseFloat('120px'));
+        console.log(parseFloat('num120'));
+        //3.Number()
+        //对 undefined 进行数字型转换时，输出结果为 NaN
+        console.log(Number(str));
+        console.log(Number('12'));
+        //4.算数运算
+        console.log('12' - 0);
+        console.log('12' * 1);
+        console.log('123' - '120');//这里用加号就不行了
+        //5.一元运算符+
+        console.log(+'12' + +'13');
+
+        //转换为布尔型
+        //Boolean(),代表空、否定的值都会被转换为false,如：''、0、NaN、null、undefined
+        console.log(Boolean(''));
+        console.log(Boolean(0));
+        console.log(Boolean(NaN));
+        console.log(Boolean(null));
+        console.log(Boolean(undefined));
+        console.log(Boolean(123));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

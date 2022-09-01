@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        window.addEventListener('load', function () {
+            var btn = document.querySelectorAll('button');
+            var time = null;
+
+            btn[0].addEventListener('click', function () {
+                time = setInterval(function () {
+                    console.log('你干嘛');
+                }, 1000);
+            })
+            btn[1].addEventListener('click', function () {
+                // window.clearInterval(timeID);
+                // window可以省略
+                clearInterval(time);
+            })
+        })
+    </script>
+    <button>开始</button>
+    <button>停止</button>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        let user = {
+            name: 'john',
+            age: '30'
+        };
+
+        //判断user是否有sex属性
+
+        //方法一
+        console.log(user.sex === undefined);
+
+        //方法二,in运算符
+        console.log("sex" in user);
+
+        //方法一和方法二的区别,如果存在sex且为undefined,方法一会出错
+    </script>
+</body>
+
+</html>

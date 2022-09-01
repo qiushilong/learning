@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <button>传统注册事件</button>
+    <button>方法监听注册事件</button>
+    <script>
+        // 传统注册事件  唯一性，会覆盖
+        var btns = document.querySelectorAll('button');
+        btns[0].onclick = function () {
+            alert('hi');
+        }
+        btns[0].onclick = function () {
+            alert('how are you ');
+        }
+        //方法监听注册事件 IE>=9
+        // eventTarget.addEventListener(type,listener[,useCapture])
+        // type（事件类型字符串）：如click，mouseover，不用带on
+        // listener（事件处理函数）：事件发生时，调用该监听函数
+        // useCapture（可选参数）：是布尔值，默认false
+        btns[1].addEventListener('click', function () {
+            alert('22');
+        })
+        btns[1].addEventListener('click', function () {
+            alert('33');
+        })
+
+        // eventTarget.attachEvent(eventNameWithOn,callback) IE<9,古老方法,马上被弃用了
+        // eventNameWithOn事件类型字符串
+        // callback事件处理函数
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="time">2020-8-18</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <ol id="ol_name">
+        <li>5+1</li>
+        <li>5+2</li>
+        <li>5+3</li>
+        <li>5+4</li>
+        <li>5+5</li>
+    </ol>
+    <script>
+        // 因为我们文档页面从上往下加载，所以先得有标签，所以我们script写到标签的下面
+        // 一、根据标签名放回，返回的是单个对象
+        // 1.document.getElementById(id);
+        // 2.document是文档，element是元素，通过id查找
+        // 3.参数是字符串，且大小写敏感
+        // 4.返回一个元素对象
+        var time = document.getElementById('time');
+        console.log(time);
+        console.log(typeof time);
+        // 5.console.dir(...)可以打印返回的元素对象
+        console.dir(time);
+
+        //二、根据标签名放回，返回的是对象集合，用伪数组存储
+        var lis = document.getElementsByTagName('li');
+        console.log('\n');
+        console.log(lis);
+        for (var i = 0; i < lis.length; i++) {
+            console.log(lis[i]);
+        }
+
+        // 三、获取ol里的li
+        // 1.
+        // 先获取ol
+        var ois = document.getElementsByTagName('ol');
+        // 再获取ol里的li
+        var oli = ois[0].getElementsByTagName('li');
+        console.log('\n');
+        console.log(oli);
+        for (var i = 0; i < oli.length; i++) {
+            console.log(oli[i]);
+        }
+        // 2.
+        // ol给个id，用getElementById获取ol
+        var ois2 = document.getElementById('ol_name');
+        var oli2 = ois2.getElementsByTagName('li');
+        console.log('\n');
+        console.log(oli2);
+        for (var i = 0; i < oli2.length; i++) {
+            console.log(oli2[i]);
+        }
+    </script>
+</body>
+
+</html>

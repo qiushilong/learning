@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动特性</title>
+    <!-- 
+        1.浮动的元素会脱离标准流（脱标）
+            浮动的盒子不在保留原来的位置，原来的位置让给普通流
+        2.浮动的元素会在一行内显示并且顶部对齐，当一行装不下时，会自动换行
+        3.浮动的元素会具有行内块的特性
+     -->
+    <style>
+        div {
+            height: 150px;
+            width: 200px;
+        }
+
+        .box1 {
+            background-color: pink;
+            float: left;
+        }
+
+        .box2 {
+            height: 250px;
+            width: 300px;
+            background-color: red;
+        }
+
+        .box3 {
+            background-color: purple;
+            float: left;
+        }
+
+        span {
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">特性一</div>
+    <div class="box2"></div>
+    <br>
+    <hr>
+    <br>
+    <div class="box1">特性二</div>
+    <div class="box3"></div>
+    <div class="box1"></div>
+    <div class="box3"></div>
+    <br>
+    <hr>
+    <br>
+    <span>特性三</span>
+</body>
+
+</html>

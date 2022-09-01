@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    //ES6允许使用箭头(=>)定义函数
+    //不带过程的
+    let fn = (a, b) => a + b;
+    //带过程的
+    let fn2 = (a, b) => {
+      a = 5;
+      return a + b;
+    }
+    console.log(fn2(4, 5));
+
+    //特点:
+    //1.this是静态的,this始终指向函数声明时所在的作用域下的this的值,即箭头函数同级或上级的this
+    function getName() {
+      console.log(this.name);
+    }
+    let getName2 = () => {
+      console.log(this.name);
+    }
+    //name
+    window.name = '张三';
+    const school = {
+      name: "吉首大学"
+    }
+    //直接调用
+    getName();
+    getName2();
+    //call调用
+    getName.call(school);
+    getName2.call(school);
+
+    //2.不能作为构造实例化对象
+    //3.不能使用arguments
+    //4.简写
+    // 只用一个参数时,可以省略写参数的小括号
+    let pow = n => { return 2 * n };
+    console.log(pow(2));
+    // 方法体只有一个语句时,可以省略花括号,且没有花括号不能写return
+    let pow2 = n => 2 * n;
+    console.log(pow2(2));
+  </script>
+</body>
+
+</html>

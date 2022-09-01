@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础选择器</title>
+
+    <style>
+        /* 标签选择器          把所有同类标签全选出来*/
+        p {
+            color: red;
+        }
+
+        /* 类选择器(常用)      可以单独选择一个或某几个同类标签        注意：类名不能用标签名,可用-，不要用纯数字，中文*/
+        .color-yellow {
+            color: yellow;
+        }
+
+        /* 多类名 class内多个类，类之间用空格隔开*/
+        .font-20 {
+            font-size: 20px;
+        }
+
+        /* id选择器 只能同一标签使用*/
+        #pink {
+            color: pink;
+        }
+
+        /* 通配符选择器 所有标签都改了*/
+        * {
+            background-color: green;
+        }
+    </style>
+
+</head>
+
+<body>
+    <p>标签选择器</p>
+    <p class="color-yellow">类选择器</p>
+    <p class="color-yellow font-20">多类名</p>
+    <p id="pink">id选择器</p>
+    <p>通配符选择器</p>
+</body>
+
+</html>

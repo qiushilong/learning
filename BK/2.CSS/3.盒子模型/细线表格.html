@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>细线表格</title>
+
+    <style>
+        table {
+            width: 500px;
+            height: 200px;
+            /* 细线表格 合并相邻边框 本来是2px，合并为1px*/
+            border-collapse: collapse;
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid green;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <table align="center" cellpadding="20" cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>刘德华</td>
+                <td>男</td>
+                <td>62</td>
+            </tr>
+            <tr>
+                <td>张学友</td>
+                <td>男</td>
+                <td>63</td>
+            </tr>
+            <tr>
+                <td>黎明</td>
+                <td>男</td>
+                <td>52</td>
+            </tr>
+            <tr>
+                <td>郭富城</td>
+                <td>男</td>
+                <td>72</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

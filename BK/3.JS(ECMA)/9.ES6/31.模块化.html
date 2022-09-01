@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+  <script type="module">
+
+    /*
+        模块化的好处:
+        1)防止命名冲突
+        2)代码复用
+        3)高维护性
+
+        语法:
+        export import
+        引入时必须要  ./
+    */
+
+    // 全部引入
+    import * as m1 from "./31.模块化.js";
+    console.log(m1);
+
+    // 解构赋值形式引入
+    import { school, teach } from "./31.模块化.js";
+    console.log(school);
+    console.log(teach);
+
+    //解构赋值形式引入(别名)
+    import { school as sc } from "./31.模块化.js";
+    console.log(sc);
+
+    //解构赋值形式引入(默认暴露)
+    import { default as m2 } from "./31.模块化.js";
+    console.log(m2);
+
+    //简便形式(针对默认暴露)
+    import m3 from "./31.模块化.js";
+    console.log(m3);
+  </script>
+</body>
+
+</html>

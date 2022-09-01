@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    class App extends React.Component {
+      // constructor() {
+      //   super(); // es6规范
+
+      //   // 初始化状态
+      //   this.state = {
+      //     count: 0
+      //   }
+      // }
+
+      // 简化语法
+      state = {
+        count: 0,
+        msg: 'jsq'
+      }
+
+      render() {
+        return (
+          <div>
+            <h1>计数器:{this.state.count}</h1>
+            <button onClick={() => {
+              // 使用setState进行state的修改
+              // 要修改那个就只要传修改的那个
+              // setState修改了数据,并且进行了ui的更新
+              this.setState({
+                count: this.state.count + 1
+              })
+            }}>+1</button>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <App />,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+
+</html>

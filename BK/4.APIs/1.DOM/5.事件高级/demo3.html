@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search {
+            position: relative;
+            height: 300px;
+        }
+
+        input {
+            position: absolute;
+            top: 100px;
+            left: 300px;
+        }
+
+        .con {
+            display: none;
+            position: absolute;
+            top: 64px;
+            left: 300px;
+            width: 200px;
+            height: 25px;
+            border: 1px solid #ccc;
+            box-shadow: -9px 3px 18px -8px rgb(151, 146, 146);
+            background-color: #fff;
+        }
+
+        .con::after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 18px;
+            width: 0;
+            height: 0;
+            border: 7px solid transparent;
+            border-top-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <div class="con"></div>
+        <input type="text" placeholder="请输入您的快递单号">
+    </div>
+    <script>
+        var con = document.querySelector('.search .con');
+        var input = document.querySelector('.search input');
+        // keydown和keypress在文本框里的特点：他们两个事件触发的时候，文字还没落入文本框
+        // keyup在文本框里的特点：事件触发时，文字落入文本框
+        input.addEventListener('keyup', function () {
+            if (input.value === '') {
+                con.style.display = 'none';
+                return;
+            }
+            con.style.display = 'block';
+            con.innerHTML = input.value;
+        })
+        input.addEventListener('blur', function () {
+            con.style.display = 'none';
+        })
+        input.addEventListener('focus', function () {
+            if (input.value !== '') {
+                con.style.display = 'block';
+            }
+            con.innerHTML = input.value;
+        })
+    </script>
+</body>
+
+</html>

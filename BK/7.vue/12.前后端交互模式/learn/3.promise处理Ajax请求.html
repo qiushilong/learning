@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <!-- 
+        基于Promise发送Ajax请求
+    -->
+
+    <script>
+
+        function queryData(url) {
+            var p = new Promise(function (resolve, reject) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState != 4)
+                        return;
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        //处理正常的情况
+                        resolve(xhr.responseText);
+                    } else {
+                        //处理异常的情况
+                        reject('服务器错误');
+                    }
+                };
+                xhr.open('get', url);
+                xhr.send(null);
+            });
+            return p;
+        }
+
+        queryData('http://localhost:3000/data')
+            .then(function (data) {
+                console.log(data);
+            }, function (info) {
+                console.log(info);
+            });
+        //解决回调地狱
+        queryData('http://localhost:3000/data')
+            .then(function (data) {
+                console.log('1' + data);
+                return queryData('http://localhost:3000/data');//返回
+            }, function (info) {
+                console.log(info);
+            }).then(function (data) {//链式
+                console.log('2' + data);
+            })
+
+    </script>
+</body>
+
+</html>

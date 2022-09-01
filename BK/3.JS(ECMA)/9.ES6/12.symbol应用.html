@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        let game = {}
+
+        //当不确定game对象中的元素,或者game中元素过多
+        //贸然使用game.up=function(){}来添加方法存在危险
+
+        let methods = {
+            up: Symbol(),
+            down: Symbol()
+        };
+
+        game[methods.up] = function () {
+            console.log('我可以改变形状');
+        };
+
+        game[methods.down] = function () {
+            console.log('我可以快速下继');
+        }
+
+        console.log(game);
+
+        //直接使用
+        let youxi = {
+            name: '狼人杀',
+            [Symbol('say')]: function () {
+                console.log('我可以发言');
+            }
+        }
+        console.log(youxi);
+    </script>
+</body>
+
+</html>

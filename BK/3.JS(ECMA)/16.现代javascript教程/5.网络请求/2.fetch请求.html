@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*   
+      启动数据服务器
+        json-server --watch data.json
+
+      fetch发送网络请求
+      语法
+        let promise = fetch(url, [options])
+        没有options,就是一个简单的get请求
+        options是一个对象,属性有:
+          method:指定http方法,get,post
+          body:请求体
+          header:设置请求头
+    */
+
+    async function getData() {
+      // 第一阶段
+      let response = await fetch('http://localhost:3000/data', {
+        method: 'GET',
+        header: {},
+        body: ''
+      });
+      console.log(response);
+      // 如果response.ok是false,表示请求失败
+      if (!response.ok) {
+        console.error('请求数据失败');
+        return
+      }
+      // 第二阶段
+      let data = await response.text();
+      console.log(data);
+    }
+
+    getData();
+  </script>
+</body>
+
+</html>

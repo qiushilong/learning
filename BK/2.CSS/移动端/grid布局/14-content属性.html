@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      border: 1px solid yellow;
+      display: grid;
+      grid-template-rows: 100px 100px 100px;
+      grid-template-columns: 100px 100px 100px;
+      grid-auto-flow: row dense;
+      /* 
+        justify-content:设置box盒子的整个内容区域的水平位置
+        align-content:设置box盒子的整个内容区域的垂直位置
+
+        start - 对齐容器的起始边框
+        end - 对齐容器的结束边框
+        center - 容器内部居中
+        stretch - 项目大小没有指定时，拉伸占据整个网格容器
+        space-around - 每个项目两侧的间隔相等。所以，项目之间的间隔比项目与容器边框的间隔大一倍
+        space-between - 项目与项目的间隔相等，项目与容器边框之间没有间隔
+        space-evenly - 项目与项目的间隔相等，项目与容器边框之间也是同样长度的间隔
+       */
+      justify-content: center;
+      align-content: center;
+    }
+
+    .box div {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="div1">1</div>
+    <div class="div2">2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+  </div>
+</body>
+
+</html>

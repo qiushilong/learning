@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频</title>
+    <!-- 无需其他插件,如flash等 -->
+    <!-- 
+        兼容性：
+        只支持MP4,WebM,Ogg
+        MP4基本支持所有浏览器
+        WebM不支持IE,Safari
+        Ogg不支持IE,Safari
+     -->
+    <!-- 
+         video属性：
+         autoplay：atuoplay 视频就绪自动播放（谷歌需要添加muted来解决自动播放问题）
+         controls：controls 向用户显示播放控件
+         width：px 宽度
+         height：px 高度
+         loop：loop 是否循环播放
+         preload：atuo none 是否预加载视频，如果有了autoplay，就忽略该属性
+         src：url 视频地址
+         poster：imgurl 加载等待的画面图片
+         muted：muted 静音播放
+      -->
+    <style>
+        video {
+            width: 100%;
+            /* 不能设置其他属性 */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 写法一 -->
+    <!-- controls是controls="controls"的简写，只有设置了controls或者autoplay（谷歌还要加muted）才可以播放 -->
+    <video src="video.mp4" type="video/mp4" autoplay muted></video>
+    <!-- 写法二 -->
+    <video controls>
+        <!-- 使视频兼容性更好，但现在MP4基本都可以用，可以不这么写 -->
+        <source src="video.mp4" type="video/mp4">
+        <source src="video.mp4" type="video/ogg">
+        <source src="video.mp4" type="video/webm">
+    </video>
+</body>
+
+</html>

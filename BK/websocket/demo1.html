@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>websocket-demo1</title>
+  </head>
+  <body>
+    <script>
+      /*
+      构建函数：
+      var ws = new WebSocket(url [, protocols]);
+      url：连接地址
+      protocols：协议
+
+      常量：
+      WebSocket.CONNECTING    0
+      WebSocket.OPEN          1
+      WebSocket.CLOSING       2
+      WebSocket.CLOSED        3 
+
+      属性：
+      WebSocket.binaryType
+        使用二进制的数据类型连接
+
+      WebSocket.bufferedAmount  只读
+        未发送至服务器的字节数
+
+      WebSocket.extensions  只读
+        服务器选择的扩展
+      
+      WebSocket.onclose
+        用于指定连接关闭后的回调函数
+
+      WebSocket.onerror
+        用于指定失败后的回调函数
+
+      WebSocket.onmessage
+        用于指定当从服务器接接受到信息时的回调函数
+
+      WebSocket.onopen
+        用于指定连接成功后的回调函数
+
+      WebSocket.protocol  只读
+        服务器选择的下属协议
+
+      WebSocket.readyState
+        当前的链接状态
+
+      WebSocket.url
+        WebSocket的绝对路径
+
+      方法：
+      WebSocket.close([code[,reason]])
+        关闭当前连接
+      
+      WebSocket.send(data)
+        对要传输的数据进行排队
+
+      事件：
+      close
+        当一个WebSocket连接被关闭时触发
+      
+      error
+        当一个WebSocket连接因错误而关闭时触发，例如无法发送数据时，也可以通过onerror属性来设置
+
+      message
+        当通过WebSocket接收到数据时触发，也可以通过onmessage属性来设置
+
+      open
+        当一个WebSocket连接成功时触发，也可以通过onopen属性来设置
+    */
+
+      // 创建WebSocket连接
+      const socket = new WebSocket("ws://localhost:8080");
+
+      // 连接打开时
+      socket.addEventListener("open", function (event) {
+        socket.send("Hello Server!");
+      });
+
+      // 收到消息
+      socket.addEventListener("message", function (event) {
+        console.log("Message from server", event.data);
+      });
+    </script>
+  </body>
+</html>

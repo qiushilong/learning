@@ -1,0 +1,5 @@
+vue事件绑定
+    v-on指令:
+        <input type='button' v-on:click='num++'>
+    简写
+        <input type='button'@click='num++'>

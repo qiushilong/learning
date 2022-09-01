@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>居中</title>
+    <style>
+        div {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            /* 这里的50%是盒子宽高的50%，即200px */
+            transform: translate(50%, 50%);
+        }
+
+        p {
+            /* 巧妙运算 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p></p>
+    </div>
+</body>
+
+</html>

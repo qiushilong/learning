@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //Symbol 是唯一标识符的基本类型
+        let id = Symbol("id");
+        console.log(id.toString());//Symbol(id)
+        console.log(id.description);//id
+
+        //Symbol的应用场景  
+        // 每个Symbol代表一个独一无二的值,用来做对象的键可以避免键重复
+        user = {
+            name: 'zs'
+        }
+
+        user[id] = '10086';
+        console.log(user[id]);
+
+        //Symbol在for in 中会被跳过,但Object.assign会复制Symbol属性
+        for (let key in user) {
+            console.log(user[key]);
+        }
+
+        //全局symbol,使用Symbol.for(),如果symbol的描述存在,则返回该描述的symbol,否则新建一个
+        let id2 = Symbol.for("id2");
+        console.log(id3 === id2);
+
+        //由Symbol的到键名
+        let key = Symbol.keyFor(id2);
+        console.log(key);
+    </script>
+</body>
+
+</html>

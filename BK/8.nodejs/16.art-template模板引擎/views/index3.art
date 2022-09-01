@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+  //标准语法 
+  {{if age>18}}
+    年龄大于18
+  {{else if age<15}}
+    年龄小于15
+  {{else}}
+    年龄不符合要求
+  {{/if}}
+
+  //原始语法 把js的内容用<%%>包起来
+  <% if(age>18) {%>
+      年龄大于18
+  <%} else if (age<15) {%>
+      年龄小于15
+  <%} else {%>
+      年龄不符合要求
+  <%}%>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //空值运算符 ??
+        //语法: a??b,当a不为null/undefined时,返回a,否则返回b
+        //区别于 || ,||返回第一个不为,空串'',null,0,false,undefined的值
+        //?? 返回第一个不为null/undefined的值
+
+        // ??不能和||、&&在不带括号的情况下使用
+        let user;
+
+        alert(user ?? "Anonymous");
+
+    </script>
+</body>
+
+</html>

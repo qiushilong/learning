@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        // window.onload等页面全部加载完毕，再执行代码
+        //  使得script标签可以放到任何位置
+        // window.onload = function () {
+        //     var btn = document.querySelector('button');
+        //     btn.addEventListener('click', function () {
+        //         alert('button');
+        //     })
+        // }
+        window.addEventListener('load', function () {
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', function () {
+                alert('button');
+            })
+        })
+        // 窗口加载事件  IE>=9
+        // document.addEventListener('DOMContentLoaded',function(){})
+        // 仅当DOM加载完成,不包括图片，flash，css等，DOMContentLoaded触发
+        // 加载快于window.onload
+        document.addEventListener('DOMContenLoaded', function () {
+            alert(33);
+        })
+    </script>
+    <button>点击</button>
+</body>
+
+</html>

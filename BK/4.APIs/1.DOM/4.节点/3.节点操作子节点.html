@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>子节点</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span class="erweima">x</span>
+        <p>子二</p>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </div>
+    <script>
+        var box = document.querySelector('.box');
+        // 子节点 
+        // 1.parentNode.childNodes 获得所有子节点,包括文本节点，如换行   所以一般不提倡用
+        var lis = box.childNodes;
+        console.log(lis);
+        console.log(lis[0].nodeType);
+        // 2.parentNode.children    获得所有子节点,不包括文本节点，如换行   提倡用
+        lis = box.children;
+        console.log(lis);
+
+        // 第一个子节点 >IE9
+        // 1.parentNode.firstChild  不管是文本节点还是元素节点
+        var first = box.firstChild;
+        console.log(first);
+        // 2.parentNode.firstElementChild  不取文本节点
+        first = box.firstElementChild;
+        console.log(first);
+
+        // 最后一个子节点 >IE9
+        // 1.parentNode.lastChild  不管是文本节点还是元素节点
+        var last = box.lastChild;
+        console.log(last);
+        // 2.parentNode.lastElementChild  不取文本节点
+        last = box.lastElementChild;
+        console.log(last);
+
+        // 实际开发用的第一最后一个孩子
+        console.log(box.children[0]);
+        console.log(box.children[box.children.length - 1]);
+    </script>
+</body>
+
+</html>

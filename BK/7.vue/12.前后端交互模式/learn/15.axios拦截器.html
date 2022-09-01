@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <!-- 
+        axios拦截器:
+        1.请求拦截器
+            在请求发出之前设置一些信息
+            语法:
+            //添加一个请求拦截器
+            axios.interceptors.request.use(function(config){
+                //在请求发送之前进行一些信息设置
+                return config;
+            },function(err){
+                //处理响应的错误信息
+            });
+        2.响应拦截器
+            在获取数据之前对数据做一些处理
+            语法:
+            //添加一个响应拦截器
+            axios.interceptors.response.use(function(res){
+                //在这里对返回的数据进行处理
+                //return res;
+            },function(err){
+                //处理响应的错误信息
+            });
+    -->
+
+    <script src="js/axios.js"></script>
+    <script>
+        // 请求拦截器
+        axios.interceptors.request.use(function (config) {
+            config.headers.mytoken = 'nihao';
+            return config;
+        }, function (err) {
+            console.log(err);
+        });
+
+        // 响应拦截器
+        axios.interceptors.response.use(function (res) {
+            console.log("响应拦截器" + res.data);
+            return res;
+        }, function (err) {
+            console.log(err);
+        });
+
+        axios.get('http://localhost:3000/adata').then(function (ret) {
+            console.log(ret.data);
+        })
+    </script>
+</body>
+
+</html>

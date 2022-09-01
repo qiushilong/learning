@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+
+    -->
+
+    <div id="app">
+        <!-- 基本用法 -->
+        <base-layout>
+            <p slot="header">标题信息</p>
+            <p>主要内容1</p>
+            <p>主要内容2</p>
+            <p slot="footer">底部信息</p>
+        </base-layout>
+        <!-- 用法2 -->
+        <!-- template是vue自带的 -->
+        <base-layout>
+            <template slot="header">
+                <p>标题信息</p>
+                <p>标题信息</p>
+            </template>
+            <p>主要内容1</p>
+            <p>主要内容2</p>
+            <template slot="footer">
+                <p>底部信息</p>
+            </template>
+        </base-layout>
+    </div>
+
+    <script>
+        Vue.component('base-layout', {
+            template: `
+                <div>
+                    <header>
+                        <slot name='header'></slot>    
+                    </header>
+                    <section>
+                        <slot></slot>    
+                    </section>
+                    <footer>
+                        <slot name='footer'></slot>    
+                    </footer>
+                </div>
+            `
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

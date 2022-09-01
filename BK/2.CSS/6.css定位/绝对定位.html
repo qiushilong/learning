@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位初体验</title>
+    <!-- 定位=定位模式+边偏移 -->
+    <style>
+        .nav {
+            /* 绝对定位 */
+            position: absolute;
+            /* 相对祖先类（不是固定定位的）元素的位置进行偏移，
+            若无有意义的祖先类，则按浏览器对齐 */
+            /* 原来的位置不再占有 */
+
+            top: 100px;
+            left: 100px;
+
+            width: 200px;
+            height: 150px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 500px;
+    height: 550px;
+    background:rgba(0, 0, 0, .3);position: absolute;">
+        <div class="nav">
+
+        </div>
+    </div>
+    <div>
+        123
+    </div>
+</body>
+
+</html>

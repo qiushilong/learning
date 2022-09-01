@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    //async函数  必定返回一个promise对象
+    async function fn() {
+      return '尚硅谷'
+    }
+    //特性
+    //如果async函数返回结果不是一个Promise类型的对象,返回的结果就是成功的Promise对象
+    //如果抛出错误,返回结果是一个失败的promise
+    //如果async函数返回结果是一个Promise类型的对象,则返回promise成功的值,或promise失败的值
+
+    console.log(fn());
+  </script>
+</body>
+
+</html>

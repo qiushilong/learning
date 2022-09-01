@@ -1,0 +1,7 @@
+APIs(Application Programming Interface)应用程序编程接口
+包括DOM(操页面元素),BOM(操作浏览器功能)
+是javaScript的交互
+
+会用API即可，不用深究原理
+
+API一般有输入输出，很多都是方法，函数

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    /*
+      卸载时
+
+      
+      componentWillUnmount
+        触发时机:组件卸载完成前
+        作用:执行清理操作
+         
+
+    */
+
+    class App extends React.Component {
+
+      // 组件创建时
+      constructor(props) {
+        super(props);
+
+        console.warn('生命周期钩子函数:constructor')
+      }
+
+      // 组件渲染时
+      render() {
+        console.warn('生命周期钩子函数:render')
+
+        return (
+          <div>
+            <h1>统计打豆豆的次数:</h1>
+            <button id="btn">打豆豆</button>
+          </div>
+        )
+      }
+
+      // 组件挂载完成
+      componentDidMount() {
+        console.warn('生命周期钩子函数:componentDidMount')
+      }
+
+      // 组件更新完成
+      componentDidUpdate() {
+        console.warn('生命周期钩子函数:componentDidUpdate')
+      }
+
+      // 组件卸载
+      componentWillUnmount() {
+        console.warn('生命周期钩子函数:componentWillUnmount')
+      }
+
+    }
+
+    ReactDOM.render(
+      <App />,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+
+</html>

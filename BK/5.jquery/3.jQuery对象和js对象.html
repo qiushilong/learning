@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="div1">div1...</div>
+  <div id="div2">div2...</div>
+
+  <script>
+    //1.通过js方式来获取div的所有对象
+    var divs = document.getElementsByTagName("div");
+    console.log(divs);
+
+    //2.使用jq的方式来获取
+    var $divs = $("div");
+    console.log($divs);
+
+    //js和jquery的方法并不通用
+
+    //js和jquery之间的转换
+    // js->jQuery
+    $divs2 = $(divs);
+    console.log($divs2);
+    //jQuery->js
+    div2 = $divs.get();
+    console.log(div2);
+    // $divs[0]得到第一个div的DOM
+    div3 = $divs[0];
+    console.log(div3);
+
+  </script>
+</body>
+
+</html>

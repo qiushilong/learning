@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // 原理：盒子被拖动结束后的位置=盒子一开始的位置+手指移动的距离
+        var div = document.querySelector('div');
+        var startX = 0, startY = 0, x = 0, y = 0;
+        div.addEventListener('touchstart', function (e) {
+            // 得到手中初始坐标
+            startX = e.targetTouches[0].pageX;
+            startY = e.targetTouches[0].pageY;
+            // 得到盒子初始坐标
+            x = this.offsetLeft;
+            y = this.offsetTop;
+        });
+        div.addEventListener('touchmove', function (e) {
+            // 计算手指移动位移
+            var moveX = e.targetTouches[0].pageX - startX;
+            var moveY = e.targetTouches[0].pageY - startY;
+            // 计算盒子的位置
+            this.style.left = x + moveX + 'px';
+            this.style.top = y + moveY + 'px';
+        });
+    </script>
+</body>
+
+</html>

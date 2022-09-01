@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性选择器</title>
+    <style>
+        /* 属性选择器权重为10，再加上标签选择器权重 */
+        /* 类选择器，属性选择器，伪类选择器权重都为10 */
+        /* 必须是input，且包含value属性 */
+        /* 双引号单引号可写可不写 */
+        input[value] {
+            color: pink;
+        }
+
+        /* 选择属性是某值的标签 */
+        input[type=text] {
+            color: red;
+        }
+
+        /* 选择class属性值为icon开头的标签 */
+        div[class^="icon"] {
+            color: blue;
+        }
+
+        /* 选择class属性值为data结尾的标签 */
+        section[class$='data'] {
+            color: green;
+        }
+
+        /* 选择class属性值包含hhh */
+        footer[class*=hhh] {
+            color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" value="请输入用户名">
+    <input type="password" value="请输入密码">
+
+    <div class="icon1">图标1</div>
+    <div class="icon2">图标2</div>
+    <div class="icon3">图标3</div>
+    <div class="icon4">图标4</div>
+    <div class="icon5">图标5</div>
+
+    <section class="icon1-data">我是安琪拉</section>
+    <section class="icon2-data">我是哥斯拉</section>
+
+    <footer class="hhhgg">我很棒</footer>
+    <footer class="mmhhh">你很棒</footer>
+</body>
+
+</html>

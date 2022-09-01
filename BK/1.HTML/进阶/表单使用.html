@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单使用，表单域，表单控件</title>
+</head>
+
+
+
+<body>
+    <!--表单域标签-->
+    <!--
+        form属性：
+            action(必须属性):提交地址
+            method：提交方法
+            name：提交内容
+    -->
+    <form action="demo.php" method="POST" name="name1">
+
+        <!-- 表单输入标签 (单标签)-->
+        <!--
+            input属性：
+                type(必须属性)：表明input类型
+                name：给input取名字
+                value：规定input元素的值
+                name和value要有，给后台人员看的，要求单选和复选按钮name相同
+                checked：主要针对单选和多选按钮，当页面打开时，默认勾选的，值就是checked
+                maxlength：规定输入字段的最大长度
+        -->
+
+        <!-- type值：text表示文本域 -->
+        用户名：<input type="text" name="username" value="请输入用户名"><br>
+        <!-- type值：password表示密码域 -->
+        密码：<input type="password" name="pwd"><br>
+
+        <!-- type值：radio表示单选按钮 要实现单选，必须name相同 -->
+        性别：男<input type="radio" name="sex" value="男" checked="checked">女<input type="radio" name="sex" value="女"><br>
+        <!-- type值：checkbox表示多选按钮 -->
+        爱好：吃饭<input type="checkbox" name="hobby" value="吃饭"> 睡觉<input type="checkbox" name="hobby" value="睡觉">打豆豆<input
+            type="checkbox" name="hobby" value="打豆豆"><br>
+
+        <!--type值：reset，重置页面-->
+        <input type="reset">
+        <!--type值：submit提交按钮 提交form表单中的所有值给后台服务器-->
+        <input type="submit" value="提交按钮"><br>
+
+        <!--type值：button 普通按钮，一般搭配javascript使用-->
+        <input type="button" value="获取短信验证码"><br>
+
+        <!--type值：file，选择文件-->
+        上传文件<input type="file"><br><br><br>
+
+
+        <!--label标签-->
+        <!-- label标签用于绑定一个表单元素，当点击label标签的时候，浏览器会自动把光标移动到绑定表单元素上，增加用户体验 -->
+        <!--
+            label属性：
+                for(必需属性)：指定表单元素的id属性
+        -->
+        <label for="name">用户名：</label>
+        <input type="text" id="name"><br>
+
+        <!--select标签-->
+        <!-- select标签，下拉框，用于选项多，增加用户体验 -->
+        籍贯：
+        <select>
+            <option>天津</option>
+            <!--默认选定-->
+            <!-- option里有value则提交value值 -->
+            <!-- size表示可以看到多少个选项 -->
+            <!-- multiply可以多选 -->
+            <option selected="select">湖南</option>
+            <option>湖北</option>
+            <option>北京</option>
+            <option>广东</option>
+            <option>广西</option>
+            <option>江西</option>
+            <option>上海</option>
+        </select><br>
+
+        <!--textarea标签-->
+        <!-- textarea标签，文本域 -->
+        今日反馈：<textarea cols="30" rows="10">默认值</textarea>
+
+    </form>
+</body>
+
+</html>

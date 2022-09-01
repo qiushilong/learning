@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        全局组件注册语法:
+        Vue.component(组件名称,{
+            data:组件数据,
+            template:组件模板内容
+        })
+
+        用法:
+        <div id="app">
+            <button-counter></button-counter>
+        </div>
+
+        组件的命名方式:
+        1.短横线格式,用-分割
+        2.驼峰式
+            *如果用驼峰式命名组件,那么在使用组件的时候,只能在字符串模板中
+            用驼峰的方式使用组件,而在普通的标签模板中,必须转为短横线的格式
+
+        注意:
+        *组件里的data必须是函数,并且需要返回值
+        *组件的模板内容必须是单个根元素,可以进行元素嵌套,但不能是两个同级元素
+        *组件模板内容可以是模板字符串,用反引号引起来,提高可读性
+
+    -->
+    <div id="app">
+        <button-counter></button-counter>
+        <button-counter2></button-counter2>
+        <button-counter3></button-counter3>
+    </div>
+    <script>
+
+        Vue.component('button-counter', {
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            template: '<button @click="count++">点击了{{count}}次</button>'
+        });
+        Vue.component('button-counter2', {
+            data: function () {
+                return {
+                    count2: 0
+                }
+            },
+            template: '<button @click="handle">点击了{{count2}}次</button>',
+            methods: {
+                handle: function () {
+                    this.count2++;
+                }
+            }
+        });
+        // 使用模板字符串
+        Vue.component('button-counter3', {
+            data: function () {
+                return {
+                    count2: 0
+                }
+            },
+            template: `
+                <div>
+                    <button @click="handle">点击了{{count2}}次</button>    
+                </div>
+            `,
+            methods: {
+                handle: function () {
+                    this.count2++;
+                }
+            }
+        });
+        var vm = new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+
+</html>

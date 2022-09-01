@@ -1,0 +1,12 @@
+//继承layout骨架
+{{extend './common/layout.art'}}
+
+// 填坑content
+{{block 'content'}}
+  <p>{{msg}}</p>
+{{/block}}
+
+//填坑link
+{{block 'link'}}
+  <link rel="stylesheet" type="text/css" href="{{url}}">
+{{/block}}

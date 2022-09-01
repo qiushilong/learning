@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <!-- 
+        fetch概述:
+        基本特性:
+            1.更加简单的数据过去方式,功能更强大,更灵活,可以看成xhr的升级版
+            2.基于Promise实现
+        语法:
+            fetch('/abc').then(data=>{
+                return data.text();
+            }).then(ret=>{
+                //注意这里得到的才是最终的数据
+                console.log(ret);
+            });
+    -->
+    <script>
+        fetch('http://localhost:3000/fdata').then(function (data) {
+            //text方法属于fetchAPI的一部分,它返回一个Promise实例对象,用于获取后台返回的数据
+            return data.text();
+        }).then(function (ret) {
+            console.log(ret);//这里才是真的返回结果
+        });
+
+    </script>
+</body>
+
+</html>

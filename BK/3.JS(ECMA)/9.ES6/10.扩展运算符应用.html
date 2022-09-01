@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        //1.数组拼接
+        let ab = ['a', 'b'];
+        let cde = ['c', 'd', 'e'];
+
+        let abcde = [...ab, ...cde];
+        console.log(abcde);
+
+        //2.数组复制
+        let a = ['a'];
+        let a2 = [...a];
+        console.log(a2);
+
+        //3.假数组转真数组
+        let lis = document.querySelectorAll('ul li');
+        console.log(lis);
+        let lis2 = [...lis];
+        console.log(lis2);
+    </script>
+</body>
+
+</html>

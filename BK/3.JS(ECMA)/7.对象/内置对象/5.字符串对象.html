@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        // 基本包装类型，把简单数据类型，包装为复杂数据类型
+        var str = 'andy';//等价于var str='andy'; var temp=new String('andy'); str=temp;
+        console.log(str.length);
+
+        // 字符串不可变，不要大量修改、拼接字符串，占内存
+
+        //返回字符位置
+        var str2 = '改革春风吹满地';
+        console.log(str2.indexOf('春'));
+        // 从位置3开始往后查找
+        console.log(str2.indexOf('春', 3));
+        // lastIndexOf()从后面查找
+
+        // 返回字符
+        console.log(str2.charAt(3));
+        // 返回字符ASCLL码
+        console.log(str.charCodeAt(2));
+        // H5新增
+        console.log(str2[3]);
+
+        //concat()连接若干个个字符串
+
+        //substr(start,length)子字符串
+
+        //replace('被替换的字符','替换的字符')
+
+        //split('按什么分隔为数组')
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

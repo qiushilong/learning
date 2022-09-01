@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //构造器,统一首字母大写
+        function User(name) {
+
+            // this={};默认有
+            this.name = name;
+
+            this.sayHi = function () {
+                console.log('hi~' + this.name);
+            }
+            //return this;默认有
+            //如果有自定义的return,则返回自定义的return值
+        }
+
+        //普通函数
+        function sayBye() {
+            console.log('bye~');
+        }
+
+        //new
+        let user = new User('zs');
+        console.log(user);
+        user.sayHi();
+
+        //普通函数也可以使用new,流程同构造器
+        let bye = new sayBye();
+        console.log(bye);
+    </script>
+</body>
+
+</html>

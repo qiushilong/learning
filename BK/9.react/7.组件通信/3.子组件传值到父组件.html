@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    class Parent extends React.Component {
+
+      state = {
+        parentMsg: ''
+      }
+
+      // 提供回调函数
+      getChildMsg = data => {
+        console.log('接收到子组件中传递过来的数据:', data);
+        this.setState({
+          parentMsg: data
+        })
+      }
+
+      render() {
+        return (
+          <div>
+            父组件:
+            {this.state.parentMsg}
+            {/* 把回调函数作为参数提供给子组件 */}
+            <Child getMsg={this.getChildMsg} />
+          </div>
+        )
+      }
+    }
+
+    class Child extends React.Component {
+
+      state = {
+        msg: '刷抖音'
+      }
+
+      // 子组件调用父组件中传递过来的回调函数
+      handleClick = () => {
+        this.props.getMsg(this.state.msg)
+      }
+
+      render() {
+        return (
+          <div>
+            <button onClick={this.handleClick}>点击给父组件传值</button>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <Parent />,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+
+</html>

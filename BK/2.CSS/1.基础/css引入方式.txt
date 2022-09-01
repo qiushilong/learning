@@ -1,0 +1,9 @@
+1.内部样式表
+    常用的
+2.行内样式表
+    <div style="color=red;">内容</p>
+3.外部样式表（开发一般用，当css结构复杂）
+    在外面单独建立css文件，之后把css文件引入html页面中使用
+        1）建立style.css
+        2）html文件用link应用
+    

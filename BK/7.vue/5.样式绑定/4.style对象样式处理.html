@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        style样式处理
+        对象语法:
+        <div v-bind:style="{color:activeColor,fontSize:fontSize}"></div>
+        数组语法:
+        <div v-bind:style="[baseStyles,overridingSyles]"></div>
+    -->
+
+    <div id="app">
+        <div v-bind:style='{border:borderStyle,width:widthStyle,height:heightStyle}'></div>
+        <button v-on:click='handle'>高改为100px</button>
+        <div v-bind:style='objStyles'></div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                borderStyle: '1px solid blue',
+                widthStyle: '200px',
+                heightStyle: '200px',
+                objStyles: {//另一种写法
+                    border: '1px solid green',
+                    width: '200px',
+                    height: '200px'
+                }
+            },
+            methods: {
+                handle: function () {
+                    this.heightStyle = '100px'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    //push(item):末尾添加
+    //pop(item):末尾弹出
+    //shift(item):开头移除
+    //unshift(item):开头添加
+
+    let arr = ['12', 1, new function () { }, { name: 'zs' }]
+
+    //for of 遍历
+    for (let v of arr) {
+      console.log(v);
+    }
+    //不建议使用for in
+
+    //arr.splice(start[,deleteCount,elem1,...,elemN])
+    //从start位置开始,删除deleteCount个位置,插入elem1...elemN
+
+    //arr.slice([start][,end]):返回一个数组,从arr的start开始,到end结束
+
+    //arr.concat([arg1,arg2,...]):合并参数到arr,参数可以为任意类型
+
+    //arr.forEach((item,index,array)=>{ ... })为每个元素都执行一个函数
+    ["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+      console.log(`${item} is at index ${index} in ${array}`);
+    });
+
+    //arr.indexOf(item, from):从索引from开始搜索item如果找到则返回索引否则返回-1
+    //arr.lastIndexOf(item, from):和上面相同，只是从右向左搜索
+    //arr.includes(item, from):从索引from开始搜索item,如果找到则返回true
+
+    //arr.find(function(item,index,array){...})
+    //在数组中寻找,返回true时,停止搜索,返回item,找完了没找到则undefined
+    //arr.findIndex(function(item,index,array){...})
+    //在数组中寻找,返回true时,停止搜索,返回index,找完了没找到则-1
+    //arr.filter(function(item.index,array){...})
+    //找到返回true的所有item,保存到结果数组中,返回
+
+    //arr.map(function(item,index,array){...})
+    //转换数组,对数组的每个元素都调用函数,并返回结果数组
+    let lengths = ['Bilbo', 'Gandalf', 'Nazgul'].map(item => item.length);
+    console.log(lengths); //[5,7,6]
+
+        //arr.sort(fn):原位排序,按比较函数fn的规律比较大小,不写fn默认字符串比较大小
+        //按数字比较大小:arr.sort((a,b)=>a-b)
+
+        //arr.reverse():原位反转数组
+
+        //str.split(delim):按照分隔符delim划分字符串,返回数组
+        //arr.join(glue):按照连接符glue连接数组,返回字符串
+
+        //arr.reduce(function(accumulator,item,index,array){...},initial)
+        //将前一个函数的返回值,作为第二个函数的参数accumulator,第1次accumulator为initial
+        //没有initial时,默认把数组第一个值设置为accumulator,直接执行第二次循环
+        //arr.reduceRight和arr.reduce方法和功能一样,至少遍历从右到左
+
+        //Array.isArray(arr):判断是否为一个数组,true是,false不是
+        //typeof arr 并不能判断是否为一个数组
+  </script>
+</body>
+
+</html>

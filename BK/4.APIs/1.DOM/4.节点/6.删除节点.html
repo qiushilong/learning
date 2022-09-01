@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>熊1</li>
+        <li>熊2</li>
+        <li>熊3</li>
+    </ul>
+    <script>
+        var ul = document.querySelector('ul');
+        // 删除元素 node.removeChild(child);
+        ul.removeChild(ul.children[0]);
+        console.log(ul);
+    </script>
+</body>
+
+</html>

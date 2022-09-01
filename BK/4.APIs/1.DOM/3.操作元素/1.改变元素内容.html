@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>显示当前系统时间</button>
+    <p></p>
+    <div>某个时间</div>
+
+    <i>elemnent.innerHTML</i>
+
+    <script>
+        // 一、element.innerText
+        var p = document.getElementsByTagName('p');
+        p[0].innerText = getTimes();
+        // 1.获取元素
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        // 2.注册事件
+        // 3.事件处理程序
+        btn.onclick = function () {
+            div.innerText = getTimes();
+        }
+
+        // 二、element.innerHTML(用的多)
+        /* 区别1：element.innerHTML可以识别HTML标签 */
+        var i = document.getElementsByTagName('i');
+        i[0].innerHTML = '<strong>加粗吧！文字</strong>';
+        /* 区别2：读取内容不同 innerHTML保留空格和换行，而innerText不保留*/
+        var i2 = document.querySelector('i');
+        console.log(i2.innerText);
+        console.log(i2.innerHTML);
+
+
+
+
+
+
+
+
+        // 得到时间
+        function getTimes() {
+            var time = new Date();
+            var y = time.getFullYear();
+            var mo = time.getMonth();
+            var d = time.getDate();
+            var week = time.getDay();
+            var h = time.getHours();
+            var m = time.getMinutes();
+            var s = time.getSeconds();
+            mo = mo < 10 ? '0' + mo : mo;
+            d = d < 10 ? '0' + d : d;
+            h = h < 10 ? '0' + h : h;
+            m = m < 10 ? '0' + m : m;
+            s = s < 10 ? '0' + s : s;
+            return y + '-' + mo + '-' + d + '  ' + h + ':' + m + ':' + s;
+        }
+    </script>
+</body>
+
+</html>

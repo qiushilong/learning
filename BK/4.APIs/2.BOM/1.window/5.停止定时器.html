@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        window.addEventListener('load', function () {
+            var btn = document.querySelector('button');
+            var time = setTimeout(function () {
+                console.log('爆炸了');
+            }, 5000);
+
+            btn.addEventListener('click', function () {
+                // window.clearTimeout(timeID);
+                // window可以省略
+                clearTimeout(time);
+
+            })
+        })
+    </script>
+    <button>停止</button>
+</body>
+
+</html>

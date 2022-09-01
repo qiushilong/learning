@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    .element2 {
+      color: skyblue;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- babel使得jsx语法可以转化为es5的语法 -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    // style样式控制
+    const element = <h1 style={{ color: 'red', backgroundColor: 'skyblue' }}>样式处理</h1>
+
+    // 类名样式控制
+    const element2 = <h1 className='element2'>element2</h1>
+
+    const ele = <div>{element}{element2}</div>
+
+    ReactDOM.render(
+      ele,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //迭代器(Iterator)是一种接口,为各种不同的数据结构提供统一的访问机制.
+        //任何数据类型只要部署了Iterator接口,就可以完成遍历操作
+        const xiyou = ['唐僧', '孙悟空', '猪八戒', '沙僧'];
+
+        //for in 遍历
+        for (let v in xiyou) {
+            console.log(v);
+        }
+
+        //for of 遍历
+        for (let v of xiyou) {
+            console.log(v);
+        }
+
+        //迭代器
+        let iterator = xiyou[Symbol.iterator]();
+
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+    </script>
+</body>
+
+</html>

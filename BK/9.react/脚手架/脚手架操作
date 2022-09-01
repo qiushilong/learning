@@ -1,0 +1,11 @@
+创建项目
+npx create-react-app 项目名
+
+npx: npm 5.2.0 引入的命令
+目的:提升包内提供的命令行工具的使用体验
+原来:先安装脚手架包，再使用这个包中提供的命令
+现在:无需安装脚手架包(如create-react-app)，就可以直接使用这个包提供的命令
+
+开启项目
+yarn start 
+npm start

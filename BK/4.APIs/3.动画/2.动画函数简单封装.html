@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        span {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span>12</span>
+    <script>
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+        // 简单动画函数封装obj目标对象 target目标位置
+        function animate(obj, target) {
+            var timer = setInterval(function () {
+                if (obj.offsetLeft >= target) {
+                    clearInterval(timer);
+                }
+                obj.style.left = obj.offsetLeft + 10 + 'px';
+            }, 30);
+        }
+
+        animate(div, 500);
+        animate(span, 500);
+    </script>
+</body>
+
+</html>

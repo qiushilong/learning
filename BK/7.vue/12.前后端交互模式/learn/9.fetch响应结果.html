@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <!-- 
+        fetch响应结果
+        响应数据格式
+        text():将返回体处理成字符串类型
+        json():返回结果和JSON.parse(responseTest)一样
+
+        语法:
+        fetch('/abc').then(data=>{
+            return data.json();
+        }).then(ret=>{
+            console.log(ret)
+        });
+    -->
+
+    <script>
+        fetch('http://localhost:3000/json').then(function (data) {
+            return data.json();
+        }).then(function (data) {
+            console.log(data);
+        });
+
+        //方法二
+        fetch('http://localhost:3000/json').then(function (data) {
+            return data.text();
+        }).then(function (data) {
+            var obj = JSON.parse(data);
+            console.log(obj);
+        });
+    </script>
+</body>
+
+</html>

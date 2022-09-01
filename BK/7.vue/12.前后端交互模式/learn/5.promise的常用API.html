@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <!-- 
+        1.实例方法
+        p.then()得到异步任务的正确结果
+        p.catch()获取异常信息
+        p.finally()成功与否都会执行(尚且不是正式标准)
+    -->
+
+    <script>
+        function foo() {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    reject(123);
+                }, 100)
+            })
+        }
+        foo()
+            .then(function (data) {
+                console.log('then ' + data);
+            })
+            .catch(function (data) {
+                console.log('catch ' + data);
+            })
+            .finally(function () {
+                console.log('finally');
+            });
+
+        //写法二
+        foo()
+            .then(function (data) {
+                console.log('then ' + data);
+            }, function (data) {
+                console.log('catch ' + data);
+            })
+            .finally(function () {
+                console.log('finally');
+            });
+    </script>
+</body>
+
+</html>
