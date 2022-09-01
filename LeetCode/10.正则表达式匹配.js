@@ -34,12 +34,13 @@ var isMatch = function (s, p) {
 	for (let i = pArr.length - 1; i >= 0; i--) {
 		console.log(pArr[i], sArr[sArr.length - 1]);
 		if (pArr[i].length === 1) {
-			if (isEqual(sArr[sArr.length - 1], pArr[i])) {
+			if (sArr[sArr.length - 1] === pArr[i] || pArr[i] === ".") {
 				pArr.pop();
 				sArr.pop();
 			} else {
+				// p
 				// 判断和 k 是否符合
-				if (isEqual(sArr[sArr.length - 1], k[0])) {
+				if (sArr[sArr.length - 1], k[0]) {
 					sArr.pop();
 				} else {
 					return false;
@@ -53,9 +54,7 @@ var isMatch = function (s, p) {
 	return true;
 };
 
-var isEqual = function (a, b) {
-	return a === b || b === ".";
-};
+
 
 console.log(isMatch("aabbaa", "a*ab.a*"));
 // @lc code=end
