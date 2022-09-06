@@ -20,8 +20,14 @@ var fourSum = function (nums, target) {
 	for (let i = 0; i < nums.length; i++) {
 		for (let j = 0; j < nums.length; j++) {
 			const tempResult = twoPointReasult(nums, i, j, target);
-			console.log(i, j, tempResult);
 			if (tempResult.length > 0) {
+
+
+
+
+
+
+				
 				result = [...result, ...tempResult];
 			}
 		}
@@ -33,17 +39,14 @@ var twoPointReasult = function (nums, point1, point2, target) {
 	if (point2 - point1 < 3) return [];
 
 	const result = [];
+	let l = point1 + 1;
+	let r = point2 - 1;
 
-	for (let i = point1; i <= point2 - 3; i = addToNoRepet(nums, i, point2 - 3)) {
-		if (nums[i] > target) return result;
-		let l = i + 1;
-		let r = point2 - 1;
-
-		while (l < r) {
-			sum = nums[i] + nums[point2] + nums[l] + nums[r];
-			sum === target && result.push([nums[i], nums[l], nums[r], nums[point2]]);
-			sum <= target ? (l = addToNoRepet(nums, l, r)) : r--;
-		}
+	while (l < r) {
+		sum = nums[point1] + nums[point2] + nums[l] + nums[r];
+		sum === target &&
+			result.push([nums[point1], nums[l], nums[r], nums[point2]]);
+		sum <= target ? (l = addToNoRepet(nums, l, r)) : r--;
 	}
 	return result;
 };
@@ -54,5 +57,6 @@ var addToNoRepet = function (nums, i, r) {
 	}
 	return ++i;
 };
-console.log(fourSum([1, 0, -1, 0, -2, 2], 0, 5, 0));
+console.log(fourSum([2,2,2,2,2], 8));
+// console.log(twoPointReasult([-2, -1, 0, 0, 1, 2], 0, 5, 0));
 // @lc code=end
