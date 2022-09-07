@@ -10,53 +10,29 @@
  * @param {number} target
  * @return {number[][]}
  */
-var fourSum = function (nums, target) {
-	if (nums.length < 4) return [];
-
-	let result = [];
-
-	nums = nums.sort((a, b) => a - b);
-
-	for (let i = 0; i < nums.length; i++) {
-		for (let j = 0; j < nums.length; j++) {
-			const tempResult = twoPointReasult(nums, i, j, target);
-			if (tempResult.length > 0) {
-
-
-
-
-
-
-				
-				result = [...result, ...tempResult];
-			}
-		}
-	}
-	return result;
+ var fourSum = function(nums, target) {
+  const len = nums.length;
+  if(len < 4) return [];
+  nums.sort((a, b) => a - b);
+  const res = [];
+  for(let i = 0; i < len - 3; i++) {
+      // 去重i
+      if(i > 0 && nums[i] === nums[i - 1]) continue;
+      for(let j = i + 1; j < len - 2; j++) {
+          // 去重j
+          if(j > i + 1 && nums[j] === nums[j - 1]) continue;
+          let l = j + 1, r = len - 1;
+          while(l < r) {
+              const sum = nums[i] + nums[j] + nums[l] + nums[r];
+              if(sum < target) { l++; continue}
+              if(sum > target) { r--; continue}
+              res.push([nums[i], nums[j], nums[l], nums[r]]);
+              while(l < r && nums[l] === nums[++l]);
+              while(l < r && nums[r] === nums[--r]);
+          }
+      } 
+  }
+  return res;
 };
-
-var twoPointReasult = function (nums, point1, point2, target) {
-	if (point2 - point1 < 3) return [];
-
-	const result = [];
-	let l = point1 + 1;
-	let r = point2 - 1;
-
-	while (l < r) {
-		sum = nums[point1] + nums[point2] + nums[l] + nums[r];
-		sum === target &&
-			result.push([nums[point1], nums[l], nums[r], nums[point2]]);
-		sum <= target ? (l = addToNoRepet(nums, l, r)) : r--;
-	}
-	return result;
-};
-
-var addToNoRepet = function (nums, i, r) {
-	while (nums[i + 1] === nums[i] && i < r) {
-		i++;
-	}
-	return ++i;
-};
-console.log(fourSum([2,2,2,2,2], 8));
-// console.log(twoPointReasult([-2, -1, 0, 0, 1, 2], 0, 5, 0));
 // @lc code=end
+
