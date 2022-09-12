@@ -1,5 +1,8 @@
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// 多进程打包
+const os = require('os');
+const threads = os.cpus().length;
 
 /**
  * webpack打包优化：
@@ -19,34 +22,49 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
  *    oneOf表示以下loader只会匹配一个，可以提高打包速度。
  *    注意：使用oneOf不能使用两个loader处理一个类型文件，需要的话要放外面
  *
- * 4.缓存
+ * 4.include/exclude
+ * 		主要写在 loader 中
+ * 		include: 只处理目录下的文件
+ * 		exclude: 不处理目录下的文件
+ * 		include 和 exclude 不能一起使用
+ * 
+ * 5.缓存
+ * 	 主要是针对 js 处理进行缓存，如 eslint，babel 等
  *   babel-loader缓存：
  *     cacheDiretory: true
+ *     cacheCompression: false
+ *   eslint
+ * 		 cache: true
+ *     cacheLocation: 
  *   文件资源缓存
  *     hash：每次webpack构建是会生成一个唯一的hash值。
  *     chunkhash：根据chunk生产的hash值。
  *     contenthash: 根据文件内容的hash值。
  *
- * 5.tree shaking：去除无用代码
+ * 6.tree shaking：移除 js 中未用到的代码
  *   前提：1.使用ES6 module   2.mode:'production'
  *   在package.json中配置 "sideEffects":"[*.css]"，可以让指定类型文件不进行tree shaking
  *
- * 6.code split：代码分割
+ * 7.code split：代码分割
  *
- * 7.lazy loading：懒加载
+ * 8.lazy loading：懒加载
  *   js等到调用时才加载
  *   预加载：先加载其他资源，等浏览器空闲时再加载
  *
- * 8.PWA
+ * 9.PWA
  *   离线可以访问部分内容
  *
- * 9.多进程打包（thread-loader）
+ * 10.多进程打包（thread-loader）
  *   进程启动和通信需要时间，只有打包时间消耗长才需要多进程打包
+ *   每个进程启动需要时间，如果是小项目，可能不使用多进程打包会更快
  *
- * 10.external
+ * 11.external
  *   防止引入的外部包打包进来。而是使用cdn加载。
  *
- * 11.dll
+ * 12.dll
+ * 
+ * 13.preload/prefetch
+ * 懒加载文件，提前加载
  */
 
 module.exports = {
@@ -58,9 +76,13 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.css$/,
-				use: ['style-loader', 'css-loader'],
-			},
+				oneOf:[
+					{
+						test: /\.css$/,
+						use: ['style-loader', 'css-loader'],
+					},
+				]
+			}
 		],
 	},
 	plugins: [
@@ -71,7 +93,7 @@ module.exports = {
 	// 将node_modules中的内容打包分割
 	optimization: {
 		splitChunks: {
-			chunks: all,
+			chunks: 'all',
 		},
 	},
 	mode: 'production',
