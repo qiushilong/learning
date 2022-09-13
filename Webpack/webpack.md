@@ -39,7 +39,7 @@ entry: {
 
 **语法：**
 
-{ filename: string, path: string }
+{ filename: string, path: string, ... }
 
 ```js
 // 单入口
@@ -75,4 +75,51 @@ webpack --mode=production
 | ----------- | ------------------------------------------------------------ |
 | development | 会将 `process.env.NODE_ENV` 的值设为 `development`。启用 `NamedChunksPlugin` 和 `NamedModulesPlugin`。 |
 | production  | 会将 `process.env.NODE_ENV` 的值设为 `production`。启用 `FlagDependencyUsagePlugin`, `FlagIncludedChunksPlugin`, `ModuleConcatenationPlugin`, `NoEmitOnErrorsPlugin`, `OccurrenceOrderPlugin`, `SideEffectsFlagPlugin` 和 `UglifyJsPlugin`. |
+
+## Loader
+
+loader 用于对模块的源代码进行转换。loader 可以使你在 `import` 或"加载"模块时预处理文件。
+
+使用 loader 的三种方式：
+
+- webpack.config.js 配置（推荐）
+- 内联 import
+- 在 shell 命令指定
+
+```js
+module: {
+  rules: [
+    {
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: true
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+## plugins
+
+插件目的在于解决 loader 无法实现的**其他事**。
+
+webpack **插件**是一个具有 apply 属性的 JavaScript 对象。
+
+`apply` 属性会被 webpack compiler 调用，并且 compiler 对象可在**整个**编译生命周期访问。
+
+```js
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  plugins: [
+    new HtmlWebpackPlugin();
+  ]
+}
+```
 

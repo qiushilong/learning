@@ -1,0 +1,17 @@
+{
+	"name": "webpack-guide",
+	"version": "1.0.0",
+	"description": "",
+	"private": true,
+	"scripts": {
+		"start": "npx webpack --config webpack.config.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"webpack": "^5.74.0"
+	},
+	"dependencies": {
+		"lodash": "^4.17.21"
+	}
+}
