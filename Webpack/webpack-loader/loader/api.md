@@ -1,0 +1,6 @@
+- this.async
+- this.callback
+- this.getOptions
+- this.emitFile
+- this.utils.contextify
+- this.utils.absolutify
