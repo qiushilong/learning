@@ -9,8 +9,25 @@
  * @param {number} n
  * @return {string[]}
  */
-var generateParenthesis = function(n) {
-
+var generateParenthesis = function (n) {
+	return lr(n,n).filter(item=>item.length!==n)
 };
-// @lc code=end
 
+function lr(lNum, rNum) {
+	if (lNum === 0) {
+		const result = [];
+		for (let i = 0; i < rNum; i++) {
+			result.push(")");
+		}
+		return [result.join("")];
+	}
+	if ((lNum === 0 && rNum === 0) || lNum > rNum) return [];
+	return [
+		...lr(lNum - 1, rNum).map((item) => "(" + item),
+		...lr(lNum, rNum - 1).map((item) => ")" + item),
+	];
+}
+
+// console.log(generateParenthesis(4));
+
+// @lc code=end
