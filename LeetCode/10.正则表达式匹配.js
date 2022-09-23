@@ -36,6 +36,19 @@ var isMatch = function (s, p) {
 				continue;
 			}
 
+			// 如果 pArr[j] 是 "*" (最复杂情况)
+			// 这里使用 t (初始值 j-1 ) , 是因为 * 前面可能再次遇到 * , 需要循环处理
+			/**
+			 * 满足 true 情况(不包括特殊情况):
+			 * 1. pArr[t] === sArr[i] || pArr[t] === "."
+			 *   1.1 只要 rArr[i][t] , rArr[i-1][t] , rArr[i-1][t+1] 存在一个 true 即可
+			 *   1.2 不满足上述要求, 也不一定为 false, 继续看
+			 * 2. pArr[t-1] === sArr[i] || pArr[t-1] === "."
+			 *   2.1 只要 rArr[i-1][t-1] 位置为 true 即为 true
+			 * 3. pArr[t-1] === "*"
+			 *   3.1 t--
+			 * 4. 循环上述操作
+			 */
 			if (pArr[j] === "*") {
 				let t = j - 1;
 				while (true) {
@@ -67,7 +80,6 @@ var isMatch = function (s, p) {
 			}
 		}
 	}
-	// console.log(rArr)
 	return rArr[sArr.length-1][pArr.length-1];
 };
 
