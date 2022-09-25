@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 1. 每个函数都有一个 prototype (显式原型)
+       * 2. 每个实例对象都有一个 __proto__ (隐式原型)
+       * 3. 函数的 prototype 等于它实例的 __proto__
+       */
+      function Fn() {
+      }
+
+      console.log(Fn)
+      console.log(Fn.prototype);
+
+      const fn = new Fn();
+
+      console.log(fn.__proto__);
+
+      console.log(Fn.prototype===fn.__proto__)
+    </script>
+  </body>
+</html>

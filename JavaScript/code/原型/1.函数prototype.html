@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 函数有一个 prototype 的属性，表示原型
+      console.log("Date.prototype", Date.prototype);
+      console.log(
+        "Date.prototype.constructor",
+        Date.prototype.constructor,
+        Date.prototype.constructor === Date
+      );
+      console.log("Date.__proto__", Date.__proto__);
+
+      // 修改原型
+      Date.prototype.myFn=function(){
+        console.log('myFn')
+      }
+      const date = new Date();
+      date.myFn();
+
+      // 对象没有 prototype 属性
+      const obj = {};
+      console.log("obj.prototype", obj.prototype);
+      console.log("obj.__proto__", obj.__proto__);
+    </script>
+  </body>
+</html>
