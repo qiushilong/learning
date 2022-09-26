@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 函数：
+       *   1. JS 中函数传参都是按值传递，但是对象的属性可以按引用修改
+       *   2. 函数声明 vs 函数表达式
+       *     2.1 函数声明会函数提升，函数表达式不会
+       *   3. 箭头函数
+       *     3.1 箭头函数没有自己的 this，this 指向外部的 this
+       *     3.2 箭头函数也不会函数提升
+       *   4. arguments rest
+       *     4.1 arguments 包括所有的参数，是一个类数组。
+       *     4.2 rest 需要手动声明（名称可变），只包括多余参数，是一个数组
+       */
+
+      function add(a, b) {
+        console.log(arguments);
+      }
+
+      function mixin(a, ...rest) {
+        console.log(rest);
+      }
+
+      add(1, 2);
+      mixin(1, 2);
+    </script>
+  </body>
+</html>

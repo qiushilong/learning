@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 严格模式：
+       * 1. 位置
+       *   1.1 全局使用
+       *   1.2 函数内部使用
+       * 2. 限制
+       *   2.1 不允许使用未定义的变量
+       *   2.2 不允许使用保留字作为变量名
+       *   2.3 不允许给只读属性赋值
+       *   2.4 不允许删除对象的 prototype
+       *   2.5 不允许使用 8 进制
+       *   2.6 more
+       */
+      "use strict";
+
+      demo = true; // 控制台报错
+
+      let private; // 控制台报错
+
+      function add() {
+        "use strict";
+      }
+    </script>
+  </body>
+</html>
