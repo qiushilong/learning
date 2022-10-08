@@ -16,6 +16,11 @@
  * 13. promise
  * 14. generation
  * 15. proxy
+ * 16. 数组操作 forEach map filter reduce 
+ *        find findIndex some every 
+ *        flat(n) 展开数组嵌套，n表示展开层数 
+ *        flatMap
+ * 17. bigInt
  * 空值合并运算符 ??
  */
 
