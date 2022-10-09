@@ -16,12 +16,16 @@
        * 调用方式：
        *   1. 使用对象调用，指向该对象（不添加默认指向 window，严格模式下 undefined）
        *   2. 箭头函数没有自己的 this，this 是外部作用域的 this
-       *   3. DOM 操作事件监听器，监听函数中，this 始终指向 DOM 元素
+       *   3. DOM 操作事件监听器，监听函数中，this 指向 DOM 元素
        *
        * 改变 this 指向
        *   1. call
        *   2. apply
        *   3. bind
+       *      bind 也可以传入其他参数，当传入时，相当于参数固定。
+       *      const add = function (x, y) return x + y;
+       *      const fn = add.bind(null, 5);
+       *      此时 fn 相当于 function(y) retrun 5 + y; 
        */
 
       const jonas = {

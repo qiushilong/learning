@@ -5,9 +5,23 @@
  * 2. 对象（数组）解构赋值
  * 3. 扩展运算符（spread） ...
  * 4. reset
- * 5. for of 
- *
- * ??
+ * 5. for of
+ * 6. 对象增强 函数增强
+ * 7. 可选链 ?.
+ * 8. Set WeakSet Map WeakSet
+ * 9. fetch
+ * 10. websocket
+ * 11. async
+ * 12. await
+ * 13. promise
+ * 14. generation
+ * 15. proxy
+ * 16. 数组操作 forEach map filter reduce 
+ *        find findIndex some every 
+ *        flat(n) 展开数组嵌套，n表示展开层数 
+ *        flatMap
+ * 17. bigInt
+ * 空值合并运算符 ??
  */
 
 // 数组解构赋值
