@@ -106,9 +106,50 @@ var fn;
 
 ## 3.宏任务/微任务
 
-3.1 
+**宏任务：**script，setTimeout，setInterval，I/0，UI rendering，setImmediate（node 才有）...
 
+**微任务：**MutationObserver（浏览器才有），Promise.then() 或 catch()，fetch，axios，v8 gc，await 下方代码，process.nextTick（node 才有）
 
+**过程：**
+
+1. 讲整个脚本作为一个宏任务执行。
+2. 同步代码直接执行，宏任务进入宏任务队列，微任务进入微任务队列。
+3. 当同步代码执行完毕，检查微任务队列，有则执行完毕。
+4. 执行一个宏任务。
+5. 重复 3 4
+
+### 3.1 
+
+```js
+async function async1() {
+  console.log('async1 start');
+  await async2();
+  console.log('async1 end');
+}
+
+async function async2() {
+  console.log('async2');
+}
+
+console.log('script start');
+
+setTimeout(function() {
+  console.log('setTimeout');
+}, 0);
+
+async1();
+
+new Promise(function(resolve) {
+  console.log('promise1');
+  resolve();
+}).then(function() {
+  console.log('promise2');
+});
+
+console.log('script end');
+```
+
+[答案](#task3.1)
 
 ## other
 
@@ -254,6 +295,16 @@ console.log(typeof fn);
 
 
 [题目](#2.4)
+
+
+
+### task3.1
+
+**输出：**script start -> async1 start -> async2 -> promise1 -> script end ->async1 end -> promsie2 -> setTimeout
+
+**解释：**执行同步任务 -> 微任务 -> 宏任务，然后是微任务和宏任务相互循环执行，async await 看作 promise 处理。
+
+[题目](#3.1)
 
 
 
