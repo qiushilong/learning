@@ -1,9 +1,0 @@
-{
-	"file": ["test.ts", "test.d.ts"], // 需要编译的文件
-	"compilerOptions": {
-		"outDir": "./output", // 输出目录
-		"module": "ESNext", //
-		"target": "ES5", // 支持的 es 版本
-		"declaration": true
-	}
-}

@@ -4,6 +4,12 @@
 
 ## 1.this
 
+- 直接调用，this 指向 window。（严格模式下，this 为 undefined）
+- 对象调用，this 指向调用对象。
+- 箭头函数，没有自己的 this，this 指向外部上下文的 this。
+- new 时，this 新生成的对象。
+- call，apply，bind 可以改变 this 的指向。
+
 ### 1.1
 
 ```js
@@ -95,6 +101,95 @@ var fn;
 ```
 
 [答案](#var2.4)
+
+
+
+## 3.宏任务/微任务
+
+**宏任务：**script，setTimeout，setInterval，I/0，UI rendering，setImmediate（node 才有）...
+
+**微任务：**MutationObserver（浏览器才有），Promise.then() 或 catch()，fetch，axios，v8 gc，await 下方代码，process.nextTick（node 才有）
+
+**过程：**
+
+1. 讲整个脚本作为一个宏任务执行。
+2. 同步代码直接执行，宏任务进入宏任务队列，微任务进入微任务队列。
+3. 当同步代码执行完毕，检查微任务队列，有则执行完毕。
+4. 执行一个宏任务。
+5. 重复 3 4
+
+### 3.1 
+
+```js
+async function async1() {
+  console.log('async1 start');
+  await async2();
+  console.log('async1 end');
+}
+
+async function async2() {
+  console.log('async2');
+}
+
+console.log('script start');
+
+setTimeout(function() {
+  console.log('setTimeout');
+}, 0);
+
+async1();
+
+new Promise(function(resolve) {
+  console.log('promise1');
+  resolve();
+}).then(function() {
+  console.log('promise2');
+});
+
+console.log('script end');
+```
+
+[答案](#task3.1)
+
+## other
+
+### o1
+
+```js
+var a = 10;
+a.pro = 10;
+console.log(a.pro + a);
+
+var s = 'hello';
+s.pro = 'world';
+console.log(s.pro + s);
+```
+
+[答案](#oa1)
+
+### o2
+
+```js
+const array = new Array(5).map(item => {
+  return item = {
+    name: '1'
+  }
+});
+
+console.log(array);
+```
+
+[答案](#oa2)
+
+### o3
+
+```js
+const array = ['1', '2', '3'].map(parseInt);
+
+console.log(array);
+```
+
+[答案](#oa3)
 
 
 
@@ -200,3 +295,63 @@ console.log(typeof fn);
 
 
 [题目](#2.4)
+
+
+
+### task3.1
+
+**输出：**script start -> async1 start -> async2 -> promise1 -> script end ->async1 end -> promsie2 -> setTimeout
+
+**解释：**执行同步任务 -> 微任务 -> 宏任务，然后是微任务和宏任务相互循环执行，async await 看作 promise 处理。
+
+[题目](#3.1)
+
+
+
+### oa1
+
+**输出：**NaN undefinedhello
+
+**解释：**
+
+给基本类型添加属性，不报错，但是取值时为 undefined。
+
+所以 undefined + 10 得到 NaN，undefined + hello 得到 undefinedhello。
+
+[题目](#o1)
+
+
+
+### oa2
+
+**输出：**[empty x 5]
+
+**解释：**
+
+- new Array(5) 产生的数组是一个没有为各项赋值的数组。
+- map 仅对已分配值的数组索引进行 callback 调用。
+
+[题目](#o2)
+
+
+
+### oa3
+
+**输出：**[1, NaN, NaN]
+
+**解释：**
+
+parseInt(string, radix)：parseInt 接受两个参数，带转换字符串和转换进制。
+
+- '1' 时，传递了值和索引，所以相当于 parseInt('1', 0)，返回 1。
+
+- '2' 时，parseInt('2', 1)，不存在一进制，返回 NaN。
+
+- ’3‘ 时，parseInt('3', 2)，二进制不存在 3，返回 NaN。
+
+**说明：**
+
+- parseInt(string, radix)：可以讲字符串按 radix 进制解析。
+- toString(radix)：可以把数值转为 radix 进制字符串。
+
+[题目](#o3)
