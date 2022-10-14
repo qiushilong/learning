@@ -1,4 +1,4 @@
-# 为何使用 typescript
+# 为什么使用 typescript
 - 程序更容易理解
   - 明确输入输出参数类型
   - 明确变量类型
@@ -17,3 +17,25 @@
 缺点：
 - 增加了一些学习成本
 - 短期内增加了一些开发成本
+
+
+
+```js
+// js：结果是未预期的
+function add(num1, num2) {
+  return num1 + num2;
+}
+console.log(add('2', '3')); // '23'
+console.log(add(undefined, 1)); // NaN
+```
+
+```typescript
+// ts：
+function add(num1: number, num2: number): number {
+  return num1 + num2;
+}
+console.log(add('2', '3')); // ts 编译就会报错
+console.log(add(undefined, 1)); // ts 编译就会报错
+
+```
+
