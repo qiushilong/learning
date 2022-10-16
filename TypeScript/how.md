@@ -5,18 +5,21 @@
 ```typescript
 let a: number = 1;
 let b: boolean = true;
-let c: string = 'c';
+let c: string = "c";
 let d: null = null;
 let e: undefined = undefined;
 let f: any; // 任意类型，相当于不进行 typescript 检查
-let g: number[] = [1, 2, 3]; // 数组：写法 1
-let h: Array<number> = [1, 2, 3]; // 数组：写法 2
-let i: [number, string] = [1, 'a']; // 元组（Tuple）：元组类型允许一个已知元素数量和类型的数组，各项可以不同类型
-let j: () => void = () => {}; // void：函数没有返回值
-let k: () => { throw new Error('Error'); } // never：永远不会到达的值（throw Error，无限循环...）
+let g: unknown; // 未知类型
+let h: number[] = [1, 2, 3]; // 数组：写法 1
+let i: Array<number> = [1, 2, 3]; // 数组：写法 2
+let j: [number, string] = [1, "a"]; // 元组（Tuple）：元组类型允许一个已知元素数量和类型的数组，各项可以不同类型
+let k: () => void = () => {}; // void：函数没有返回值
+let l: () => never = () => {
+  throw new Error("Error");
+}; // never：永远不会到达的值（throw Error，无限循环...）
 
 // 特殊些
-let l: ReadonlyArray<number> = [1, 2, 3]; // 只读数组
+let m: ReadonlyArray<number> = [1, 2, 3]; // 只读数组
 ```
 
 
