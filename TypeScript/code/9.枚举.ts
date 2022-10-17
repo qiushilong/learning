@@ -1,6 +1,7 @@
 enum Sex {
-  Boy,
   Girl,
+  Boy,
 }
 
-console.log(Sex.Boy, Sex.Girl);
+const girl: Sex = Sex.Girl;
+const boy: Sex = Sex.Boy;
