@@ -151,6 +151,249 @@ console.log('script end');
 
 [答案](#task3.1)
 
+
+
+## 4.原型 & 原型链
+
+```js
+function Person(name) {
+  this.name = name;
+}
+var p = new Person('king');
+
+// 规律
+p.__proto__ // Person.prototype
+p.__proto__.__proto__ // Object.prototype
+p.__proto__.__proto__.__proto__ // null
+p.constructor // Person
+p.prototype // undefined
+Person.constructor // 空函数
+Person.prototype // Person.prototype 对象
+Person.prototype.constructor // Person
+Person.prototype.__proto__ // Object.prototype
+Person.__proto__ // Function.prototype
+Function.prototype.__proto__ // Object.prototype
+Function.__proto__ // Function.prototype
+Object.__proto__ // Function.prototype
+Object.prototype.__proto__ // null
+```
+
+
+
+### 4.1
+
+```js
+function Foo() {
+  getName = function() {
+    console.log(1);
+  }
+  return this;
+}
+
+Foo.getName = function() {
+  console.log(2);
+}
+
+Foo.prototype.getName = function() {
+  console.log(3);
+}
+
+var getName = function() {
+  console.log(4);
+}
+
+function getName() {
+  console.log(5);
+}
+
+Foo.getName();
+getName();
+Foo().getName();
+getName();
+new Foo.getName();
+new Foo().getName();
+new new Foo().getName();
+```
+
+
+
+**答案：**
+
+```js
+Foo.getName(); // 2
+getName(); // 4
+Foo().getName(); // 1
+getName(); // 1
+new Foo.getName(); // 2
+new Foo().getName(); // 3
+new new Foo().getName(); // 3
+```
+
+
+
+### 4.2
+
+```js
+var F = function() {}
+Object.prototype.a = function() {
+  console.log('a');
+}
+Function.prototype.b = function() {
+  console.log('b');
+}
+
+var f = new F();
+f.a();
+f.b();
+F.a();
+F.b();
+```
+
+**答案：**
+
+```js
+f.a(); // 'a'
+f.b(); // Uncaught TypeError: f.b is not a function
+F.a(); // 'a'
+F.b(); // 'b'
+```
+
+
+
+### 4.3
+
+```js
+function Foo() {
+  Foo.a = function() {
+    console.log(1);
+  }
+  this.a = function() {
+    console.log(2);
+  }
+}
+
+Foo.prototype.a = function() {
+  console.log(3);
+}
+
+Foo.a = function() {
+  console.log(4);
+}
+
+Foo.a(); // 4
+let obj = new Foo();
+obj.a(); // 2
+Foo.a(); // 1
+```
+
+
+
+### 4.4
+
+```js
+function Dog() {
+  this.name = 'puppy';
+}
+Dog.prototype.bark = () => {
+  console.log('woof!woof!');
+}
+const dog = new Dog();
+console.log(Dog.prototype.constructor === Dog); // true
+console.log(dog.constructor === Dog); // true
+console.log(dog instanceof Dog); // true
+```
+
+
+
+### 4.5
+
+```js
+var A = { n: 4399 };
+var B = function() { this.n = 9999; };
+var C = function() { var n = 8888; };
+
+B.prototype = A;
+C.prototype = A;
+
+var b = new B();
+var c = new C();
+A.n++;
+console.log(b.n); // 10000
+console.log(c.n); // 4400
+```
+
+
+
+### 4.6
+
+```js
+function A() {}
+function B(a) {
+  this.a = a;
+}
+function C(a) {
+  if(a) {
+    this.a = a;
+  }
+}
+
+A.prototype.a = 1;
+B.prototype.a = 1;
+C.prototype.a = 1;
+
+console.log(new A().a); // 1
+console.log(new B().a); // undefined
+console.log(new C(2).a); // 2 
+```
+
+**答案：**
+
+
+
+### 4.7
+
+```js
+function Parent {
+  this.a = 1;
+  this.b = [1, 2, this.a];
+  this.c = { demo: 5 };
+  this.show = function() {
+    console.log(this.a, this.b, this.c.demo);
+  };
+}
+
+function Child() {
+  this.a = 2;
+  this.change = function() {
+    this.b.push(this.a);
+    this.a = this.b.length;
+    this.c.demo = this.a++;
+  }
+}
+
+Child.prototype = new Parent();
+var parent = new Parent();
+var child1 = new Child();
+var child2 = new Child();
+child1.a = 11;
+child2.a = 12;
+
+parent.show(); // 1 [1, 2, 1] 5
+child1.show(); // 11 [1, 2, 1] 5
+child2.show(); // 12 [1, 2, 1] 5
+child1.change();
+child2.change();
+parent.show(); // 1 [1, 2, 1] 5
+child1.show(); // 5 [1, 2, 1, 11, 12] 5
+child2.show(); // 6 [1, 2, 1, 11, 12] 5
+```
+
+
+
+
+
+
+
 ## other
 
 ### o1
