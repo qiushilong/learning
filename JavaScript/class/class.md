@@ -39,9 +39,6 @@ class User {
   constructor(name) {
     this.name = name;
   }
-  sayHi() {
-    console.log('hi~');
-  }
 }
 
 console.log(typeof User); // 'function'
@@ -91,6 +88,8 @@ console.log(Object.getOwnPropertyNames(User.prototype)); // constructor, sayHi
 2. 类方法不可枚举。类定义将 "prototype" 中的所有方法的 enumerable 标志设置为 false。这样我们对一个对象调用 for in ，则不会出现 class 方法。
 
 3. 类总是使用 use strict。在类构造中的所有代码都将自动进入严格模式。
+
+4. 类不会提升
 
 
 

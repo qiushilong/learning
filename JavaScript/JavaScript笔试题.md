@@ -151,6 +151,36 @@ console.log('script end');
 
 [答案](#task3.1)
 
+
+
+## 4.原型 & 继承
+
+```js
+function Person(name) {
+  this.name = name;
+}
+
+var p2 = new Person('king');
+console.log(p2.__proto__); // Person.prototype
+console.log(p2.__proto__.__proto__); // Object.prototype
+console.log(p2.__proto__.__proto__.__proto__); // null
+// 再取 null 的 __proto__ 则会报错
+
+console.log(p2.constructor); // Person（来自原型链）
+console.log(p2.prototype); // undefined
+
+console.log(Person.constructor); // Function（空函数）
+console.log(Person.prototype); // 
+console.log(Person.prototype.constructor); // Person
+console.log(Person.prototype.__proto__);
+```
+
+
+
+
+
+
+
 ## other
 
 ### o1
