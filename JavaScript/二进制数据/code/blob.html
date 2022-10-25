@@ -1,0 +1,7 @@
+<a download="hello.txt" href="#" id="link">Download</a>
+
+<script>
+  let blob = new Blob(['hello,world!'],{type:'text/plain'})
+  link.href = URL.createObjectURL(blob)
+  console.log(link)
+</script>
