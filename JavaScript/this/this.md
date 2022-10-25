@@ -1,8 +1,8 @@
-## this
+# this
 
+## 介绍
 
-
-#### 介绍
+this 是 JavaScript 的关键字之一。它是对象自动生成的一个内部对象，只能在对象内部使用。随着函数使用的场合不同，this 的值会发生变化。
 
 与其他语言相比，函数的 this 关键字在 JavaScript 中表现略有不同，此外，在严格模式和非严格模式之间也会有一些差别。
 
@@ -24,15 +24,15 @@ console.log(test.func()); // 20
 
 ```
 
-#### this 的值
+## this 的值
 
 this 的值是当前执行上下文（global，function 或 eval ）的一个属性，在非严格模式下总是指向一个对象，在严格模式下可以是任何值。
 
 
 
-#### 描述
+## 描述
 
-##### 全局上下文
+### 全局上下文
 
 无论是否在严格模式下，在全局执行环境中，this 都是指向全局对象。
 
@@ -52,7 +52,7 @@ console.log(b); // "MDN"
 
 
 
-##### 函数上下文
+### 函数上下文
 
 在函数内部，this 的值取决于函数被调用的方式。
 
@@ -81,7 +81,7 @@ f2() === undefined; // true
 
 
 
-##### 类上下文
+### 类上下文
 
 this 在类中的表现和在函数中类似，因为类本质上也是函数，但是有一些区别和注意事项。
 
@@ -103,7 +103,24 @@ new Example(); // ['constructor', 'first', 'second']
 
 
 
-##### 箭头函数
+### 函数上下文
+
+```js
+var obj = { a: 'custom' };
+var a = 'global';
+
+function whatsThis() {
+  return this.a;
+}
+
+whatsThis(); // 'global'
+whatsThis.call(obj); // 'custom'
+whatsThis.apply(obj); // 'custom'
+```
+
+
+
+### 箭头函数
 
 在箭头函数中，this 与封闭词法环境的 this 保持一致。在全局代码中，它将被设置为全局对象。
 
@@ -122,7 +139,7 @@ console.log(foo() === globalObject); // true
 
 
 
-##### 构造函数
+### 构造函数
 
 当一个函数用作构造函数时（使用 new 关键字），它的 this 被绑定到正在构造的新对象。
 
@@ -133,5 +150,44 @@ function C(){
 
 var o = new C();
 console.log(o.a); // 37
+```
+
+
+
+### getter 和 setter
+
+用作 getter 和 setter 的函数都会把 this 绑定到设置或获取属性的对象。
+
+```js
+function sum() {
+  return this.a + this.b + this.c;
+}
+
+var o = {
+  a: 1,
+  b: 2,
+  c: 3,
+  get average() {
+    return (this.a + this.b + this.c)/3;
+  }
+}
+
+console.log(o.average); // 2
+```
+
+
+
+### new
+
+new 时，this 会指向新创建的对象。
+
+```js
+function foo(){
+  this.a = 10;
+  return {}
+};
+
+let obj = new foo();
+console.log(obj.a); // 10
 ```
 
