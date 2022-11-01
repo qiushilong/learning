@@ -1,0 +1,19 @@
+<script>
+	async function fetchUse() {
+    // 第一阶段：请求
+		const url = "https://www.baidu.com";
+		const response = await fetch(url);
+
+		console.log("response:", response);
+
+    // 第二阶段：解析
+		if (response.ok) {
+			let json = await response.json();
+			console.log("json:", json);
+		} else {
+			console.log("response.status:", response.status);
+		}
+	}
+
+	fetchUse();
+</script>

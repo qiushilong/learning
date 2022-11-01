@@ -1,0 +1,19 @@
+<form id="formElem">
+  <input type="text" name="name" value="john">
+  <input type="text" name="surname" value="smith">
+  <input type="submit">
+</form>
+
+<script>
+  formElem.onsubmit = async (e) => {
+    e.preventDefault();
+
+    let response = await fetch('/post/user',{
+      method:"POST",
+      body: new FormData(formElem)
+    })
+
+    let result = await response.json();
+    console.log(result)
+  }
+</script>

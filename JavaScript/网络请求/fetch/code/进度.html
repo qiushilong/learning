@@ -1,0 +1,30 @@
+<script>
+	async function demo() {
+		const response = await fetch(
+			"https://dl4.weshineapp.com/gif/20170228/e060adb43c788e234fae7d8dc90e4369.gif?f=micro_6auY5YW0"
+		);
+
+		const reader = response.body.getReader();
+
+		const contentLength = +response.headers.get("Content-Length");
+
+		let downloadLength = 0;
+
+		while (true) {
+			const { done, value } = await reader.read();
+
+			if (done) {
+				break;
+			}
+			downloadLength += value.length;
+
+			console.log(
+				`Received ${value.length} bytes, total ${contentLength} bytes`
+			);
+			console.log(
+				`download precent: ${(downloadLength * 100) / contentLength}%`
+			);
+		}
+	}
+	demo();
+</script>

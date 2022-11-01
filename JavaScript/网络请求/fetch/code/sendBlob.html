@@ -1,0 +1,26 @@
+<body style="margin:0">
+  <canvas id="canvasElem" width="100" height="100" style="border:1px solid"></canvas>
+  <input type="button" value="Submit" onclick="submit()">
+
+  
+<script>
+  canvasElem.onmousemove = function(e) {
+    const ctx = canvasElem.getContext('2d');
+    ctx.lineTo(e.clientX,e.clientY);
+    ctx.stroke();
+  }
+
+  async function submit() {
+    const blob = await new Promise(resolve => canvasElem.toBlob(resolve,'image/png'))
+    console.log('blob:',blob)
+    let response = await fetch('/./',{
+      method:"POST",
+      blob: blob
+    })
+
+    let result = await response.json();
+    console.log(result.message)
+  }
+
+</script>
+</body>
