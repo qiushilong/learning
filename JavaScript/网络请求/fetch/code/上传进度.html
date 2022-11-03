@@ -1,0 +1,24 @@
+<input type="file" onchange="upload(this.files[0])" />
+
+<script>
+	function upload(file) {
+		let xhr = new XMLHttpRequest();
+
+		// 跟踪上传进度
+		xhr.upload.onprogress = function (event) {
+			console.log(`Uploaded ${event.loaded} of ${event.total}`);
+		};
+
+		// 跟踪完成：无论成功与否
+		xhr.onloadend = function () {
+			if (xhr.status === 200) {
+				console.log("success");
+			} else {
+				console.log("error" + this.status);
+			}
+		};
+
+		xhr.open("POST", "/./");
+		xhr.send(file);
+	}
+</script>

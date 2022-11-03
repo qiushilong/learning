@@ -1,0 +1,22 @@
+<script>
+	async function demo() {
+		let controller = new AbortController();
+		setTimeout(() => controller.abort(), 1000);
+
+		try {
+			setTimeout(async () => {
+				let response = await fetch("./data/data.json", {
+					signal: controller.signal,
+				});
+			},2000);
+		} catch (error) {
+			if ((error.name = "AbortError")) {
+				console.log("AbortError!");
+			} else {
+				throw error;
+			}
+		}
+	}
+
+	demo();
+</script>

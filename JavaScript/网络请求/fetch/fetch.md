@@ -2,7 +2,7 @@
 
 fetch 方法是一种现代通用的请求方法。旧版本的浏览器可能不支持它（可以 polyfill）。
 
-![](./img/gif1.gi)
+![](./img/gif1.gif)
 
 
 
@@ -197,5 +197,64 @@ await reader.read() 调用的结果是一个具有两个属性的对象：
 
 
 
-## 中止
+## 中止（Abort）
+
+JavaScript 通常并没有 “中止” promise 的概念。
+
+存在一个特殊的内建对象：AbortController。它不仅可以终止 fetch，还可以中止其他异步任务。
+
+
+
+**创建 AbortController 对象**
+
+```js
+let controller = new AbortController();
+```
+
+控制器是一个极其简单的对象。
+
+- 它具有单个方法 abort()。
+- 和单个属性 signal，我们可以在这个属性上设置时间监听器。
+
+当 abort() 调用时：
+
+- controller.signal 就会触发 abort 事件。
+- controller.signal.aborted 属性变为 true。
+
+
+
+**使用步骤**
+
+1. 一个可取消的操作，它在 controller.signal 上设置一个监听器。
+2. 取消操作，在需要的时候调用 controller.abort()。
+
+```js
+let controller = new AbortController(); // 新建
+let signal = controller.signal();
+
+signal.addEventListener('abort', () => console.log('abort'));
+
+constroller.abort(); // 中止操作
+
+console.log(signal.aborted); // true
+```
+
+
+
+**中止 fetch**
+
+```js
+let controller = new AbortController();
+setTimeout(() => {
+  controller.abort();
+}, 1000);
+
+try {
+  fetch('././', {
+    signal: controller.signal
+  });
+}catch(err) {
+  ...
+}
+```
 

@@ -1,0 +1,30 @@
+<script>
+	// 1.创建
+	let xhr = new XMLHttpRequest();
+
+	// 2.配置
+	xhr.open("GET", "./data/data.json");
+
+	// 3.发送
+	xhr.send();
+
+	// 4.监听响应
+	xhr.onload = function () {
+		if (xhr.status !== 200) {
+			console.log(`Error ${xhr.status}: ${xhr.statusText}`);
+		} else {
+			console.log(`Done, got ${xhr.response.length} bytes`);
+		}
+	};
+
+	xhr.onprogress = function (event) {
+		if (event.lengthComputable) {
+			console.log(`Received ${event.loaded} of ${event.total} bytes`);
+		} else {
+			console.log(`Received ${event.loaded} bytes`); // 没有 Content-Length
+		}
+	};
+	xhr.onerror = function () {
+		console.log("Request failed");
+	};
+</script>

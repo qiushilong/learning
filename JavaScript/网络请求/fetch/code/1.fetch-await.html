@@ -1,7 +1,7 @@
 <script>
-	async function fetchUse() {
+	async function fetchDemo() {
     // 第一阶段：请求
-		const url = "https://www.baidu.com";
+		const url = "./data/data.json";
 		const response = await fetch(url);
 
 		console.log("response:", response);
@@ -15,5 +15,5 @@
 		}
 	}
 
-	fetchUse();
+	fetchDemo();
 </script>

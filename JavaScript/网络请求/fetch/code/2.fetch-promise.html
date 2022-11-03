@@ -1,8 +1,15 @@
 <script>
-	const url = "https://www.baidu.com";
+	const url = "./data/data2.json";
 
 	fetch(url)
-		.then((res) => res.json())
+		.then((response) => {
+			if (response.ok) {
+				return response.json();
+			} else {
+				console.log("response.status:", response.status);
+				return {};
+			}
+		})
 		.then((res) => {
 			console.log(res);
 		});
