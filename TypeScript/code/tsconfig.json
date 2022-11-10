@@ -1,0 +1,10 @@
+{
+  // "files": [], // 将会被编译的文件
+  "include": [], // 编译的内容
+  "compilerOptions": {
+    "outDir": "./output", // 输出目录
+    "module": "ESNext", // 模块类型
+    "target": "ES5", // 编译 javascript 成
+    "declaration": true // 每个 ts 都会生成一个 .d.ts 文件
+  }
+}
