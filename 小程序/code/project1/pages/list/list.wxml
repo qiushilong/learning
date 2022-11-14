@@ -1,0 +1,26 @@
+<!--pages/list/list.wxml-->
+
+<!-- view 组件使用 -->
+<view class="box">
+    <view>a</view>
+    <view>b</view>
+    <view>c</view>
+</view>
+
+<!-- scroll-view 组件使用 -->
+<scroll-view class="box box2" scroll-y>
+    <view>a</view>
+    <view>b</view>
+    <view>c</view>
+</scroll-view>
+
+<swiper indicator-dots indicator-color="white">
+    <swiper-item>1</swiper-item>
+    <swiper-item>2</swiper-item>
+    <swiper-item>3</swiper-item>
+</swiper>
+
+<!-- text 组件 -->
+<text selectable>13204123131</text>
+
+<rich-text nodes="<h1>标题</h1>"></rich-text>

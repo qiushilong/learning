@@ -1,0 +1,52 @@
+/* pages/list/list.wxss */
+
+.box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.box view {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+}
+
+.box view:nth-child(1) {
+    background-color: red;
+}
+
+.box view:nth-child(2) {
+    background-color: green;
+}
+
+.box view:nth-child(3) {
+    background-color: blue;
+}
+
+.box2{
+    width: 100px;
+    height: 150px;
+    margin: 100px;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: pink;
+    border: 1px solid #000;
+}
+
+swiper {
+    height: 100px;
+}
+
+swiper swiper-item:nth-child(1) {
+    background-color: red;
+}
+
+swiper swiper-item:nth-child(2) {
+    background-color: green;
+}
+
+swiper swiper-item:nth-child(3) {
+    background-color: blue;
+}
