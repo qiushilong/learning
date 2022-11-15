@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/network/network",
         "pages/kuangjia/kuangjia",
         "pages/list/list",
         "pages/index/index",

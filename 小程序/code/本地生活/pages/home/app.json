@@ -1,0 +1,30 @@
+{
+	"pages": [
+		"pages/home/home",
+		"pages/message/message",
+		"pages/contact/contact"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#2b4b6b",
+		"navigationBarTitleText": "本地生活",
+		"navigationBarTextStyle": "white"
+	},
+	"tabBar": {
+		"list": [{
+				"pagePath": "pages/home/home",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/message/message",
+				"text": "消息"
+			},
+			{
+				"pagePath": "pages/contact/contact",
+				"text": "联系我们"
+			}
+		]
+	},
+	"style": "v2",
+	"sitemapLocation": "sitemap.json"
+}

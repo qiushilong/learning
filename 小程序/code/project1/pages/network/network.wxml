@@ -1,0 +1,4 @@
+<!--pages/network/network.wxml-->
+<text>pages/network/network.wxml</text>
+<button bindtap="getInfo">发起 get 请求</button>
+<button bindtap="postInfo">发起 post 请求</button>
