@@ -23,4 +23,15 @@
 <!-- text 组件 -->
 <text selectable>13204123131</text>
 
-<rich-text nodes="<h1>标题</h1>"></rich-text>
+<rich-text nodes="<h1 style='color:red;'>标题</h1>"></rich-text>
+
+<button>button</button>
+<button type="primary">primary button</button>
+<button type="warn">warn button</button>
+<button size="mini">mini button1</button>
+<button size="mini">mini button2</button>
+<button plain>mini button2</button>
+
+<image src="" mode=""/>
+<image src="/images/course.png"></image>
+<image src="/images/course.png" mode="aspectFit"/>

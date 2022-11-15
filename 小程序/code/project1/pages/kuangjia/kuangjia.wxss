@@ -1,0 +1,14 @@
+/* pages/kuangjia/kuangjia.wxss */
+
+@import "/common/common.wxss";
+
+input {
+    border: 1px solid #000;
+}
+
+/* rpx */
+/* 以 iphone6 为例子，1rpx 为 0.5px */
+/* 本来 padding: 5px 应该写成 padding: 10rpx */
+.demo {
+    padding: 10rpx;
+}

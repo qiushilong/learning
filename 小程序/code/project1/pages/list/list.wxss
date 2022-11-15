@@ -50,3 +50,7 @@ swiper swiper-item:nth-child(2) {
 swiper swiper-item:nth-child(3) {
     background-color: blue;
 }
+
+image{
+    border: 1px solid #000;
+}

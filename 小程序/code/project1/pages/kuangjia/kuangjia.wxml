@@ -1,0 +1,37 @@
+<!-- Mustache 语法 -->
+<view>{{info}}</view>
+<image src="{{imgSrc}}" mode="widthFix" />
+<view>{{randomNum >5?'数字大于5':'数字小于等于5'}}</view>
+<view>{{randomNum*100}}</view>
+
+<!-- 事件绑定 -->
+<button type="primary" bindtap="btnTapHandler">btn</button>
+<button plain bindtap="addNum">{{num}} : +1</button>
+<!-- 传参 -->
+<button type="primary" bindtap="addNum2" data-num="{{2}}">+2</button>
+
+<!-- 文本框 -->
+<input bindinput="inputHandler"></input>
+<!-- 受控组件 -->
+{{msg}}
+<input value="{{msg}}" bindinput="inputHandler2"></input>
+
+<!-- 条件渲染 -->
+<view wx:if="{{type===1}}">男</view>
+<view wx:elif="{{type===0}}">女</view>
+<view wx:else>未知</view>
+<!-- block 不会实际渲染 -->
+<block wx:if="{{type===1}}">
+  <view>1</view>
+  <view>2</view>
+</block>
+
+<!-- hidden -->
+<view hidden="{{type===1}}">hidden</view>
+
+<!-- 循环渲染 -->
+<view wx:for="{{arr}}" wx:key="index">
+index 是 {{index}} ，item 是 {{item}}
+</view>
+
+<view class="username">username: zs</view>
