@@ -8,10 +8,10 @@
 
 <!-- 九宫格 -->
 <view class="grid-list">
-	<view class="grid-item" wx:for="{{gridList}}" wx:key="id">
+	<navigator url="/pages/shoplist/shoplist?id={{item.id}}&title={{item.name}}" class="grid-item" wx:for="{{gridList}}" wx:key="id">
 		<image src="{{item.icon}}" mode="" />
 		<text>{{item.name}}</text>
-	</view>
+	</navigator>
 </view>
 
 <!-- 图片区 -->

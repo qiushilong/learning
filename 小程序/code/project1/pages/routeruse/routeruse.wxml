@@ -1,0 +1,17 @@
+<!-- 导航到 tabBar 界面 -->
+<navigator url="/pages/index/index" open-type="switchTab">导航到 index 界面</navigator>
+
+<!-- 非 tabBar 界面也可以不加 open-type -->
+<navigator url="/pages/logs/logs" open-type="navigate">导航到 logs 界面</navigator>
+<navigator url="/pages/logs/logs" >导航到 logs 界面2</navigator>
+
+<navigator open-type="navigateBack" delta="1">后退</navigator>
+
+<button bindtap="clickBtn">跳转到 index 界面</button>
+
+<button  bindtap="clickBtn2">导航到 logs 界面</button>
+
+<button  bindtap="clickBtn3">返回上一级</button>
+
+<navigator url="/pages/logs/logs?name=zs&age=20">传参</navigator>
+<button bindtap="btncc">传参</button>

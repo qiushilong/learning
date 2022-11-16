@@ -14,8 +14,5 @@ Page({
         }
       })
     })
-  },
-  onPullDownRefresh(){
-      console.log('refresh')
   }
 })

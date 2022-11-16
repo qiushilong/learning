@@ -1,0 +1,3 @@
+<!--pages/colordemo/colordemo.wxml-->
+
+<view wx:for="{{colorList}}" class="num-item" style="background-color: rgba({{item}});">{{item}}</view>

@@ -1,5 +1,8 @@
 {
     "pages": [
+        "pages/wxsuse/wxsuse",
+        "pages/colordemo/colordemo",
+        "pages/routeruse/routeruse",
         "pages/network/network",
         "pages/kuangjia/kuangjia",
         "pages/list/list",

@@ -1,0 +1,13 @@
+<view class="shop-item" wx:for="{{shopList}}" wx:key="id">
+<view class="thumb">
+	<image src="{{item.images[0]}}" mode=""/>
+</view>
+<view class="info">
+	<text class="shop-title">{{item.name}}</text>
+	<text>电话：{{tools.splitPhone(item.phone)}}</text>
+	<text>地址：{{item.address}}</text>
+	<text>营业事件：{{item.businessHours}}</text>
+</view>
+</view>
+
+<wxs src="../../utils/tool.wxs" module="tools"></wxs>
