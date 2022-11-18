@@ -1,0 +1,14 @@
+<!--components/demo/demo.wxml-->
+<text>components/demo/demo.wxml</text>
+
+<view style="background-color: rgb({{fullColor}});" class="colorBox">
+{{fullColor}}	
+</view>
+
+<button size="mini" bindtap="changeR" type="primary">R</button>
+<button size="mini" bindtap="changeG" type="primary">G</button>
+<button size="mini" bindtap="changeB" type="primary">B</button>
+
+<view>
+	{{rgb.r + ' ' + rgb.g + ' ' + rgb.b}}
+</view>

@@ -1,0 +1,13 @@
+<!--components/test/test.wxml-->
+<text class="color-red">components/test/test.wxml</text>
+
+<view>{{count}}</view>
+
+<button bindtap="add">+1</button>
+
+<view>name: {{name}}</view>
+
+<button bindtap="showinfo">showinfo</button>
+
+<view>{{max}}</view>
+<button bindtap="addMax">max +1</button>

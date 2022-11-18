@@ -1,5 +1,6 @@
 {
   "pages":[
+		"pages/home/home",
     "pages/index/index",
     "pages/logs/logs"
   ],
@@ -8,7 +9,10 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle":"black"
-  },
+	},
+	"usingComponents": {
+		"demo": "/components/demo/demo"
+	},
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

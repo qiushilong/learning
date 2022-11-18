@@ -1,0 +1,15 @@
+<!--pages/home/home.wxml-->
+<text class="color-red">pages/home/home.wxml</text>
+
+<view>
+	<test name="zs" max="{{11}}"></test>
+</view>
+
+
+<view>
+	<test2></test2>
+</view>
+
+<view>
+	<demo></demo>
+</view>
