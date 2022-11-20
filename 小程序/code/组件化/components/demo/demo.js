@@ -1,5 +1,8 @@
 // components/demo/demo.js
 Component({
+	options:{
+		pureDataPattern: /^_/, // 纯数据字段的命名方式
+	},
   /**
    * 组件的属性列表
    */
@@ -9,7 +12,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    rgb: {
+    _rgb: {
       r: 0,
       g: 0,
       b: 0,
@@ -23,25 +26,47 @@ Component({
   methods: {
     changeR() {
       this.setData({
-        "rgb.r": this.data.rgb.r + 5 > 255 ? 255 : this.data.rgb.r + 5,
+        "_rgb.r": this.data._rgb.r + 5 > 255 ? 255 : this.data._rgb.r + 5,
       });
     },
     changeG() {
       this.setData({
-        "rgb.g": this.data.rgb.g + 5 > 255 ? 255 : this.data.rgb.g + 5,
+        "ddg": this.data._rgb.g + 5 > 255 ? 255 : this.data_.rgb.g + 5,
       });
     },
     changeB() {
       this.setData({
-        "rgb.b": this.data.rgb.b + 5 > 255 ? 255 : this.data.rgb.b + 5,
+        "_rgb.b": this.data._rgb.b + 5 > 255 ? 255 : this.data._rgb.b + 5,
       });
     },
   },
   observers:{
-		'rgb.r, rgb.g, rgb.b':function(newR,newG,newB){
+		'_rgb.r, _rgb.g, _rgb.b':function(newR,newG,newB){
 			this.setData({
 				fullColor:`${newR},${newG},${newB}`
 			})
 		}
+	},
+	// 旧生命周期写法
+	created(){
+		console.log('created')
+	},
+	attached(){
+		console.log('attached')
+	},
+	detached(){
+		console.log('detached')
+	},
+	// 新生命周期写法
+	lifetimes:{
+		created(){
+			console.log('created - new')
+		},
+		attached(){
+			console.log('attached - new')
+		},
+		detached(){
+			console.log('detached - new')
+		},
 	}
 });
