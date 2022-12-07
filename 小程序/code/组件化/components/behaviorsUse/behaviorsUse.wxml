@@ -1,0 +1,5 @@
+<!--components/behaviorsUse/behaviorsUse.wxml-->
+<text>components/behaviorsUse/behaviorsUse.wxml</text>
+<view>
+	name: {{name}}
+</view>

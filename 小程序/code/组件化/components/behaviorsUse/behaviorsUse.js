@@ -1,0 +1,25 @@
+// components/behaviorsUse/behaviorsUse.js
+const myBehaviors = require('../../behaviors/my-behaviors')
+Component({
+	behaviors:[myBehaviors],
+	/**
+	 * 组件的属性列表
+	 */
+	properties: {
+
+	},
+
+	/**
+	 * 组件的初始数据
+	 */
+	data: {
+
+	},
+
+	/**
+	 * 组件的方法列表
+	 */
+	methods: {
+
+	}
+})

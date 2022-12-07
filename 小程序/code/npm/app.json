@@ -9,14 +9,9 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle":"black"
-	},
+  },
+	"sitemapLocation": "sitemap.json",
 	"usingComponents": {
-		"demo": "/components/demo/demo",
-		"slot-cmp": "/components/slotCmp/slotCmp",
-		"parent":"/components/parent/parent",
-		"child":"/components/child/child",
-		"behaviors-use":"/components/behaviorsUse/behaviorsUse"
-	},
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+		"van-button": "@vant/weapp/button/index"
+	}
 }

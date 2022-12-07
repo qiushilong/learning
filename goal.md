@@ -1,17 +1,32 @@
-# 学习目标
 
-1. JavaScript
-2. React
-3. Vue
-4. Webpack
-5. Less，Sass
-6. TypeScript
-7. Nuxt，Next
-8. Linux
-9. nginx
-10. HTTP
-11. 性能优化，SEO 优化
-12. CI/CD
-13. Node
-14. 英语文档阅读能力
+
+## 要求
+
+- 一定要定一个 over time，要有时间观念。
+- 保证在结束之前完成 goal。
+
+
+
+## 日常
+
+- 学习英语
+- 刷算法
+
+
+
+## 待办内容
+
+flutter
+
+react native
+
+electron
+
+
+
+## 22.12.6 - 22.12.30 
+
+（待办）学习小程序开发。
+
+（待办）完成一个小程序开发项目。
 

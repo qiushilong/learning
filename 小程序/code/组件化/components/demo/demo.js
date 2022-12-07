@@ -31,14 +31,23 @@ Component({
     },
     changeG() {
       this.setData({
-        "ddg": this.data._rgb.g + 5 > 255 ? 255 : this.data_.rgb.g + 5,
+        "_rgb.g": this.data._rgb.g + 5 > 255 ? 255 : this.data._rgb.g + 5,
       });
     },
     changeB() {
       this.setData({
         "_rgb.b": this.data._rgb.b + 5 > 255 ? 255 : this.data._rgb.b + 5,
       });
-    },
+		},
+		_randomColor() {
+			this.setData({
+				_rgb: {
+					r: Math.floor(Math.random()*256),
+					g: Math.floor(Math.random()*256),
+					b: Math.floor(Math.random()*256),
+				}
+			})
+		}
   },
   observers:{
 		'_rgb.r, _rgb.g, _rgb.b':function(newR,newG,newB){
@@ -68,5 +77,10 @@ Component({
 		detached(){
 			console.log('detached - new')
 		},
+	},
+	pageLifetimes:{
+		show() {
+			this._randomColor();
+		}
 	}
 });

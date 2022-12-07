@@ -13,3 +13,18 @@
 <view>
 	<demo></demo>
 </view>
+
+<view>
+	<slot-cmp>
+		demo slot
+		<view slot="after">after demo</view>
+	</slot-cmp>
+</view>
+
+<view>
+	<parent></parent>
+</view>
+
+<view>
+	<behaviors-use></behaviors-use>
+</view>

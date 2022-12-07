@@ -1,0 +1,9 @@
+<!--components/parent/parent.wxml-->
+<text>components/parent/parent.wxml</text>
+<child count="{{count}}" bind:sync="syncCount" class="customA"></child>
+<view>
+	父组件 count：{{count}}
+</view>
+<button bindtap="addCount"> parent count + 1</button>
+
+<button bindtap="getChild">获取子组件实例</button>

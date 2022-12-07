@@ -1,0 +1,7 @@
+<!--components/child/child.wxml-->
+<text>components/child/child.wxml</text>
+<view>
+	子组件 count：{{count}}
+</view>
+
+<button bindtap="addCount">child count + 1</button>

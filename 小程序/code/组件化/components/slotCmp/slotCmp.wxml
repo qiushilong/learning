@@ -1,0 +1,10 @@
+<!--components/slotCmp/slotCmp.wxml-->
+<text>components/slotCmp/slotCmp.wxml</text>
+
+<view>
+	<slot></slot>
+</view>
+
+<view>
+	<slot name="after"></slot>
+</view>

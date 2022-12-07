@@ -1,0 +1,10 @@
+<!--pages/home/home.wxml-->
+<text>pages/home/home.wxml</text>
+<view>
+	<van-button type="primary">primary btn</van-button>
+	<van-button type="danger">danger btn</van-button>
+</view>
+
+<view>
+	<van-button bindtap="getInfo">getInfo</van-button>
+</view>

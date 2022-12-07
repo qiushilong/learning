@@ -10,5 +10,5 @@
 <button size="mini" bindtap="changeB" type="primary">B</button>
 
 <view>
-	{{rgb.r + ' ' + rgb.g + ' ' + rgb.b}}
+	{{_rgb.r + ' ' + _rgb.g + ' ' + _rgb.b}}
 </view>
