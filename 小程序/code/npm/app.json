@@ -3,7 +3,33 @@
 		"pages/home/home",
     "pages/index/index",
     "pages/logs/logs"
-  ],
+	],
+	"subPackages": [
+		{
+			"root": "pkgA",
+			"name": "p1",
+			"pages": [
+				"pages/cat/cat",
+				"pages/dog/dog"
+			]
+		},
+		{
+			"root": "pkgB",
+			"name": "p2",
+			"pages": [
+				"pages/apple/apple"
+			],
+			"independent": true
+		}
+	],
+	"preloadRule": {
+		"pages/home/home":{
+			"packages": [
+				"p1"
+			],
+			"network": "all"
+		}
+	},
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
@@ -12,6 +38,7 @@
   },
 	"sitemapLocation": "sitemap.json",
 	"usingComponents": {
-		"van-button": "@vant/weapp/button/index"
+		"van-button": "@vant/weapp/button/index",
+		"store-use": "/components/storeUse/storeUse"
 	}
 }

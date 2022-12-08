@@ -8,3 +8,18 @@
 <view>
 	<van-button bindtap="getInfo">getInfo</van-button>
 </view>
+
+<view>
+	store
+</view>
+
+<view>{{numA}} + {{numB}} = {{sum}}</view>
+
+<view>
+	<van-button type="primary" bindtap="btnHander1" data-step="{{1}}">numA + 1</van-button>
+	<van-button type="danger" bindtap="btnHander1" data-step="{{-1}}">numA - 1</van-button>
+</view>
+
+<view>
+	<store-use></store-use>
+</view>

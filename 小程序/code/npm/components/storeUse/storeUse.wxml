@@ -1,0 +1,12 @@
+<!--components/storeUse/storeUse.wxml-->
+<text>components/storeUse/storeUse.wxml</text>
+
+<view>
+	<van-button type="primary" bindtap="btnHander2" data-step="{{1}}">numB + 1</van-button>
+	<van-button type="danger" bindtap="btnHander2" data-step="{{-1}}">numB - 1</van-button>
+</view>
+
+<view>
+	<van-button type="primary" bindtap="btnHander1" data-step="{{1}}">numA + 1</van-button>
+	<van-button type="danger" bindtap="btnHander1" data-step="{{-1}}">numA - 1</van-button>
+</view>

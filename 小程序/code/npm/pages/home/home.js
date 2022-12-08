@@ -1,4 +1,6 @@
-// pages/home/home.js
+import { createStoreBindings } from 'mobx-miniprogram-bindings';
+import { store } from '../../store/store';
+
 Page({
   /**
    * 页面的初始数据
@@ -8,7 +10,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {},
+  onLoad(options) {
+		this.storeBindings = createStoreBindings(this, {
+			store,
+			fields: ['numA', 'numB', 'sum'],
+			actions: ['updateNum1']
+		})
+	},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -28,7 +36,9 @@ Page({
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload() {},
+  onUnload() {
+		this.storeBindings.destroyStoreBindings();
+	},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -56,5 +66,8 @@ Page({
     });
 
     console.log(res);
-  },
+	},
+	btnHander1(e){
+		this.updateNum1(e.target.dataset.step);
+	}
 });
