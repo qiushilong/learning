@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello Vue</title>
     <script src="../js/vue.min.js"></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div id="app">
-        <!-- 插值表达式
+      <!-- 插值表达式
             *将数据填充到html中
             *也可进行简单的计算,如{{1+2}}
             *进行字符串拼接{{msg + "--" + 123}}
@@ -20,8 +18,8 @@
             原理是vue框架把vue代码编译成js原生代码
             vue语法->js原生语法
         -->
-        {{msg}}
-        <!-- <div>
+      {{msg}}
+      <!-- <div>
             {{1+2}}
         </div>
         <div>
@@ -30,7 +28,10 @@
     </div>
 
     <script>
-        /*
+      // 阻止 vue 在启动时生成生产提示
+      Vue.config.productionTip = false;
+
+      /*
         Vue的基本使用步骤
         1.需要提供标签用于填充数据
         2.引入vue.js库文件
@@ -38,24 +39,23 @@
         4.把vue提供的数据填充到标签里
         */
 
-        var vm = new Vue({
-            el: '#app',
-            data: {
-                msg: 'Hello Vue!'
-            }
-        });
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          msg: "Hello Vue!",
+        },
+      });
 
-        /*
+      /*
         分析
         el:元素的挂载位置(值可以是CSS选择器或者DOM元素)
         data:模型数据(值可以是一个对象)
         */
 
-        console.log(vm.data);
-        //这样才能拿到数据
-        console.log(vm.$data);
-        console.log(vm.$data.msg);
+      console.log(vm.data);
+      //这样才能拿到数据
+      console.log(vm.$data);
+      console.log(vm.$data.msg);
     </script>
-</body>
-
+  </body>
 </html>
