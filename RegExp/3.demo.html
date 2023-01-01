@@ -1,0 +1,12 @@
+<div id="app">hello world!</div>
+
+<script>
+  const app = document.querySelector("#app");
+  const input = prompt("请输入字符串或正则");
+  const reg = new RegExp(input);
+  console.log(reg);
+
+  app.innerHTML = app.innerHTML.replaceAll(input, (search) => {
+    return `<span style="color: red;">${search}</span>`;
+  });
+</script>

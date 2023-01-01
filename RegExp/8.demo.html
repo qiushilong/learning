@@ -1,0 +1,11 @@
+<input type="text" name="user" />
+<span></span>
+
+<script>
+  document
+    .querySelector("[name='user']")
+    .addEventListener("keyup", function () {
+      const flag = this.value.match(/^[a-z]{3,6}$/);
+      document.querySelector("span").innerText = flag ? "正确" : "失败";
+    });
+</script>

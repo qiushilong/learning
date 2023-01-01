@@ -1,0 +1,13 @@
+<main>
+  <span>1</span>
+  <span>2</span>
+  <span>3</span>
+</main>
+
+<script>
+  const main = document.querySelector("main");
+
+  const reg = /<span>([\s\S]+?)<\/span>/g;
+
+  main.innerHTML = main.innerHTML.replace(reg, `<h4>$1</h4>`);
+</script>

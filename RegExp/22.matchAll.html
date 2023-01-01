@@ -1,0 +1,20 @@
+<body>
+  <h1>h1 msg</h1>
+  <h2>h2 msg</h2>
+  <h3>h3 msg</h3>
+</body>
+
+<script>
+  let reg = /<(h[1-6])>([\s\S]+?)<\/\1>/gi;
+  const body = document.body;
+
+  const hList = body.innerHTML.matchAll(reg);
+
+  const contentList = [];
+
+  for (const iterator of hList) {
+    contentList.push(iterator[2]);
+  }
+
+  console.log(contentList);
+</script>
