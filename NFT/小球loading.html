@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bounceBall {
+            width: 350px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .bounceBall .ball {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            animation: move 500ms infinite alternate;
+        }
+
+        .red {
+            background: linear-gradient(#e55,#b00);
+        }
+        .green {
+            background: linear-gradient(rgb(161,201,128),rgb(1,99,37));
+        }
+        .blue {
+            background: linear-gradient(#00a8ff,#8c7ae6);
+        }
+
+        @keyframes move {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-350px);
+            }
+        }
+
+        .shadow {
+            width: 150px;
+            height: 40px;
+            border-radius: 100%;
+            background: #000;
+            margin-top: -30px;
+            animation: shadowMove 500ms infinite alternate;
+        }
+
+        @keyframes shadowMove {
+            from {
+                opacity: 0.2;
+                transform: scale(0.75);
+            }
+            to {
+                opacity: .05;
+                transform: scale(1);
+            }
+        }
+
+        .gBall .ball,.gBall .shadow {
+            animation-delay: 80ms;
+        }
+        .bBall .ball,.bBall .shadow {
+            animation-delay: 50ms;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="bounceBall">
+        <div class="ball red"></div>
+        <div class="shadow"></div>
+    </div>
+    <div class="bounceBall gBall">
+        <div class="ball green"></div>
+        <div class="shadow"></div>
+    </div>
+    <div class="bounceBall bBall">
+        <div class="ball blue"></div>
+        <div class="shadow"></div>
+    </div>
+  </body>
+</html>
