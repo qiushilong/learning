@@ -25,7 +25,32 @@ contract Demo2 {
 
     address addr = 0x3C4856C65AEfc47b1d22A21d6D8C0DD6C3AeA1eB; // 地址类型
     uint256 balance = addr.balance; // 该地址余额
-    
+    address myAddr = this; //
 
-    // balance f = 1;
+    function t() {
+        if (myAddr.balance >= 10) addr.transfer(10); // 转账方法 myAddr 到 addr
+        /**
+         * 如果 addr 是一个合约地址，它的代码（跟具体来说是它的 fallback 函数，如果有的话）会跟 transfer 函数
+         * 一起执行（这是 EVM 的一个特性，无法阻止）。如果执行过程中用光了 gas 或者因为任何原因执行失败，以太币会被打回，
+         * 当前的合约也会在终止的同时抛出异常。
+         */
+    }
+
+    /**
+     * addr.send()
+     * send 是 transfer 的低级版本。如果执行失败，当前的合约不会因为异常而终止，但 send 会返回 false。
+     * 
+     * 警告：
+     * 在使用 send 的时候会有些风险：如果调用栈深度是 1024 会导致发送失败（这总是可以被调用者强制），
+     * 如果接收者用光了 gas 也会导致发送失败。所以为了保证以太币发送的安全，一定要检查 send 的返回值，
+     * 使用 transfer 或者更好的办法：使用一种接收者可以取回资金的模式。
+     */
+
+    // addr.call() boolean
+    address nameReg = 0x72ba7d8e73fe8eb666ea66babc8116a41bfb10e2;
+    // nameReg.call("register", "MyName");
+    // namReg.call.gas(1000000)("register", "MyName"); // 使用修饰符
+
+    // 定长字节数组
+    bytes1 b1 = 0xb5;
 }
