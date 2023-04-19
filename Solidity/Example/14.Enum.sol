@@ -2,12 +2,12 @@
 pragma solidity ^0.8.17;
 
 /**
- * Solidity supports enumerables and they are useful to model choice and keep track of state.
- * Enums can be declared outside of a contract
+ * Solidity 支持枚举，它们对于建模选择和跟踪栈状态很有用。
+ * 枚举可以在 contract 之外声明
  */
 
 contract Enum {
-    // Enum representing shipping status
+    // 代表运输状态的枚举
     enum Status {
         Pending, // 0
         Shipped, // 1
@@ -16,14 +16,14 @@ contract Enum {
         Canceled //4
     }
 
-    // Defalut value : Pending
+    // 默认值 : Pending
     Status public status;
 
     function get() public view returns (Status) {
         return status;
     }
 
-    // Update status by passing uint into input
+    // 更新状态通过传入 uint 类型值
     function set(Status _status) public {
         status = _status;
     }
@@ -32,7 +32,7 @@ contract Enum {
         status = Status.Canceled;
     }
 
-    // delete resets the enum to its first value 0
+    // 删除将枚举重设为其第一个值 0
     function reset() public {
         delete status;
     }

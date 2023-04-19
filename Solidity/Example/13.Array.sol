@@ -1,31 +1,29 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-// Array can have a compile-time fixed size or a dynamic size.
+// 数组可以有一个编译时的大小，或者一个动态大小
 
 contract Array {
-    // Several ways to initalize an array
+    // 几种初始化数组的方式
     uint[] public arr;
     uint[] public arr2 = [1, 2, 3];
-    // Fixed sized array, all elements initialize to 0
+    // 固定数组大小，所有元素初始值为 0
     uint[10] public myFixedSizedArr;
 
-    // Solidity can return the entire array.
-    // But this function should be avoided for
-    // arrays that can grow indefinitely in length.
+    // Solidity 可以返回整个数组
+    // 但是这个函数应该避免用于数组长度可以无需增长的
     function getArr() public view returns (uint[] memory) {
         return arr;
     }
 
     function push(uint i) public {
-        // Append to array
-        // This will increase the array length by 1.
+        // 添加到数组，数组长度加 1
         arr.push(i);
     }
 
     function pop() public {
-        // Remove last element from array
-        // This will decrease the array length by 1.
+        // 删除最后一个元素，数组长度减 1
+        arr.pop();
     }
 
     function getLength() public view returns (uint) {
@@ -33,14 +31,12 @@ contract Array {
     }
 
     function remove(uint index) public {
-        // Delete does not change the array length.
-        // It resets the value at index to it's default value,
-        // in this case 0
+        // delete 操作不会改变数组长度，delete 的元素会变成默认值，此例中为 0
         delete arr[index];
     }
 
     function examples() external {
-        // create array in memory, only fixed size can be created
+        // 在内存中创建数组，只能创建定长数组
         uint[] memory a = new uint[](5);
     }
 

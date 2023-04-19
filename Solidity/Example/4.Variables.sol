@@ -2,27 +2,27 @@
 pragma solidity ^0.8.17;
 
 /**
- * There are 3 types of variables in Solidity
+ * 在 Solidity 中存在 3 中变量
  *
- * 1. local
- *   1.1 declared inside a function
- *   1.2 not stored on the blockchain
- * 2. state
- *   2.1 declared outside a function
- *   2.2 stored on the blockchain
- * 3. global(provides information about the blockchain)
+ * 1. local 变量
+ *   1.1 在函数中声明
+ *   1.2 不存储在区块链中
+ * 2. state 变量
+ *   2.1 在函数外声明
+ *   2.2 存储在区块链中
+ * 3. global 变量（提供区块链的信息）
  */
 
 contract Variables {
-    // State variables are stored on the blockchain
+    // 状态变量被存储在区块链中
     string public text = "Hello";
     uint public num = 123;
 
     function doSomething() public view {
-        // Local variables are not saved to the blockchain
+        // 本地变量不会存储在区块链中
         uint i = 456;
 
-        // Here are some global variables
+        // 这是一些全局变量
         uint timestamp = block.timestamp; // Current block timestamp
         address sender = msg.sender; // address of the caller
     }

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-// Immutable variables are like constants. Values of immutable variables can be set inside the constructor but cannot be modified afterwards.
+// Immutable 变量类似常量。immutable 变量的值可以在 constructor 中设置，但之后不能更改
 
 contract Immutable {
     // coding convention to uppercase constant variables;

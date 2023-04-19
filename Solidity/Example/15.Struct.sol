@@ -2,9 +2,9 @@
 pragma solidity ^0.8.17;
 
 /**
- * You can define your own type by creating a struct.
- * They are useful for grouping together related data.
- * Structs can be declared outside of a contract and imported in another contract.
+ * 你可以通过创建一个结构来定义你自己的类型。
+ * 它们对于将相关的数据组合在一起很有用。
+ * 结构可以在合同之外声明，并在另一个合同中导入。
  */
 
 contract Todos {
@@ -17,25 +17,25 @@ contract Todos {
     Todo[] public todos;
 
     function create(string calldata _text) public {
-        // 3 way to initialize a struct
+        // 初始化结构体的三种方式
 
-        // calling it like a function
+        // 函数调用
         todos.push(Todo(_text, false));
 
         /*
-        // key value mapping
+        // 键值对
         todos.push(Todo({ text: _text, completed: false }));
 
-        // initialize an empty struct and then update it
+        // 初始化一个空内容，再进行填充
         Todo memory todo;
         todo.text = _text;
-        // todo.completed initialized to false
+        // todo.completed 初始化为 false
 
         todos.push(todo);
         */
     }
 
-    // Solidity automatically created a getter for 'todos', so you don't actually need this function.
+    // Solidity 自动化创建了一个 todos 的 getter，所以你实际不需要此函数
     function get(
         uint _index
     ) public view returns (string memory text, bool completed) {

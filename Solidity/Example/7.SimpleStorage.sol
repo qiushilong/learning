@@ -3,9 +3,9 @@ pragma solidity ^0.8.17;
 
 /**
  * Reading and Writing to a State Variable
- * 
- * To write to update a state variable you need to send a transaction.
- * On the other hand, you can read state variables, for free, without any transaction fee.
+ *
+ * 更新一个状态变量你需要发送一个交易
+ * 读取一个状态变量是免费的，不需要任何交易费用
  */
 
 contract SimpleStorage {
