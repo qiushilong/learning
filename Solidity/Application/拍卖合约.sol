@@ -7,22 +7,28 @@ contract SimpleAuction {
 
     address public highestBidder;
     uint public highestBid;
+    string public auctionItemName;
 
-    mapping(address => uint) pendingReturns;
+    mapping(address => uint) public pendingReturns;
 
     bool ended;
 
     event HighestBidIncreased(address bidder, uint amount);
     event AuctionEnded(address winner, uint amount);
 
-    constructor(uint _biddingTime, address payable _beneficiary) {
+    constructor(
+        uint _biddingTime,
+        address payable _beneficiary,
+        string memory _auctionItemName
+    ) {
         beneficiary = _beneficiary;
         auctionEndTime = block.timestamp + _biddingTime;
+        auctionItemName = _auctionItemName;
     }
 
     function bid() public payable {
-        require(block.timestamp <= auctionEndTime, "Auction already ended.");
-        require(msg.value > highestBid, "There already is a higher bid.");
+        require(block.timestamp <= auctionEndTime, unicode"拍卖已经结束!");
+        require(msg.value > highestBid, unicode"已经有一个更高的出价了!");
 
         if (highestBid != 0) {
             pendingReturns[highestBidder] += highestBid;
@@ -47,8 +53,8 @@ contract SimpleAuction {
     }
 
     function auctionEnd() public {
-        require(block.timestamp >= auctionEndTime, "Auction not yet ended.");
-        require(!ended, "auctionEnd has already been called.");
+        require(block.timestamp >= auctionEndTime, unicode"拍卖尚未结束!");
+        require(!ended, unicode"拍卖已经结束!");
 
         ended = true;
         emit AuctionEnded(highestBidder, highestBid);
