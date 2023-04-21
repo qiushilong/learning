@@ -40,6 +40,7 @@ library Array {
 }
 
 contract TestArray {
+    // 将 Array 库中的方法附加到 uint[] 上
     using Array for uint[];
 
     uint[] public arr;
