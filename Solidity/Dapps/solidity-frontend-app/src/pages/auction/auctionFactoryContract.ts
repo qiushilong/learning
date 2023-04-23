@@ -1,10 +1,12 @@
-// import provider from "@/utils/provider"
 import { ethers } from 'ethers'
 
 // const CONTRACT_ADDRESS = '0xa81EB0af9dC6F717F9d189A3aFfEcac086C365BF'
-const CONTRACT_ADDRESS = '0x430fFA6EC68C128Ac753E993EFC068cC5CbAFBCE'
+// const CONTRACT_ADDRESS = '0x430fFA6EC68C128Ac753E993EFC068cC5CbAFBCE' 
+// const CONTRACT_ADDRESS = '0xBE97F38DE661fAa8683bA3A8D409126267f85C1A'
+// const CONTRACT_ADDRESS = '0x623aa6fe01fa76f27ec5c00f8d6f6771c54b7901'
+const CONTRACT_ADDRESS = '0xd3eb5baebf6beac6f77d1b35ab84a27f0850de5d'
 
-export const auctionFactoryAbi = [
+const auctionFactoryAbi = [
     {
         "anonymous": false,
         "inputs": [
@@ -144,7 +146,13 @@ export const auctionFactoryAbi = [
         "type": "function"
     },
     {
-        "inputs": [],
+        "inputs": [
+            {
+                "internalType": "bool",
+                "name": "ended",
+                "type": "bool"
+            }
+        ],
         "name": "getAllAuctionsDetails",
         "outputs": [
             {
@@ -253,25 +261,16 @@ export const auctionFactoryAbi = [
     }
 ]
 
-// const contract = new ethers.Contract(CONTRACT_ADDRESS, auctionFactoryAbi, provider);
-
 function getContract() {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const contract = new ethers.Contract(CONTRACT_ADDRESS, auctionFactoryAbi, provider);
     return contract;
 }
 
-export async function get() {
-    const contract = getContract();
-    const result = await contract.getAuctionAddresses(false);
-    console.log(result);
-}
-
-export async function getDetail() {
+export async function getDetail({ ended }: { ended: boolean }) {
     try {
         const contract = getContract();
-        const result = await contract.getAllAuctionsDetails();
-        console.log(result);
+        const result = await contract.getAllAuctionsDetails(ended);
 
         const addresses = result[0]
         const beneficiaries = result[1]
@@ -280,18 +279,17 @@ export async function getDetail() {
         const highestBids = result[4]
         const auctionItemNames = result[5]
 
-        console.log('addresses,', addresses)
-
-        const obj = addresses.map((item: string, index: number) => ({
-            address: item,
-            beneficiary: beneficiaries[index],
-            auctionEndTime: Number(auctionEndTimes[index]),
-            highestBidder: highestBidders[index],
-            highestBid: Number(highestBids[index]),
-            auctionItemName: auctionItemNames[index],
-        }))
-
-        console.log('obj', obj)
+        let obj = [];
+        if (addresses.length > 0) {
+            obj = addresses.map((item: string, index: number) => ({
+                address: item,
+                beneficiary: beneficiaries[index],
+                auctionEndTime: Number(auctionEndTimes[index]),
+                highestBidder: highestBidders[index],
+                highestBid: Number(highestBids[index]),
+                auctionItemName: auctionItemNames[index],
+            }))
+        }
 
         return obj;
 
@@ -301,30 +299,15 @@ export async function getDetail() {
     return []
 }
 
-
-export async function createAuction() {
+export async function createAuction(name: string, second: number) {
     if (typeof window.ethereum !== "undefined") {
         try {
-            // 请求用户授权
             await window.ethereum.request({ method: "eth_requestAccounts" });
-
-            // 创建 ethers 的 provider 和 signer
             const provider = new ethers.BrowserProvider(window.ethereum);
             const signer = await provider.getSigner();
-
-            console.log('signer', signer)
-
-            // 创建 AuctionFactory 合约实例
             const auctionFactory = new ethers.Contract(CONTRACT_ADDRESS, auctionFactoryAbi, signer);
-
-            // 调用 createAuction 方法
-            const transaction = await auctionFactory.createAuction(600, 'mac mini');
-
-            // 等待交易被挖矿
+            const transaction = await auctionFactory.createAuction(second, name);
             const receipt = await transaction.wait();
-
-            console.log('receipt', receipt)
-
             console.log("拍卖已成功创建");
         } catch (error) {
             console.error("创建拍卖过程中出现错误:", error);
@@ -332,4 +315,14 @@ export async function createAuction() {
     } else {
         console.log("以太坊钱包插件未安装");
     }
+}
+
+export function listenerEvent({ create }: { create: (...args: any[]) => void }) {
+    const contract = getContract();
+    contract.on('AuctionCreated', create)
+}
+
+export function closeListenerEvent() {
+    const contract = getContract();
+    contract.removeAllListeners("AuctionCreated");
 }

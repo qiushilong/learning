@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import { Button, message } from 'antd'
-import {provider} from '@/utils/provider'
+import provider from '@/utils/provider'
 
 const ConnectWallet = () => {
     const [account, setAccount] = useState<string | null>(null);
