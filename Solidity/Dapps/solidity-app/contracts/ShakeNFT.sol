@@ -1,4 +1,3 @@
-//Contract based on [https://docs.openzeppelin.com/contracts/3.x/erc721](https://docs.openzeppelin.com/contracts/3.x/erc721)
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -7,21 +6,12 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
-/**
- * ERC721:
- *
- * - owerOf：获取 nft 拥有者
- * - transferForm：nft 转移
- * ...
- */
-
-contract MyNFT is ERC721URIStorage, Ownable {
+contract ShakeNFT is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
-    Counters.Counter private _tokenIds; // counter 作为 nft 的 id
+    Counters.Counter private _tokenIds;
 
-    constructor() ERC721("MyNFT", "NFT") {}
+    constructor() ERC721("ShakeNFT", "SFT") {}
 
-    // 铸造非同质化代币，返回非同质化代币的 ID
     function mintNFT(
         address recipient,
         string memory tokenURI
@@ -35,3 +25,5 @@ contract MyNFT is ERC721URIStorage, Ownable {
         return newItemId;
     }
 }
+
+// https://sepolia.etherscan.io/address/0x479d680C6664ddd319BFB51c7bE336417c1B7a3c

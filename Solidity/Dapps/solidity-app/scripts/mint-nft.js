@@ -5,9 +5,10 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(API_URL);
 
-const contract = require("../artifacts/contracts/MyNFT.sol/MyNFT.json");
+const contract = require("../artifacts/contracts/ShakeNFT.sol/ShakeNFT.json");
 
-const contractAddress = "0x0Bbd25A5B61398f4622889bD1Fa96f5697D09e7E";
+// const contractAddress = "0x0Bbd25A5B61398f4622889bD1Fa96f5697D09e7E";
+const contractAddress = "0x479d680C6664ddd319BFB51c7bE336417c1B7a3c";
 
 const nftContract = new web3.eth.Contract(contract.abi, contractAddress);
 
@@ -49,4 +50,6 @@ async function mintNFT(tokenURI) {
     });
 }
 
-mintNFT("ipfs://QmNyXcYVSvEwLo7evC6bvZsafgS8fKqQkopmq1zhFNDa3f");
+// mintNFT("ipfs://QmbJukUepqpkte8JFvrqXb5jVjZKoLiwm3N96jrgdskdax");
+// mintNFT("ipfs://QmUL6G4DJswM4Y6KZDgYGhHtggJ1UwqdZc7TMweqvc6Ci7");
+mintNFT("ipfs://QmbLgBz6hbDvxQfA7XBtMa6KAuAEx1JdwryBqZ5giBgkAu");

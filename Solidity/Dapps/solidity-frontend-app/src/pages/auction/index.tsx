@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Button, Table, Space, Modal, Form, Input, InputNumber, Descriptions } from 'antd'
-import { createAuction, getDetail, listenerEvent, closeListenerEvent } from './auctionFactoryContract'
-import { bid, end, returnMoney } from './auctionContract'
+import { createAuction, getDetail, listenerEvent, closeListenerEvent } from '@/contract/opt/auctionFactoryContract'
+import { bid, end, returnMoney } from '@/contract/opt/auctionContract'
 import type { FormInstance } from 'antd/es/form';
 import dayjs from 'dayjs'
 

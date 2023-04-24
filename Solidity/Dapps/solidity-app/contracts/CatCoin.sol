@@ -9,3 +9,5 @@ contract CatCoin is ERC20 {
         _mint(msg.sender, 10000 * 10 ** 18);
     }
 }
+
+// https://sepolia.etherscan.io/address/0xdee3ff17449a72717626dcbeb7345f333500221c
