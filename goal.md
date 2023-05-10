@@ -24,9 +24,27 @@ electron
 
 
 
-## 22.12.6 - 22.12.30 
+## 复习
 
-（待办）学习小程序开发。
+html
 
-（待办）完成一个小程序开发项目。
+css
+
+js
+
+ts
+
+vue（看一看 router pinia vuex）
+
+react（看一看 router redux dva mobx）
+
+webpack（看一看 vite，rollup，gulp，grunt）
+
+http，安全，浏览器
+
+
+
+
+
+
 
