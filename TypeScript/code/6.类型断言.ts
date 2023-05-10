@@ -11,7 +11,12 @@ let s2: string = a2; // 不能将类型“unknown”分配给类型“string”�
 
 // 使用 as 类型断言
 let s3: string = a2 as string;
-// 使用 <type> 类型断言
+// 使用 <type> 类型断言（tsx 中不好使）
 let s4: string = <string>a2;
 
-// 非空断言
+// 断言的相对保守
+const x = "hello" as number;
+
+// 避免断言的相对保守
+const y = "hello" as any as number;
+const z = "hello" as unknown as number;

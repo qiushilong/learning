@@ -52,3 +52,11 @@ let s: ReadonlyArray<number> = [1, 2, 3];
  * 注意：
  *   1. 少用 any，未知类型使用 unkown
  */
+
+// bigint
+const oneHundred: bigint = BigInt(100);
+const anotherHundred: bigint = 100n;
+
+// symbol
+const firstName = Symbol("name");
+const secondName = Symbol("name");

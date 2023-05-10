@@ -10,3 +10,16 @@ const isString = (x: unknown): x is string => {
 const isString2 = (x: any): boolean => {
   return typeof x === "string";
 };
+
+
+type Fish = {
+  swim: true;
+}
+
+type Bird = {
+  fly: true;
+}
+
+function isFish(pet: Fish | Bird): pet is Fish {
+  return (pet as Fish).swim !== undefined;
+}
