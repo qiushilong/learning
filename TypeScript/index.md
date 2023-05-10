@@ -94,13 +94,16 @@ let o: { name: string; age?: number } = { name: "ls" };
 // 内置对象类型（还有很多）
 let p: Function;
 let q: Object;
+let r: Date;
+let s: RegExp;
+
 
 // 值类型
 let sex: "nan" | "nv" = "nan";
 let sex2: 1 | 0 = 1;
 
 // rest 语法
-let r = (...rest: number[]) => {
+let t = (...rest: number[]) => {
   return rest.reduce((pre, cur) => pre + cur, 0);
 };
 ```
@@ -299,6 +302,13 @@ interface UserInterface<T> {
 type UserType<T> = {
   data: T;
 };
+
+// 抽象类泛型
+abstract class Animal<T> {
+  public abstract name: string;
+  abstract move(): void;
+  a: T;
+}
 ```
 
 
@@ -366,6 +376,9 @@ const per2: typeof per = {
     console.log("eat");
   },
 };
+
+// keyof typeof
+type Keys = keyof typeof per2;
 ```
 
 

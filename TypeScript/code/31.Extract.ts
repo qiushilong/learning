@@ -2,6 +2,8 @@
   /**
    * Extract 和 Exclude 相反
    *   用于获取相交的类型
+   * 
+   * Extract<T, U> 这个工具会从类 T 中提取(extract) 可以赋值给 U 的那些类型，也就是在 T 和 U 中都存在的类型。
    */
 
   type SNB = string | number | boolean;
