@@ -14,26 +14,6 @@
 
 
 
-## 待办内容
-
-flutter
-
-react native
-
-electron
-
-
-
-## 复习
-
-html
-
-css
-
-js
-
-ts
-
 vue（看一看 router pinia vuex）
 
 react（看一看 router redux dva mobx）
@@ -42,8 +22,8 @@ webpack（看一看 vite，rollup，gulp，grunt）
 
 http，安全，浏览器
 
-
-
+## 5.21 - 6
+看 node 教程
 
 
 
