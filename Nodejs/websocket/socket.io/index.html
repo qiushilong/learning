@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client</title>
+</head>
+<body>
+    <form>
+        <input type="text">
+        <button>发送</button>
+    </form>
+
+    <ul>
+
+    </ul>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const form = document.querySelector('form')
+        const input = document.querySelector('input')
+        const ul = document.querySelector('ul')
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            if(input.value) {
+                socket.emit('chat message', input.value)
+            }
+        })
+
+        socket.on('chat message', msg => {
+            const li = document.createElement('li');
+            li.textContent = msg;
+            ul.appendChild(li)
+        })
+    </script>
+</body>
+</html>
