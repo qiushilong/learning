@@ -75,21 +75,4 @@ Set-Cookie: BDORZ=27315; max-age=86400; domain=baidu.com; path=/
 
 
 ## 响应头
-
-| 名称             | 意义                                      |
-| ---------------- | ----------------------------------------- |
-| Allow            | 服务器支持哪些请求方法（如 GET，POST 等） |
-| Content-Encoding | 文档的编码方法                            |
-| Content-Length   | 表示内容长度                              |
-| Content-Type     | 表示内容的 MIME 类型                      |
-| Date             | 当前的 GMT 时间                           |
-| Expires          | 文档过期时间                              |
-| Last-Modified    | 文档的最后改动时间                        |
-| Location         | 表示客户应当从哪里去提取文档              |
-| Refresh          | 表示浏览器应该在多长时间后刷新文档        |
-| Server           | 服务器名字                                |
-| Set-Cookie       | 设置 Cookie                               |
-|                  |                                           |
-|                  |                                           |
-|                  |                                           |
-
+                                                                                                      
