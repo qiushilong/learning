@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{a}} {{b.b1}} {{c}}</div>
+        <button @click="change">change</button>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                a: 1,
+                b: {
+                    b1: 1,
+                },
+                c: [1, 2, 3, 4, 5]
+            },
+            methods: {
+                change() {
+                    this.a++;
+                    this.b.b1++;
+                    this.c[0] = 10;
+                    this.c.push(11);
+                    this.c[5] = 12;
+                }
+            }
+        })
+    </script>
+
+    <script>
+        let a = [1, 2, 3, 4, 5]
+    </script>
+</body>
+
+</html>
