@@ -1,48 +1,68 @@
-import { render, screen } from "@testing-library/react"
-import userEvent from '@testing-library/user-event';
-import Todo, { ITodo } from "./Todo"
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import Todo, { ITodo } from "./Todo";
+import { act } from "react-dom/test-utils";
 
+describe("Todo Component", () => {
+  test("should render new item", () => {
+    const todo: ITodo = {
+      id: 1,
+      text: "Hello World",
+      done: false,
+    };
 
-describe('Todo Component', () => {
+    render(
+      <Todo
+        todoList={[todo]}
+        addItem={jest.fn()}
+        deleteItem={jest.fn()}
+        checkItem={jest.fn()}
+      ></Todo>
+    );
 
-    test('should render new item', () => {
+    expect(screen.getByText("Hello World")).toBeInTheDocument();
+  });
 
-        const todo: ITodo = {
-            id: 1,
-            text: 'Hello World',
-            done: false
-        }
+  test.todo("should check item");
 
-        render(<Todo todoList={[todo]} addItem={jest.fn()} deleteItem={jest.fn()} checkItem={jest.fn()}></Todo>)
+  test("should render delete item", () => {
+    const todo: ITodo = {
+      id: 1,
+      text: "Hello World",
+      done: false,
+    };
+    const deleteItem = jest.fn();
 
-        expect(screen.getByText('Hello World')).toBeInTheDocument()
-    })
+    render(
+      <Todo
+        todoList={[todo]}
+        addItem={jest.fn()}
+        deleteItem={deleteItem}
+        checkItem={jest.fn()}
+      ></Todo>
+    );
+    userEvent.click(screen.getByText("删除"));
 
-    test.todo('should check item');
+    expect(deleteItem).toHaveBeenCalledTimes(1);
+  });
 
-    test('should render delete item', () => {
-        const todo: ITodo = {
-            id: 1,
-            text: 'Hello World',
-            done: false
-        }
-        const deleteItem = jest.fn()
+  test("should render add item", () => {
+    const addItem = jest.fn();
 
-        render(<Todo todoList={[todo]} addItem={jest.fn()} deleteItem={deleteItem} checkItem={jest.fn()}></Todo>)
-        userEvent.click(screen.getByText('删除'));
+    render(
+      <Todo
+        todoList={[]}
+        addItem={addItem}
+        deleteItem={jest.fn()}
+        checkItem={jest.fn()}
+      ></Todo>
+    );
+    userEvent.type(
+      screen.getByPlaceholderText("what is your plan"),
+      "学测试{enter}"
+    );
 
-        expect(deleteItem).toHaveBeenCalledTimes(1);
-    });
-
-    test('should render add item', () => {
-
-        const addItem = jest.fn()
-
-        render(<Todo todoList={[]} addItem={addItem} deleteItem={jest.fn()} checkItem={jest.fn()}></Todo>)
-        userEvent.type(screen.getByPlaceholderText('what is your plan'), '学测试{enter}')
-
-        expect(addItem).toHaveBeenCalledTimes(1);
-        // expect(screen.getByTestId('todo-list')).toHaveLength(1);
-    });
-
-})
+    expect(addItem).toHaveBeenCalledTimes(1);
+    // expect(screen.getByTestId('todo-list')).toHaveLength(1);
+  });
+});
