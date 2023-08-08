@@ -1,0 +1,143 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "type": "text",
+      "version": 1321,
+      "versionNonce": 937779408,
+      "isDeleted": false,
+      "id": "txwgYd2fNDumIenDQoFNV",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 275,
+      "y": -3277.6,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "width": 800.375,
+      "height": 249.6,
+      "seed": 567201345,
+      "groupIds": [
+        "8rL1pcQXO6Y_z61JkNlef"
+      ],
+      "frameId": null,
+      "roundness": null,
+      "boundElements": [],
+      "updated": 1690940723676,
+      "link": null,
+      "locked": false,
+      "fontSize": 16,
+      "fontFamily": 3,
+      "text": "tauri 使用类似 webview 功能打开 sweetsai，sweetsai 更新网页同步更新 tauri 内的内容。\n要求有网络断开时的异常显示，重连等。\n\n\n方案 1：tauri 构建应用时指定使用 sweetai 网址作为路径，构建出来的应用无需本地服务，也是远程的\n可以同步最新的网址。<但是，断网时，展示界面不友好，展示的内容为浏览器断网时的内容>\n\n方案 2：使用 iframe，tauri 构建一个应用展示 iframe 本地界面，使用 iframe 嵌套 sweetsai 网址，\n可以同步最新的网址，可以根据网络错误等展示特定的界面。<但是，本地 localstorage 等会失效，导致部分\n功能失效。>\n\n\n",
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "tauri 使用类似 webview 功能打开 sweetsai，sweetsai 更新网页同步更新 tauri 内的内容。\n要求有网络断开时的异常显示，重连等。\n\n\n方案 1：tauri 构建应用时指定使用 sweetai 网址作为路径，构建出来的应用无需本地服务，也是远程的\n可以同步最新的网址。<但是，断网时，展示界面不友好，展示的内容为浏览器断网时的内容>\n\n方案 2：使用 iframe，tauri 构建一个应用展示 iframe 本地界面，使用 iframe 嵌套 sweetsai 网址，\n可以同步最新的网址，可以根据网络错误等展示特定的界面。<但是，本地 localstorage 等会失效，导致部分\n功能失效。>\n\n\n",
+      "lineHeight": 1.2,
+      "baseline": 245
+    },
+    {
+      "id": "2yCAUnmCqxcxMamtR9U6V",
+      "type": "rectangle",
+      "x": 427,
+      "y": -3182,
+      "width": 512,
+      "height": 22,
+      "angle": 0,
+      "strokeColor": "#e03131",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [
+        "8rL1pcQXO6Y_z61JkNlef"
+      ],
+      "frameId": null,
+      "roundness": {
+        "type": 3
+      },
+      "seed": 569857584,
+      "version": 161,
+      "versionNonce": 461710032,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1690940717560,
+      "link": null,
+      "locked": false
+    },
+    {
+      "id": "oBg7znwMwcZenir7ct2ZY",
+      "type": "rectangle",
+      "x": 704,
+      "y": -3124,
+      "width": 379,
+      "height": 24,
+      "angle": 0,
+      "strokeColor": "#e03131",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [
+        "8rL1pcQXO6Y_z61JkNlef"
+      ],
+      "frameId": null,
+      "roundness": {
+        "type": 3
+      },
+      "seed": 628243152,
+      "version": 90,
+      "versionNonce": 619655728,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1690940717560,
+      "link": null,
+      "locked": false
+    },
+    {
+      "id": "DolCbtcdBPhnYCYldh3QV",
+      "type": "rectangle",
+      "x": 269,
+      "y": -3104,
+      "width": 113,
+      "height": 20,
+      "angle": 0,
+      "strokeColor": "#e03131",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [
+        "8rL1pcQXO6Y_z61JkNlef"
+      ],
+      "frameId": null,
+      "roundness": {
+        "type": 3
+      },
+      "seed": 1189874224,
+      "version": 64,
+      "versionNonce": 1249396944,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1690940717560,
+      "link": null,
+      "locked": false
+    }
+  ],
+  "appState": {
+    "gridSize": null,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}

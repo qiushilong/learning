@@ -1,0 +1,36 @@
+
+
+<script>
+  function* fetchText() {
+  try {
+    const response = yield fetch("https://dvajs.com/");
+    const data = yield response.text();
+    console.log(data);
+  } catch (error) {
+    console.error("Error: ", error);
+  }
+}
+const textGenerator = fetchText();
+const firstYield = textGenerator.next();
+
+if (!firstYield.done) {
+  firstYield.value
+    .then((response) => {
+      const secondYield = textGenerator.next(response);
+
+      if (!secondYield.done) {
+        secondYield.value
+          .then((data) => {
+            textGenerator.next(data);
+          })
+          .catch((error) => {
+            textGenerator.throw(error);
+          });
+      }
+    })
+    .catch((error) => {
+      textGenerator.throw(error);
+    });
+}
+
+</script>
